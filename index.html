@@ -60,12 +60,23 @@ body {
   background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 .nav-noct {
-  width: 62px; height: 62px; flex-shrink: 0;
+  width: 80px; height: 80px; flex-shrink: 0;
 }
-.loader-bar { width: 140px; height: 1px; background: rgba(255,255,255,.08); border-radius: 99px; overflow: hidden; }
-.loader-fill { height: 100%; width: 0%; background: var(--grad); border-radius: 99px; animation: lFill 1.2s ease forwards; }
+.loader-bar { width: 220px; height: 2px; background: rgba(255,255,255,.06); border-radius: 99px; overflow: visible; margin-top: .5rem; }
+.loader-fill {
+  height: 100%; width: 0%; background: var(--grad); border-radius: 99px;
+  animation: lFill 1.2s ease forwards;
+  box-shadow: 6px 0 18px 6px rgba(139,106,255,.9), 8px 0 32px 12px rgba(79,138,255,.45);
+}
 @keyframes lFill { to { width: 100%; } }
 @keyframes lPulse { 0%,100%{opacity:.5} 50%{opacity:1} }
+@keyframes heroShimmer { 0%{transform:translateX(-100%)} 60%,100%{transform:translateX(350%)} }
+#hero::before {
+  content: ''; position: absolute; top: 0; left: -40%; width: 38%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(139,106,255,.045), rgba(217,102,240,.03), transparent);
+  animation: heroShimmer 6s 1.5s ease-in-out infinite;
+  pointer-events: none; z-index: 0;
+}
 
 /* NOISE */
 #noise {
@@ -524,9 +535,12 @@ footer {
 <div id="loader">
   <div style="display:flex;align-items:center;gap:1.25rem;">
     <img src="noct-logo.png" alt="Noct." class="loader-noct">
-    <div class="loader-logo">LKL.</div>
+    <span style="font-size:1.6rem;color:rgba(240,238,255,.25);font-weight:200;line-height:1;">×</span>
+    <div style="display:flex;flex-direction:column;gap:.2rem;align-items:center;">
+      <div class="loader-logo">LKL.</div>
+      <div class="loader-collab"><span>Noct.</span> × Leon Kelvin Li</div>
+    </div>
   </div>
-  <div class="loader-collab"><span>Noct.</span> × Leon Kelvin Li</div>
   <div class="loader-bar"><div class="loader-fill"></div></div>
 </div>
 
