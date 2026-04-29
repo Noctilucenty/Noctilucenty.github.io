@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leon Kelvin Li — Developer Portfolio</title>
+<link rel="icon" href="noct-logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
@@ -43,6 +44,11 @@ body {
 .loader-logo {
   font-family: 'DM Serif Display', serif; font-size: 3rem; font-style: italic;
   background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: lPulse 1.1s ease-in-out infinite;
+}
+.loader-noct {
+  width: 52px; height: 52px; border-radius: 8px;
+  mix-blend-mode: screen;
   animation: lPulse 1.1s ease-in-out infinite;
 }
 .loader-bar { width: 140px; height: 1px; background: rgba(255,255,255,.08); border-radius: 99px; overflow: hidden; }
@@ -505,7 +511,10 @@ footer {
 <body>
 
 <div id="loader">
-  <div class="loader-logo">LKL.</div>
+  <div style="display:flex;align-items:center;gap:1.25rem;">
+    <img src="noct-logo.png" alt="Noct." class="loader-noct">
+    <div class="loader-logo">LKL.</div>
+  </div>
   <div class="loader-bar"><div class="loader-fill"></div></div>
 </div>
 
