@@ -111,11 +111,22 @@ nav {
   padding: 1.2rem 3rem;
   background: rgba(7,7,14,.8); backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--border);
+  transition: padding .35s ease;
 }
+nav.scrolled { padding: .5rem 3rem; }
 .nav-logo {
   font-family: 'DM Serif Display', serif; font-size: 1.25rem; font-style: italic;
   background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
+.nav-noct { transition: width .35s ease, height .35s ease; }
+nav.scrolled .nav-noct { width: 36px !important; height: 36px !important; }
+.nav-name {
+  font-size: 1.15rem; letter-spacing: .06em;
+  transition: font-size .35s ease, letter-spacing .35s ease;
+}
+nav.scrolled .nav-name { font-size: .85rem !important; letter-spacing: .04em !important; }
+.nav-x { font-size: .9rem; transition: font-size .35s ease; }
+nav.scrolled .nav-x { font-size: .7rem !important; }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a {
   text-decoration: none; color: var(--muted);
@@ -524,6 +535,10 @@ footer {
   footer { flex-direction:column; gap:.75rem; text-align:center; }
   .stats-grid { gap: .75rem; }
   .contact-title { font-size: clamp(2.2rem, 8vw, 4rem); }
+  .nav-noct { width: 36px !important; height: 36px !important; }
+  .nav-name { font-size: .82rem !important; letter-spacing: .03em !important; white-space: nowrap; }
+  .nav-x { font-size: .7rem !important; }
+  .nav-logo { gap: .35rem !important; }
   .loader-noct { width: 56px; height: 56px; }
   .loader-logo { font-size: 1.15rem !important; letter-spacing: .04em !important; margin-left: 0 !important; white-space: nowrap; }
   .loader-x { font-size: .9rem !important; }
@@ -549,10 +564,10 @@ footer {
 <div class="cursor-ring" id="cursorRing"></div>
 
 <nav>
-  <div class="nav-logo" style="display:flex;align-items:center;gap:.6rem;">
+  <div class="nav-logo" style="display:flex;align-items:center;gap:.5rem;">
     <img src="noct-logo.png" alt="Noct." class="nav-noct">
-    <span style="font-size:1rem;color:var(--dim);-webkit-text-fill-color:var(--dim);font-weight:300;">×</span>
-    <span style="font-family:'Space Grotesk',sans-serif;font-style:normal;letter-spacing:.08em;font-size:1.4rem;margin-left:1.4rem;">Leon Kelvin Li</span>
+    <span class="nav-x" style="color:var(--dim);-webkit-text-fill-color:var(--dim);font-weight:300;">×</span>
+    <span class="nav-name" style="font-family:'Space Grotesk',sans-serif;font-style:normal;">Leon Kelvin Li</span>
   </div>
   <ul class="nav-links">
     <li><a href="#about" data-s="about">About</a></li>
@@ -820,13 +835,15 @@ footer {
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">May 2025 – Present</div>
-      <div class="timeline-role">Robotics Development Intern</div>
-      <div class="timeline-org">GTSP Special Projects Group · Santa Clara, CA</div>
+      <div class="timeline-date">Apr 2026 – Present</div>
+      <div class="timeline-role">AI Agent Development & Web Development</div>
+      <div class="timeline-org">University of San Jose · Part-time · San Jose, CA</div>
       <ul class="timeline-bullets">
-        <li>Assisted in design, development, and optimization of robotic systems for specialized engineering projects</li>
-        <li>Improved sensor calibration and actuator response tuning, reducing system error margins and increasing operational accuracy</li>
-        <li>Identified inefficiencies in control logic and troubleshooting workflows, cutting setup time for new configurations</li>
+        <li>Built AI agents leveraging LLMs, prompt engineering, and workflow orchestration</li>
+        <li>Designed and integrated APIs, databases, and system pipelines for production use</li>
+        <li>Developed full-stack web platforms (React, JavaScript, backend services) supporting AI systems</li>
+        <li>Created dashboards and user interfaces for interacting with AI-driven applications</li>
+        <li>Contributed to applied AI innovation projects and deployment-ready systems</li>
       </ul>
     </div>
 
@@ -1014,6 +1031,10 @@ const navIO=new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting) navAs.forEach(a=>a.classList.toggle('active',a.dataset.s===e.target.id)); });
 },{threshold:.4});
 ['about','projects','experience','contact'].forEach(id=>{const el=document.getElementById(id);if(el)navIO.observe(el);});
+
+/* NAV SCROLL SHRINK */
+const navEl=document.querySelector('nav');
+window.addEventListener('scroll',()=>navEl.classList.toggle('scrolled',window.scrollY>60),{passive:true});
 
 /* REVEALS */
 const rIO=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
