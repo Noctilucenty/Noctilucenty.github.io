@@ -524,15 +524,20 @@ footer {
   footer { flex-direction:column; gap:.75rem; text-align:center; }
   .stats-grid { gap: .75rem; }
   .contact-title { font-size: clamp(2.2rem, 8vw, 4rem); }
+  .loader-noct { width: 72px; height: 72px; }
+  .loader-logo { font-size: 1.6rem !important; margin-left: 0 !important; }
+  .loader-x { font-size: 1.1rem !important; }
+  .loader-row { gap: .6rem !important; }
+  .loader-bar { width: 80vw; }
 }
 </style>
 </head>
 <body>
 
 <div id="loader">
-  <div style="display:flex;align-items:center;gap:1.25rem;">
+  <div class="loader-row" style="display:flex;align-items:center;gap:1.25rem;">
     <img src="noct-logo.png" alt="Noct." class="loader-noct">
-    <span style="font-size:1.6rem;color:rgba(240,238,255,.25);font-weight:200;line-height:1;">×</span>
+    <span class="loader-x" style="font-size:1.6rem;color:rgba(240,238,255,.25);font-weight:200;line-height:1;">×</span>
     <div class="loader-logo" style="font-family:'Space Grotesk',sans-serif;font-style:normal;letter-spacing:.1em;margin-left:1.4rem;">Leon Kelvin Li</div>
   </div>
   <div class="loader-bar"><div class="loader-fill"></div></div>
