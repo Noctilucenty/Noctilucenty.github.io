@@ -60,7 +60,7 @@ body {
   background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 .nav-noct {
-  width: 80px; height: 80px; flex-shrink: 0;
+  width: 96px; height: 96px; flex-shrink: 0;
 }
 .loader-bar { width: 220px; height: 2px; background: rgba(255,255,255,.06); border-radius: 99px; overflow: visible; margin-top: .5rem; }
 .loader-fill {
@@ -108,7 +108,7 @@ body {
 nav {
   position: fixed; top: 0; width: 100%; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 1.2rem 3rem;
+  padding: 0.55rem 3rem;
   background: rgba(7,7,14,.8); backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--border);
   transition: padding .35s ease;
@@ -121,7 +121,7 @@ nav.scrolled { padding: .5rem 3rem; }
 .nav-noct { transition: width .35s ease, height .35s ease; }
 nav.scrolled .nav-noct { width: 36px !important; height: 36px !important; }
 .nav-name {
-  font-size: 1.15rem; letter-spacing: .06em;
+  font-size: 1.45rem; letter-spacing: .06em;
   transition: font-size .35s ease, letter-spacing .35s ease;
 }
 nav.scrolled .nav-name { font-size: .85rem !important; letter-spacing: .04em !important; }
@@ -564,10 +564,12 @@ footer {
 <div class="cursor-ring" id="cursorRing"></div>
 
 <nav>
-  <div class="nav-logo" style="display:flex;align-items:center;gap:.5rem;">
+  <div class="nav-logo" style="display:flex;align-items:center;gap:1rem;">
     <img src="noct-logo.png" alt="Noct." class="nav-noct">
-    <span class="nav-x" style="color:var(--dim);-webkit-text-fill-color:var(--dim);font-weight:300;">×</span>
-    <span class="nav-name" style="font-family:'Space Grotesk',sans-serif;font-style:normal;">Leon Kelvin Li</span>
+    <div style="display:flex;align-items:center;gap:.3rem;">
+      <span class="nav-x" style="color:var(--dim);-webkit-text-fill-color:var(--dim);font-weight:300;">×</span>
+      <span class="nav-name" style="font-family:'Space Grotesk',sans-serif;font-style:normal;">Leon Kelvin Li</span>
+    </div>
   </div>
   <ul class="nav-links">
     <li><a href="#about" data-s="about">About</a></li>
