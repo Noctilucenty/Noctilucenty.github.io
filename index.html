@@ -43,20 +43,39 @@ body {
 }
 #loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 @keyframes loaderIn { to { opacity: 1; } }
+.loader-row {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1.1rem;
+  opacity: 0; transform: translateY(14px) scale(.97);
+  animation: loaderLockup .85s cubic-bezier(.2,.7,.2,1) .2s forwards;
+}
+@keyframes loaderLockup { to { opacity: 1; transform: translateY(0) scale(1); } }
 .loader-logo {
-  font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem;
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 500;
   font-style: normal; letter-spacing: .08em; color: var(--text);
   white-space: nowrap;
 }
+.loader-x { font-size: 1.05rem; color: rgba(240,238,255,.3); font-weight: 200; flex-shrink: 0; }
 .loader-noct {
-  width: 56px; height: 56px; flex-shrink: 0;
+  width: 52px; height: 52px; flex-shrink: 0;
+  filter: drop-shadow(0 0 14px rgba(139,106,255,.45));
 }
 .nav-noct { width: 36px; height: 36px; flex-shrink: 0; }
-.loader-bar { width: min(100% - 3rem, 480px); height: 2px; background: rgba(255,255,255,.06); border-radius: 99px; overflow: visible; align-self: center; }
+.loader-bar {
+  width: min(100% - 4rem, 260px); height: 2px;
+  background: rgba(255,255,255,.07); border-radius: 99px;
+  overflow: visible; align-self: center;
+  opacity: 0; animation: loaderLockup .6s ease .5s forwards;
+}
 .loader-fill {
   height: 100%; width: 0%; background: var(--grad); border-radius: 99px;
-  animation: lFill 1.6s cubic-bezier(.4,0,.2,1) forwards;
-  box-shadow: 0 0 18px 6px rgba(139,106,255,.85), 0 0 32px 12px rgba(79,138,255,.4);
+  animation: lFill 1.35s cubic-bezier(.4,0,.2,1) .55s forwards;
+  box-shadow: 0 0 12px 3px rgba(139,106,255,.7), 0 0 26px 8px rgba(79,138,255,.3);
+}
+.loader-caption {
+  font-family: 'JetBrains Mono', monospace; font-size: .64rem;
+  letter-spacing: .3em; text-transform: uppercase; color: var(--dim);
+  opacity: 0; animation: loaderLockup .6s ease .7s forwards;
 }
 @keyframes lFill { to { width: 100%; } }
 @keyframes lPulse { 0%,100%{opacity:.5} 50%{opacity:1} }
@@ -589,8 +608,9 @@ section { position: relative; z-index: 1; }
 
 /* FOOTER */
 footer {
-  padding: 2rem 3rem; border-top: 1px solid var(--border);
+  padding: 2rem 6rem 2rem 3rem; border-top: 1px solid var(--border);
   display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem; flex-wrap: wrap;
 }
 .footer-left { font-family: 'JetBrains Mono', monospace; font-size: .73rem; color: var(--dim); }
 .footer-right {
@@ -652,25 +672,86 @@ footer {
   footer { flex-direction:column; gap:.75rem; text-align:center; }
   .stats-grid { gap: .75rem; }
   .contact-title { font-size: clamp(2.2rem, 8vw, 4rem); }
-  .loader-noct { width: 56px; height: 56px; }
-  .loader-logo { font-size: 1.15rem !important; letter-spacing: .04em !important; white-space: nowrap; }
-  .loader-x { font-size: .9rem !important; }
-  .loader-row { flex-wrap: nowrap !important; width: 85vw !important; justify-content: space-between !important; gap: 0 !important; }
-  .loader-bar { width: 80vw; }
+  .loader-noct { width: 42px; height: 42px; }
+  .loader-logo { font-size: 1.15rem; letter-spacing: .05em; }
+  .loader-x { font-size: .9rem; }
+  .loader-row { gap: .8rem; }
+  .loader-bar { width: min(100% - 4rem, 220px); }
+}
+
+/* SCROLL PROGRESS */
+#scroll-progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 100%;
+  z-index: 101; pointer-events: none;
+  transform-origin: 0 50%; transform: scaleX(0);
+  background: var(--grad);
+  box-shadow: 0 0 12px rgba(139,106,255,.6);
+}
+
+/* KEYBOARD FOCUS */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--violet); outline-offset: 3px; border-radius: 4px;
+}
+
+/* MAGNETIC BUTTONS */
+.btn-primary, .btn-secondary, .social-link { will-change: transform; }
+
+/* BACK TO TOP */
+#backTop {
+  position: fixed; right: 1.5rem; bottom: 1.5rem; z-index: 90;
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(7,7,14,.85); border: 1px solid var(--border);
+  color: var(--muted); cursor: none; backdrop-filter: blur(12px);
+  opacity: 0; transform: translateY(12px); pointer-events: none;
+  transition: opacity .35s ease, transform .35s ease, border-color .25s, color .25s, box-shadow .25s;
+}
+#backTop.show { opacity: 1; transform: translateY(0); pointer-events: all; }
+#backTop:hover { border-color: var(--border-glow); color: var(--text); box-shadow: 0 6px 24px rgba(139,106,255,.25); }
+
+/* SECTION TITLE UNDERLINE SWEEP */
+.section-title em, .about-title em, .contact-title em { position: relative; }
+.section-header.visible .section-title em::after {
+  content: ''; position: absolute; left: 0; bottom: -6px; height: 2px; width: 100%;
+  background: var(--grad); border-radius: 99px; transform-origin: 0 50%;
+  animation: sweepIn .8s cubic-bezier(.4,0,.2,1) .35s backwards;
+  opacity: .55;
+}
+@keyframes sweepIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* TOUCH DEVICES: restore native cursor, hide custom one */
+@media (hover: none), (pointer: coarse) {
+  body, .btn-primary, .btn-secondary, .project-card, .project-link,
+  .social-link, .nav-burger, #backTop { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+  #backTop { right: 1rem; bottom: 1rem; }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001s !important;
+  }
+  html { scroll-behavior: auto; }
+  .marquee-track, .marquee-track.rev { animation: none !important; transform: none !important; }
 }
 </style>
 </head>
 <body>
 
 <div id="loader">
-  <div class="loader-row" style="display:flex;align-items:center;justify-content:space-between;width:min(calc(100% - 3rem),480px);gap:0;">
+  <div class="loader-row">
     <img src="noct-logo.png" alt="Noct." class="loader-noct">
-    <span style="font-size:1.2rem;color:rgba(240,238,255,.2);font-weight:200;flex-shrink:0;">×</span>
+    <span class="loader-x">×</span>
     <div class="loader-logo">Leon Kelvin Li</div>
   </div>
   <div class="loader-bar"><div class="loader-fill"></div></div>
+  <div class="loader-caption">portfolio · 2026</div>
 </div>
 
+<div id="scroll-progress"></div>
 <div id="noise"></div>
 <canvas id="bg-canvas"></canvas>
 <div class="cursor" id="cursor"></div>
@@ -752,7 +833,7 @@ footer {
     <span class="sec-label">// about me</span>
     <h2 class="about-title">I build <em>complete</em><br>products, solo.</h2>
     <p class="about-text">From concept to deployed — I handle every layer. Backend APIs, database design, mobile frontends, CI/CD pipelines, and algorithmic systems. No handoffs, no waiting.</p>
-    <p class="about-text">Currently studying Computer Engineering at Cal State East Bay while interning in robotics engineering and building Scenara — a full prediction markets platform — entirely by myself.</p>
+    <p class="about-text">Currently studying Computer Engineering at Cal State East Bay while building two products solo: Curio — an AI-powered reading app live on iOS and Android — and Scenara, a full prediction markets platform.</p>
   </div>
   <div class="stats-grid reveal" style="transition-delay:.15s">
     <div class="stat-card"><div class="stat-num">1.2K+</div><div class="stat-label">Users on Scenara</div></div>
@@ -769,6 +850,55 @@ footer {
     <h2 class="section-title">Things I've <em>built</em></h2>
   </div>
   <div class="projects-grid">
+
+    <!-- Curio - Featured -->
+    <div class="project-card featured reveal js-tilt">
+      <div class="proj-img-wrap" style="height:220px;">
+        <img src="curio-logo.png" alt="Curio" class="proj-img contain" style="border-radius:10px;">
+      </div>
+      <span class="project-tag tag-featured">★ Featured · 2026 – Present</span>
+      <h3 class="project-title">Curio</h3>
+        <p class="project-desc">A full-screen reading and discovery app that turns mindless scrolling into meaningful exploration — swipeable, bite-sized reads across psychology, science, history, mysteries, and endless rabbit holes, powered by an AI content engine. Built and shipped solo on iOS, Android, and web.</p>
+
+        <div class="proj-metrics">
+          <div class="proj-metric">
+            <div class="proj-metric-value">iOS + Android</div>
+            <div class="proj-metric-label">Native Apps</div>
+            <div class="proj-metric-sub">Single React codebase via Capacitor</div>
+          </div>
+          <div class="proj-metric">
+            <div class="proj-metric-value">6</div>
+            <div class="proj-metric-label">Reading Experiences</div>
+            <div class="proj-metric-sub">Immersive · audio · scenarios & more</div>
+          </div>
+          <div class="proj-metric">
+            <div class="proj-metric-value">Jul 2026</div>
+            <div class="proj-metric-label">Launched</div>
+            <div class="proj-metric-sub">Live at trycurio.app</div>
+          </div>
+        </div>
+
+        <ul class="project-bullets">
+          <li>Built a <strong>full AI content engine</strong> that generates short-form cards, filters weak content, screens for factual risk, translates top cards into multiple languages, and continuously replaces lower-quality cards with stronger ones</li>
+          <li>Engineered <strong>Curio AI</strong>, an in-app companion that explains concepts, answers questions, generates quizzes, and spins up new rabbit holes — hardened against hallucinations with guardrails, validation checks, and retrieval improvements</li>
+          <li>Designed <strong>six core reading experiences</strong>: eye-protection mode, immersive soundtracks, read-aloud listening, translation-based language learning, interactive "what would you do?" scenarios, and community stories</li>
+          <li>Shipped <strong>native iOS and Android apps from one React + Capacitor codebase</strong>, with in-app purchases via RevenueCat and a Node/PostgreSQL backend serving the card pipeline</li>
+          <li>Launched publicly on <strong>July 7, 2026</strong> at trycurio.app after two weeks of intensive iteration on the generation engine</li>
+        </ul>
+        <div class="project-stack">
+          <span class="stack-tag">React</span><span class="stack-tag">TypeScript</span>
+          <span class="stack-tag">Vite</span><span class="stack-tag">Capacitor</span>
+          <span class="stack-tag">Tailwind</span><span class="stack-tag">Framer Motion</span>
+          <span class="stack-tag">Node.js</span><span class="stack-tag">PostgreSQL</span>
+          <span class="stack-tag">Claude API</span><span class="stack-tag">RevenueCat</span>
+        </div>
+        <div class="project-links">
+          <a href="https://trycurio.app" target="_blank" class="project-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            trycurio.app
+          </a>
+        </div>
+    </div>
 
     <!-- Scenara - Featured -->
     <div class="project-card featured reveal js-tilt">
@@ -987,6 +1117,18 @@ footer {
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
+      <div class="timeline-date">Jun 2026 – Present</div>
+      <div class="timeline-role">Founder</div>
+      <div class="timeline-org">Curio · Self-employed · San Francisco Bay Area</div>
+      <ul class="timeline-bullets">
+        <li>Building a <strong>full-screen reading and discovery app</strong> that turns scrolling into learning — swipeable, bite-sized reads across psychology, science, history, and endless rabbit holes</li>
+        <li>Architected the <strong>AI content engine</strong> behind the app: card generation, quality filtering, factual-risk screening, multi-language translation, and continuous replacement of weaker cards</li>
+        <li>Shipped <strong>native iOS and Android apps from a single React + Capacitor codebase</strong>; launched publicly July 7, 2026 at trycurio.app</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
       <div class="timeline-date">Apr 2026 – Present</div>
       <div class="timeline-role">AI Agent Development & Web Development</div>
       <div class="timeline-org">University of San Jose · Part-time · San Jose, CA</div>
@@ -1096,28 +1238,55 @@ footer {
 </section>
 
 <footer>
-  <div class="footer-left">© 2025 Leon Kelvin Li · All rights reserved</div>
+  <div class="footer-left">© 2026 Leon Kelvin Li · All rights reserved</div>
   <div class="footer-right">Built with obsession, shipped with care.</div>
 </footer>
+
+<button id="backTop" aria-label="Back to top">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
 
 <script>
 /* LOADER */
 window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('hidden'), 2000));
 
-/* CURSOR */
+/* CAPABILITY FLAGS */
+const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* CURSOR (desktop / fine pointer only) */
 const cur = document.getElementById('cursor'), ring = document.getElementById('cursorRing');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
-(function loop() {
-  cur.style.left=mx+'px'; cur.style.top=my+'px';
-  rx+=(mx-rx)*.1; ry+=(my-ry)*.1;
-  ring.style.left=rx+'px'; ring.style.top=ry+'px';
-  requestAnimationFrame(loop);
-})();
-document.querySelectorAll('a,button,.project-card,.stat-card,.edu-card').forEach(el => {
-  el.addEventListener('mouseenter',()=>{cur.classList.add('h');ring.classList.add('h');});
-  el.addEventListener('mouseleave',()=>{cur.classList.remove('h');ring.classList.remove('h');});
-});
+if (finePointer) {
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+  (function loop() {
+    cur.style.left=mx+'px'; cur.style.top=my+'px';
+    rx+=(mx-rx)*.1; ry+=(my-ry)*.1;
+    ring.style.left=rx+'px'; ring.style.top=ry+'px';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a,button,.project-card,.stat-card,.edu-card').forEach(el => {
+    el.addEventListener('mouseenter',()=>{cur.classList.add('h');ring.classList.add('h');});
+    el.addEventListener('mouseleave',()=>{cur.classList.remove('h');ring.classList.remove('h');});
+  });
+}
+
+/* MAGNETIC BUTTONS (desktop only) */
+if (finePointer && !reducedMotion) {
+  document.querySelectorAll('.btn-primary,.btn-secondary,.social-link').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const b = btn.getBoundingClientRect();
+      const dx = (e.clientX - b.left - b.width/2) * .18;
+      const dy = (e.clientY - b.top - b.height/2) * .3;
+      btn.style.transform = `translate(${dx}px, ${dy}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transition = 'transform .4s cubic-bezier(.2,.8,.3,1.2)';
+      btn.style.transform = '';
+      setTimeout(()=>btn.style.transition='', 400);
+    });
+  });
+}
 
 /* CANVAS: drifting orbs + star field */
 const cv = document.getElementById('bg-canvas'), cx = cv.getContext('2d');
@@ -1150,18 +1319,18 @@ const stars=Array.from({length:130},()=>({x:Math.random(),y:Math.random(),r:Math
 })();
 
 /* TYPEWRITER */
-const phrases=['building prediction markets','writing Python APIs','shipping mobile apps','designing dark UIs','thinking in systems','speaking 4 languages'];
+const phrases=['building Curio — curiosity, one swipe away','building prediction markets','writing Python APIs','shipping iOS + Android apps','designing dark UIs','thinking in systems','speaking 4 languages'];
 let pi=0,ci=0,del=false,twEl=document.getElementById('tw');
 function type(){
   const p=phrases[pi];
   if(!del){ twEl.textContent=p.slice(0,++ci); if(ci===p.length){setTimeout(()=>{del=true;type();},2200);return;} setTimeout(type,55);}
   else{ twEl.textContent=p.slice(0,--ci); if(ci===0){del=false;pi=(pi+1)%phrases.length;setTimeout(type,380);return;} setTimeout(type,28);}
 }
-setTimeout(type,1700);
+if(reducedMotion){ twEl.textContent=phrases[0]; } else { setTimeout(type,1700); }
 
 /* MARQUEE */
-const r1=['React Native','TypeScript','FastAPI','PostgreSQL','Python','C++','Expo','SQLAlchemy'];
-const r2=['UX Design','Selenium','asyncio','Vercel','Render','GitHub Actions','REST APIs','HDF5'];
+const r1=['React','React Native','TypeScript','FastAPI','PostgreSQL','Python','C++','Capacitor','Expo','SQLAlchemy'];
+const r2=['UX Design','Claude API','Selenium','asyncio','Vercel','Render','GitHub Actions','REST APIs','Tailwind','HDF5'];
 const mc=['#4f8aff','#29d4c5','#8b6aff','#d966f0','#4f8aff','#29d4c5','#8b6aff','#d966f0'];
 function mkMq(id,items){
   const el=document.getElementById(id);
@@ -1219,8 +1388,8 @@ mkMq('mq1',r1); mkMq('mq2',r2);
 })();
 
 
-/* 3D TILT */
-document.querySelectorAll('.js-tilt').forEach(card=>{
+/* 3D TILT (desktop only) */
+if (finePointer && !reducedMotion) document.querySelectorAll('.js-tilt').forEach(card=>{
   card.addEventListener('mousemove',e=>{
     const b=card.getBoundingClientRect();
     const x=(e.clientX-b.left)/b.width-.5, y=(e.clientY-b.top)/b.height-.5;
@@ -1240,9 +1409,49 @@ const navIO=new IntersectionObserver(entries=>{
 },{rootMargin:'-15% 0px -75% 0px', threshold:0});
 ['about','projects','experience','contact'].forEach(id=>{const el=document.getElementById(id);if(el)navIO.observe(el);});
 
-/* NAV SCROLL SHRINK */
+/* NAV SCROLL SHRINK + PROGRESS BAR + BACK TO TOP */
 const navEl=document.querySelector('nav');
-window.addEventListener('scroll',()=>navEl.classList.toggle('scrolled',window.scrollY>60),{passive:true});
+const progEl=document.getElementById('scroll-progress');
+const backTop=document.getElementById('backTop');
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  navEl.classList.toggle('scrolled',y>60);
+  const max=document.documentElement.scrollHeight-window.innerHeight;
+  progEl.style.transform=`scaleX(${max>0?y/max:0})`;
+  backTop.classList.toggle('show',y>700);
+},{passive:true});
+backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:reducedMotion?'auto':'smooth'}));
+
+/* STAT COUNTER ANIMATION */
+(function(){
+  const nums=document.querySelectorAll('.stat-num');
+  if(!nums.length) return;
+  function animate(el){
+    const raw=el.textContent.trim();
+    const m=raw.match(/^([^0-9]*)([\d.,]+)(.*)$/);
+    if(!m || reducedMotion) return;
+    const [,pre,numStr,post]=m;
+    const target=parseFloat(numStr.replace(/,/g,''));
+    const decimals=(numStr.split('.')[1]||'').length;
+    const dur=1400, t0=performance.now();
+    function tick(t){
+      const p=Math.min((t-t0)/dur,1);
+      const eased=1-Math.pow(1-p,3);
+      el.textContent=pre+(target*eased).toFixed(decimals)+post;
+      if(p<1) requestAnimationFrame(tick); else el.textContent=raw;
+    }
+    requestAnimationFrame(tick);
+  }
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ animate(e.target); io.unobserve(e.target); } });
+  },{threshold:.6});
+  nums.forEach(n=>io.observe(n));
+})();
+
+/* STAGGERED REVEALS for grids */
+document.querySelectorAll('.projects-grid,.stats-grid,.social-links').forEach(grid=>{
+  [...grid.children].forEach((el,i)=>{ if(el.classList.contains('reveal')) el.style.transitionDelay=(i%6)*.08+'s'; });
+});
 
 /* HAMBURGER */
 const burger=document.getElementById('navBurger'), drawer=document.getElementById('navDrawer');
