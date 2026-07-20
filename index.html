@@ -51,20 +51,20 @@ body {
 }
 @keyframes loaderLockup { to { opacity: 1; transform: translateY(0) scale(1); } }
 .loader-logo {
-  font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 500;
+  font-family: 'Space Grotesk', sans-serif; font-size: 1.9rem; font-weight: 500;
   font-style: normal; letter-spacing: .08em; color: var(--text);
   white-space: nowrap;
 }
-.loader-x { font-size: 1.05rem; color: rgba(240,238,255,.3); font-weight: 200; flex-shrink: 0; }
+.loader-x { font-size: 1.25rem; color: rgba(240,238,255,.3); font-weight: 200; flex-shrink: 0; }
 .loader-noct {
-  width: 52px; height: 52px; flex-shrink: 0;
+  width: 64px; height: 64px; flex-shrink: 0;
   filter: drop-shadow(0 0 14px rgba(139,106,255,.45));
 }
 .nav-noct { width: 36px; height: 36px; flex-shrink: 0; }
 .loader-bar {
-  width: min(100% - 4rem, 260px); height: 2px;
-  background: rgba(255,255,255,.07); border-radius: 99px;
-  overflow: visible; align-self: center;
+  width: 100%; height: 2px;
+  background: rgba(255,255,255,.07); border-radius: 0;
+  overflow: visible; align-self: stretch;
   opacity: 0; animation: loaderLockup .6s ease .5s forwards;
 }
 .loader-fill {
@@ -673,11 +673,10 @@ footer {
   footer { flex-direction:column; gap:.75rem; text-align:center; }
   .stats-grid { gap: .75rem; }
   .contact-title { font-size: clamp(2.2rem, 8vw, 4rem); }
-  .loader-noct { width: 42px; height: 42px; }
-  .loader-logo { font-size: 1.15rem; letter-spacing: .05em; }
-  .loader-x { font-size: .9rem; }
+  .loader-noct { width: 46px; height: 46px; }
+  .loader-logo { font-size: 1.25rem; letter-spacing: .05em; }
+  .loader-x { font-size: .95rem; }
   .loader-row { gap: .8rem; }
-  .loader-bar { width: min(100% - 4rem, 220px); }
 }
 
 /* SCROLL PROGRESS */
