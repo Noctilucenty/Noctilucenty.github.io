@@ -32,50 +32,105 @@ body {
   line-height: 1.6; overflow-x: hidden; cursor: none;
 }
 
-/* LOADER */
+/* LOADER — cinematic title sequence */
 #loader {
   position: fixed; inset: 0; z-index: 1000;
   background: var(--bg);
   display: flex; align-items: center; justify-content: center;
-  flex-direction: column; gap: 1.75rem;
-  opacity: 0; animation: loaderIn .5s ease .1s forwards;
-  transition: opacity .7s ease, visibility .7s ease;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path .95s cubic-bezier(.76,0,.24,1), visibility 0s 1s;
 }
-#loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-@keyframes loaderIn { to { opacity: 1; } }
+#loader.hidden { clip-path: inset(0 0 100% 0); visibility: hidden; pointer-events: none; }
+@keyframes loaderLockup { to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes loaderFade { to { opacity: 1; } }
+/* corner ticks */
+.loader-tick {
+  position: absolute; font-family: 'JetBrains Mono', monospace;
+  font-size: .8rem; color: rgba(240,238,255,.18); font-weight: 300;
+  opacity: 0; animation: loaderFade .8s ease .9s forwards;
+}
+.loader-tick.tl { top: 1.4rem; left: 1.6rem; }
+.loader-tick.tr { top: 1.4rem; right: 1.6rem; }
+.loader-tick.bl { bottom: 6.5rem; left: 1.6rem; }
+.loader-tick.br { bottom: 6.5rem; right: 1.6rem; }
+/* top meta line */
+.loader-meta {
+  position: absolute; top: 1.55rem; left: 50%; transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace; font-size: .62rem;
+  letter-spacing: .34em; text-transform: uppercase; color: var(--dim);
+  white-space: nowrap;
+  opacity: 0; animation: loaderFade .8s ease .8s forwards;
+}
+/* centered lockup */
 .loader-row {
   display: flex; align-items: center; justify-content: center;
-  gap: 1.1rem;
-  opacity: 0; transform: translateY(14px) scale(.97);
-  animation: loaderLockup .85s cubic-bezier(.2,.7,.2,1) .2s forwards;
+  gap: 1.4rem; position: relative; z-index: 2;
 }
-@keyframes loaderLockup { to { opacity: 1; transform: translateY(0) scale(1); } }
-.loader-logo {
-  font-family: 'Space Grotesk', sans-serif; font-size: 1.9rem; font-weight: 500;
-  font-style: normal; letter-spacing: .08em; color: var(--text);
-  white-space: nowrap;
-}
-.loader-x { font-size: 1.25rem; color: rgba(240,238,255,.3); font-weight: 200; flex-shrink: 0; }
 .loader-noct {
-  width: 64px; height: 64px; flex-shrink: 0;
-  filter: drop-shadow(0 0 14px rgba(139,106,255,.45));
+  width: 72px; height: 72px; flex-shrink: 0;
+  opacity: 0; transform: scale(.85);
+  filter: blur(12px) drop-shadow(0 0 0 rgba(139,106,255,0));
+  animation: noctIn 1s cubic-bezier(.2,.7,.2,1) .15s forwards;
 }
-.nav-noct { width: 36px; height: 36px; flex-shrink: 0; }
-.loader-bar {
-  width: 100%; height: 2px;
-  background: rgba(255,255,255,.07); border-radius: 0;
-  overflow: visible; align-self: stretch;
-  opacity: 0; animation: loaderLockup .6s ease .5s forwards;
+@keyframes noctIn {
+  to { opacity: 1; transform: scale(1); filter: blur(0) drop-shadow(0 0 18px rgba(139,106,255,.5)); }
 }
-.loader-fill {
-  height: 100%; width: 0%; background: var(--grad); border-radius: 99px;
-  animation: lFill 1.35s cubic-bezier(.4,0,.2,1) .55s forwards;
-  box-shadow: 0 0 12px 3px rgba(139,106,255,.7), 0 0 26px 8px rgba(79,138,255,.3);
+.loader-x {
+  font-size: 1.35rem; color: rgba(240,238,255,.3); font-weight: 200; flex-shrink: 0;
+  opacity: 0; animation: loaderFade .5s ease .55s forwards;
 }
+.loader-logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.6rem, 3.2vw, 2.6rem); font-weight: 500;
+  letter-spacing: .08em; color: var(--text); white-space: nowrap;
+  display: flex; overflow: hidden; padding-bottom: .08em;
+}
+.loader-logo span {
+  display: inline-block; transform: translateY(130%);
+  animation: letterUp .7s cubic-bezier(.22,.7,.2,1) forwards;
+  animation-delay: calc(.45s + var(--i) * .042s);
+}
+.loader-logo .sp { width: .42em; }
+@keyframes letterUp { to { transform: translateY(0); } }
+/* tagline under lockup */
+.loader-role {
+  position: absolute; left: 50%; top: calc(50% + 4.4rem); transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace; font-size: .66rem;
+  letter-spacing: .3em; text-transform: uppercase; color: var(--muted);
+  white-space: nowrap;
+  opacity: 0; animation: loaderFade .7s ease 1.15s forwards;
+}
+.loader-role em {
+  font-style: normal;
+  background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+/* big percentage — bottom left */
+.loader-count {
+  position: absolute; left: clamp(1.4rem, 4vw, 3rem); bottom: 1.1rem;
+  font-family: 'DM Serif Display', serif; font-style: italic;
+  font-size: clamp(3.2rem, 7vw, 5.8rem); line-height: 1;
+  background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  opacity: 0; animation: loaderFade .6s ease .45s forwards;
+}
+.loader-count .pct { font-size: .38em; margin-left: .06em; }
+/* caption — bottom right */
 .loader-caption {
+  position: absolute; right: clamp(1.4rem, 4vw, 3rem); bottom: 1.6rem;
   font-family: 'JetBrains Mono', monospace; font-size: .64rem;
   letter-spacing: .3em; text-transform: uppercase; color: var(--dim);
-  opacity: 0; animation: loaderLockup .6s ease .7s forwards;
+  text-align: right; line-height: 2;
+  opacity: 0; animation: loaderFade .6s ease .6s forwards;
+}
+/* full-bleed progress line — pinned to bottom */
+.loader-bar {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+  background: rgba(255,255,255,.07);
+  opacity: 0; animation: loaderFade .5s ease .35s forwards;
+}
+.loader-fill {
+  height: 100%; width: 0%; background: var(--grad);
+  animation: lFill 1.5s cubic-bezier(.65,0,.35,1) .4s forwards;
+  box-shadow: 0 0 12px 3px rgba(139,106,255,.7), 0 0 26px 8px rgba(79,138,255,.3);
 }
 @keyframes lFill { to { width: 100%; } }
 @keyframes lPulse { 0%,100%{opacity:.5} 50%{opacity:1} }
@@ -86,6 +141,8 @@ body {
   animation: heroShimmer 6s 1.5s ease-in-out infinite;
   pointer-events: none; z-index: 0;
 }
+
+.nav-noct { width: 36px; height: 36px; flex-shrink: 0; }
 
 /* NOISE */
 #noise {
@@ -673,10 +730,14 @@ footer {
   footer { flex-direction:column; gap:.75rem; text-align:center; }
   .stats-grid { gap: .75rem; }
   .contact-title { font-size: clamp(2.2rem, 8vw, 4rem); }
-  .loader-noct { width: 46px; height: 46px; }
-  .loader-logo { font-size: 1.25rem; letter-spacing: .05em; }
-  .loader-x { font-size: .95rem; }
-  .loader-row { gap: .8rem; }
+  .loader-noct { width: 48px; height: 48px; }
+  .loader-x { font-size: 1rem; }
+  .loader-row { gap: .9rem; }
+  .loader-meta { font-size: .55rem; letter-spacing: .2em; }
+  .loader-role { font-size: .5rem; letter-spacing: .16em; top: calc(50% + 3.4rem); }
+  .loader-count { font-size: 2.8rem; bottom: 1.2rem; }
+  .loader-caption { font-size: .55rem; letter-spacing: .2em; bottom: 1.5rem; }
+  .loader-tick.bl, .loader-tick.br { bottom: 5.5rem; }
 }
 
 /* SCROLL PROGRESS */
@@ -742,13 +803,20 @@ a:focus-visible, button:focus-visible {
 <body>
 
 <div id="loader">
+  <span class="loader-tick tl">+</span>
+  <span class="loader-tick tr">+</span>
+  <span class="loader-tick bl">+</span>
+  <span class="loader-tick br">+</span>
+  <div class="loader-meta">Noctilucente — Selected Work</div>
   <div class="loader-row">
     <img src="noct-logo.png" alt="Noct." class="loader-noct">
     <span class="loader-x">×</span>
-    <div class="loader-logo">Leon Kelvin Li</div>
+    <div class="loader-logo" aria-label="Leon Kelvin Li"><span style="--i:0">L</span><span style="--i:1">e</span><span style="--i:2">o</span><span style="--i:3">n</span><span class="sp"></span><span style="--i:4">K</span><span style="--i:5">e</span><span style="--i:6">l</span><span style="--i:7">v</span><span style="--i:8">i</span><span style="--i:9">n</span><span class="sp"></span><span style="--i:10">L</span><span style="--i:11">i</span></div>
   </div>
-  <div class="loader-bar"><div class="loader-fill"></div></div>
+  <div class="loader-role">Engineer <em>·</em> Founder <em>·</em> Product Builder</div>
+  <div class="loader-count"><span id="loadPct">0</span><span class="pct">%</span></div>
   <div class="loader-caption">portfolio · 2026</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
 </div>
 
 <div id="scroll-progress"></div>
@@ -1248,7 +1316,21 @@ a:focus-visible, button:focus-visible {
 
 <script>
 /* LOADER */
-window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('hidden'), 2000));
+window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('hidden'), 2250));
+
+/* LOADER COUNTER — synced to the bar fill (delay .4s, duration 1.5s) */
+(function(){
+  const el = document.getElementById('loadPct');
+  if (!el) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = '100'; return; }
+  const DELAY = 400, DUR = 1500, t0 = performance.now();
+  const ease = p => p < .5 ? 4*p*p*p : 1 - Math.pow(-2*p + 2, 3) / 2;
+  (function tick(t){
+    const p = Math.min(Math.max((t - t0 - DELAY) / DUR, 0), 1);
+    el.textContent = Math.round(ease(p) * 100);
+    if (p < 1) requestAnimationFrame(tick);
+  })(t0);
+})();
 
 /* CAPABILITY FLAGS */
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
