@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" role="img" aria-label="FLORES, San Francisco, California">
+  <defs>
+    <path id="mkTop" d="M 46 88 C 104 50 296 50 354 88" fill="none"/>
+    <path id="mkBot" d="M 50 114 C 108 170 292 170 350 114" fill="none"/>
+  </defs>
+  <path d="M 6 100 C 6 52 92 26 200 26 C 308 26 394 52 394 100 C 394 148 308 174 200 174 C 92 174 6 148 6 100 Z" fill="#F1EBDA"/>
+  <path d="M 6 100 C 6 52 92 26 200 26 C 308 26 394 52 394 100 C 394 148 308 174 200 174 C 92 174 6 148 6 100 Z" fill="none" stroke="#16224E" stroke-width="9"/>
+  <path d="M 20 100 C 20 60 98 38 200 38 C 302 38 380 60 380 100 C 380 140 302 162 200 162 C 98 162 20 140 20 100 Z" fill="none" stroke="#16224E" stroke-width="3"/>
+  <text fill="#16224E" font-family="'Big Shoulders Display','Arial Narrow',sans-serif" font-weight="700" font-size="21" letter-spacing="3.4">
+    <textPath href="#mkTop" startOffset="50%" text-anchor="middle">SAN FRANCISCO</textPath>
+  </text>
+  <text fill="#16224E" font-family="'Big Shoulders Display','Arial Narrow',sans-serif" font-weight="700" font-size="19" letter-spacing="4.6">
+    <textPath href="#mkBot" startOffset="50%" text-anchor="middle">CALIFORNIA</textPath>
+  </text>
+  <text x="200" y="123" text-anchor="middle" fill="#16224E"
+        font-family="'Big Shoulders Display','Arial Narrow',sans-serif" font-weight="900"
+        font-size="76" letter-spacing="-1" transform="skewX(-5) translate(9 0)">FLORES</text>
+</svg>

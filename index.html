@@ -474,8 +474,23 @@ body.hero-entered .hero-cta { animation: fadeUp .9s ease 1.1s forwards; }
 .tag-open { background: rgba(41,212,197,.1); color: var(--cyan); border: 1px solid rgba(41,212,197,.2); }
 .tag-personal { background: rgba(79,138,255,.12); color: var(--blue); border: 1px solid rgba(79,138,255,.2); }
 .tag-pinned { background: rgba(255,190,50,.12); color: #f5c842; border: 1px solid rgba(255,190,50,.3); }
+.tag-client { background: rgba(255,157,92,.12); color: #ff9d5c; border: 1px solid rgba(255,157,92,.26); }
 .project-card.pinned { border-color: rgba(245,200,66,.18); }
 .project-card.pinned:hover { border-color: rgba(245,200,66,.5); box-shadow: 0 24px 64px rgba(245,200,66,.12); }
+
+/* TIER DIVIDERS INSIDE THE PROJECT GRID */
+.grid-divider {
+  grid-column: 1 / -1; display: flex; align-items: center; gap: 1rem;
+  margin: 2.25rem 0 .25rem;
+}
+.grid-divider-label {
+  font-family: 'JetBrains Mono', monospace; font-size: .72rem;
+  letter-spacing: .12em; color: var(--dim); white-space: nowrap; text-transform: lowercase;
+}
+.grid-divider-rule {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, rgba(139,106,255,.32), rgba(139,106,255,0));
+}
 .project-title {
   font-family: 'DM Serif Display', serif; font-size: 1.65rem; margin-bottom: .75rem; line-height: 1.2;
 }
@@ -716,9 +731,6 @@ footer {
   .projects-grid { grid-template-columns: repeat(2,1fr); }
   nav { padding: 0.55rem 1rem; }
 }
-@media(min-width:1025px){
-  .projects-grid > .project-card:last-child { grid-column: 2; }
-}
 @media(max-width:768px){
   /* NAV: logo left, burger right — hide desktop links and badge */
   nav { padding: .55rem 1.1rem; grid-template-columns: 1fr auto; }
@@ -913,13 +925,13 @@ a:focus-visible, button:focus-visible {
     <span class="sec-label">// about me</span>
     <h2 class="about-title">I build <em>complete</em><br>products, solo.</h2>
     <p class="about-text">From concept to deployed — I handle every layer. Backend APIs, database design, mobile frontends, CI/CD pipelines, and algorithmic systems. No handoffs, no waiting.</p>
-    <p class="about-text">Currently studying Computer Engineering at Cal State East Bay while building two products solo: Curio — an AI-powered reading app live on iOS and Android — and Scenara, a full prediction markets platform.</p>
+    <p class="about-text">Currently studying Computer Engineering at Cal State East Bay while building Curio — an AI reading app live on the App Store — writing the automation that feeds it, and shipping apps, agents and internal tools for a training company and a handful of independent clients.</p>
   </div>
   <div class="stats-grid reveal" style="transition-delay:.15s">
-    <div class="stat-card"><div class="stat-num">1.2K+</div><div class="stat-label">Users on Scenara</div></div>
-    <div class="stat-card"><div class="stat-num">$320K+</div><div class="stat-label">Simulated market volume</div></div>
+    <div class="stat-card"><div class="stat-num">12</div><div class="stat-label">Services live in production</div></div>
+    <div class="stat-card"><div class="stat-num">1</div><div class="stat-label">App shipped to the App Store</div></div>
     <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Languages spoken</div></div>
-    <div class="stat-card"><div class="stat-num">99.4%</div><div class="stat-label">Production uptime</div></div>
+    <div class="stat-card"><div class="stat-num">Solo</div><div class="stat-label">Every layer, no handoffs</div></div>
   </div>
 </section>
 
@@ -936,110 +948,503 @@ a:focus-visible, button:focus-visible {
       <div class="proj-img-wrap" style="height:220px;">
         <img src="curio-logo.webp" alt="Curio" class="proj-img contain" style="border-radius:10px;">
       </div>
-      <span class="project-tag tag-featured">★ Featured · 2026 – Present</span>
+      <span class="project-tag tag-featured">Featured · 2026 – Present</span>
       <h3 class="project-title">Curio</h3>
-        <p class="project-desc">A full-screen reading and discovery app that turns mindless scrolling into meaningful exploration — swipeable, bite-sized reads across psychology, science, history, mysteries, and endless rabbit holes, powered by an AI content engine. Built and shipped solo on iOS, Android, and web.</p>
+        <p class="project-desc">A full-screen swipe feed of short, source-backed knowledge cards — psychology, science, history, mysteries, and the rabbit holes between them — with an AI layer that opens any card up. Built and shipped solo on iOS, live on the App Store.</p>
 
         <div class="proj-metrics">
           <div class="proj-metric">
-            <div class="proj-metric-value">iOS + Android</div>
-            <div class="proj-metric-label">Native Apps</div>
-            <div class="proj-metric-sub">Single React codebase via Capacitor</div>
+            <div class="proj-metric-value">72k</div>
+            <div class="proj-metric-label">Lines of TypeScript</div>
+            <div class="proj-metric-sub">289 files, 413 commits, solo, in about six weeks</div>
           </div>
           <div class="proj-metric">
-            <div class="proj-metric-value">6</div>
-            <div class="proj-metric-label">Reading Experiences</div>
-            <div class="proj-metric-sub">Immersive · audio · scenarios & more</div>
+            <div class="proj-metric-value">17 / 4</div>
+            <div class="proj-metric-label">Categories / Languages</div>
+            <div class="proj-metric-sub">English, 中文, Español, Português</div>
           </div>
           <div class="proj-metric">
-            <div class="proj-metric-value">Jul 2026</div>
+            <div class="proj-metric-value">Jul 22, 2026</div>
             <div class="proj-metric-label">Launched</div>
-            <div class="proj-metric-sub">Live at trycurio.app</div>
+            <div class="proj-metric-sub">US App Store, now on 1.0.4</div>
           </div>
         </div>
 
         <ul class="project-bullets">
-          <li>Built a <strong>full AI content engine</strong> that generates short-form cards, filters weak content, screens for factual risk, translates top cards into multiple languages, and continuously replaces lower-quality cards with stronger ones</li>
-          <li>Engineered <strong>Curio AI</strong>, an in-app companion that explains concepts, answers questions, generates quizzes, and spins up new rabbit holes — hardened against hallucinations with guardrails, validation checks, and retrieval improvements</li>
-          <li>Designed <strong>six core reading experiences</strong>: eye-protection mode, immersive soundtracks, read-aloud listening, translation-based language learning, interactive "what would you do?" scenarios, and community stories</li>
-          <li>Shipped <strong>native iOS and Android apps from one React + Capacitor codebase</strong>, with in-app purchases via RevenueCat and a Node/PostgreSQL backend serving the card pipeline</li>
-          <li>Launched publicly on <strong>July 7, 2026</strong> at trycurio.app after two weeks of intensive iteration on the generation engine</li>
+          <li>Built the <strong>AI content engine</strong> behind the app: card generation, quality filtering, factual-risk screening, multi-language translation, and continuous replacement of weaker cards with stronger ones</li>
+          <li>Engineered <strong>Curio AI</strong>, an in-app companion that explains concepts, answers follow-ups, generates quizzes, and spins up new rabbit holes — hardened against hallucination with retrieval grounding and validation checks</li>
+          <li>Designed <strong>six reading experiences</strong>: eye-protection mode, immersive soundtracks, read-aloud listening, translation-based language learning, branching "what would you do?" scenarios, and community stories</li>
+          <li>Shipped a <strong>native iOS app from one React codebase</strong> via Capacitor 8 on SPM, against an Express + PostgreSQL backend serving the card pipeline</li>
+          <li>The last CI step, <code>verify:guards</code>, <strong>reintroduces six defects that had already shipped through a green test suite</strong> and fails the build unless the guard covering each one turns red. Its first run proved two of my own fixes were decorative</li>
         </ul>
         <div class="project-stack">
           <span class="stack-tag">React</span><span class="stack-tag">TypeScript</span>
-          <span class="stack-tag">Vite</span><span class="stack-tag">Capacitor</span>
+          <span class="stack-tag">Vite</span><span class="stack-tag">Capacitor 8</span>
           <span class="stack-tag">Tailwind</span><span class="stack-tag">Framer Motion</span>
           <span class="stack-tag">Node.js</span><span class="stack-tag">PostgreSQL</span>
-          <span class="stack-tag">Claude API</span><span class="stack-tag">RevenueCat</span>
+          <span class="stack-tag">OpenAI</span><span class="stack-tag">Claude API</span>
+          <span class="stack-tag">ElevenLabs</span><span class="stack-tag">RevenueCat</span>
         </div>
         <div class="project-links">
-          <a href="https://trycurio.app" target="_blank" class="project-link">
+          <a href="https://apps.apple.com/app/id6781121127" target="_blank" rel="noopener" class="project-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.53c-.02-2.4 1.96-3.55 2.05-3.61-1.12-1.63-2.86-1.86-3.48-1.89-1.48-.15-2.89.87-3.64.87-.75 0-1.91-.85-3.14-.83-1.61.02-3.1.94-3.93 2.38-1.68 2.91-.43 7.21 1.2 9.57.8 1.15 1.75 2.45 3 2.4 1.21-.05 1.66-.78 3.13-.78 1.46 0 1.88.78 3.15.75 1.3-.02 2.12-1.17 2.91-2.33.92-1.34 1.3-2.64 1.32-2.71-.03-.01-2.53-.97-2.55-3.85M14.7 5.02c.66-.81 1.11-1.93.99-3.05-.95.04-2.11.64-2.8 1.44-.61.71-1.15 1.85-1.01 2.94 1.06.08 2.15-.54 2.82-1.33"/></svg>
+            App Store
+          </a>
+          <a href="https://trycurio.app" target="_blank" rel="noopener" class="project-link">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
             trycurio.app
           </a>
         </div>
     </div>
 
-    <!-- Scenara - Featured -->
+    <!-- ATLAS - Featured -->
     <div class="project-card featured reveal js-tilt">
       <div class="proj-img-wrap" style="height:220px;">
-        <img src="scenara-logo.png" alt="Scenara" class="proj-img" style="border-radius:10px;">
+        <svg viewBox="0 0 240 120" width="230" height="115" role="img" aria-label="ATLAS">
+          <defs>
+            <linearGradient id="gATLAS" gradientUnits="userSpaceOnUse" x1="16" y1="110" x2="224" y2="20">
+              <stop offset="0%" stop-color="#4f8aff"/><stop offset="55%" stop-color="#8b6aff"/><stop offset="100%" stop-color="#d966f0"/>
+            </linearGradient>
+          </defs>
+          <g stroke="url(#gATLAS)" stroke-width="3" stroke-linecap="round" fill="none" opacity=".9">
+            <path d="M16 96 L16 24"/><path d="M16 96 L224 96"/>
+          </g>
+          <g stroke="url(#gATLAS)" stroke-width="4" stroke-linecap="round">
+            <path d="M40 84 L40 58"/><path d="M62 78 L62 44"/><path d="M84 88 L84 62"/>
+            <path d="M106 70 L106 34"/><path d="M128 82 L128 50"/><path d="M150 74 L150 40"/>
+            <path d="M172 86 L172 56"/><path d="M194 66 L194 30"/>
+          </g>
+          <path d="M40 71 L62 61 L84 75 L106 52 L128 66 L150 57 L172 71 L194 48" fill="none"
+                stroke="#29d4c5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
+          <circle cx="194" cy="48" r="4.5" fill="#29d4c5"/>
+        </svg>
       </div>
-      <span class="project-tag tag-featured">★ Featured · 2025 – Present</span>
-      <h3 class="project-title">Scenara</h3>
-        <p class="project-desc">A bilingual mobile-first prediction markets platform spanning politics, crypto, sports, and breaking news. Architected, built, and shipped solo — frontend, backend, infra, and AI pipeline.</p>
+      <span class="project-tag tag-featured">Featured · 2026</span>
+      <h3 class="project-title">ATLAS</h3>
+        <p class="project-desc">A walk-forward machine-learning pipeline for short-horizon FX binary-option prediction across 28 currency pairs. The model is the small part. The point of the project is the harness around it, which is built to destroy its own results before anyone else can.</p>
 
         <div class="proj-metrics">
           <div class="proj-metric">
-            <div class="proj-metric-value">1,200+</div>
-            <div class="proj-metric-label">Users</div>
-            <div class="proj-metric-sub">Across 4 languages</div>
+            <div class="proj-metric-value">79% → 57%</div>
+            <div class="proj-metric-label">What the holdout did</div>
+            <div class="proj-metric-sub">Pre-registered 2003–2015 cut. I recorded the 57%</div>
           </div>
           <div class="proj-metric">
-            <div class="proj-metric-value">$320K+</div>
-            <div class="proj-metric-label">Market Volume</div>
-            <div class="proj-metric-sub">Simulated trading</div>
+            <div class="proj-metric-value">138</div>
+            <div class="proj-metric-label">Registered experiments</div>
+            <div class="proj-metric-sub">Penalised statistics, leak-free testing</div>
           </div>
           <div class="proj-metric">
-            <div class="proj-metric-value">99.4%</div>
-            <div class="proj-metric-label">Uptime</div>
-            <div class="proj-metric-sub">UptimeRobot monitored</div>
+            <div class="proj-metric-value">28</div>
+            <div class="proj-metric-label">Currency pairs</div>
+            <div class="proj-metric-sub">1-minute candles, ~6 signals a day</div>
           </div>
         </div>
 
         <ul class="project-bullets">
-          <li><strong>Scaled to 1,200+ users and $320K+ in simulated market volume</strong> across English and Portuguese-Brazilian markets in the first six months post-launch</li>
-          <li>Designed an <strong>AI market-generation pipeline</strong> using GNews + Groq Llama 3 that auto-generates bilingual YES/NO prediction markets from breaking news every 2 hours</li>
-          <li>Built and shipped <strong>9 production REST endpoints</strong> on FastAPI/PostgreSQL — auth, wallet simulation, market resolution, leaderboards — handling sub-200ms p95 latency</li>
-          <li>Migrated from SQLite to PostgreSQL on Render under live load with zero data loss; tuned connection pooling to <strong>cut cold-start time by 60%</strong></li>
-          <li>Implemented native push notifications, debounced live search, and in-memory caching with TTLs to <strong>reduce average response time 4×</strong></li>
-          <li>Owned the full CI/CD pipeline across Vercel and Render with GitHub Actions; reduced deploy-to-production time to <strong>under 90 seconds</strong></li>
+          <li>A calibrated LightGBM reads the just-closed candle and outputs a probability; the decision rule is an <strong>expected-value gate against the live payout</strong>, so a worse payout demands more conviction rather than a fixed confidence threshold</li>
+          <li>A second meta-labeling model scores the trade's context — hour, volatility, trend strength — and filters signals the primary model would have taken anyway. <strong>The system abstains most of the time, and the abstaining is the edge</strong></li>
+          <li>Guardrails against fooling myself: chronologically purged walk-forward, probability calibration, cross-asset trade clustering, decade-scale replication on external data, Bonferroni correction, and a 154-trial deflation penalty applied to every statistic</li>
+          <li>Rejected levers — ensembling, HAR-RV volatility features — are <strong>written down as rejected</strong> so they are never quietly retried</li>
+          <li>Ships with an MCP server so Claude can read the broker and place demo trades. Live trading is off unless explicitly enabled, and there is no validated live edge yet — the forward test is pre-registered and still running</li>
         </ul>
         <div class="project-stack">
-          <span class="stack-tag">React Native</span><span class="stack-tag">Expo</span>
-          <span class="stack-tag">TypeScript</span><span class="stack-tag">FastAPI</span>
-          <span class="stack-tag">Python</span><span class="stack-tag">SQLAlchemy</span>
-          <span class="stack-tag">PostgreSQL</span><span class="stack-tag">Groq AI</span>
-          <span class="stack-tag">Vercel</span><span class="stack-tag">Render</span>
+          <span class="stack-tag">Python</span><span class="stack-tag">LightGBM</span>
+          <span class="stack-tag">scikit-learn</span><span class="stack-tag">pandas</span>
+          <span class="stack-tag">NumPy</span><span class="stack-tag">MCP</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/Noctilucenty/Scenara" target="_blank" class="project-link">
+          <a href="https://github.com/Noctilucenty/ATLAS" target="_blank" rel="noopener" class="project-link">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.92.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
             View Source
-          </a>
-          <a href="https://scenara.vercel.app" target="_blank" class="project-link">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-            Live Demo
           </a>
         </div>
     </div>
 
-    <!-- ExpertFlow -->
-    <a href="https://github.com/Noctilucenty/ExpertFlow" target="_blank" class="project-card pinned reveal js-tilt">
+    <!-- ── TIER: SHIPPED ─────────────────────────────────────────── -->
+    <div class="grid-divider reveal">
+      <span class="grid-divider-label">// shipped &amp; running in production</span>
+      <span class="grid-divider-rule"></span>
+    </div>
+
+    <!-- The Home Screen -->
+    <a href="https://the-home-screen.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt">
       <div class="proj-img-wrap">
-        <img src="expertflow-logo.png" alt="ExpertFlow" class="proj-img" style="border-radius:10px;object-fit:cover;width:100%;height:100%;">
+        <img src="logos/homescreen.png" alt="The Home Screen" class="proj-img contain">
       </div>
-      <span class="project-tag tag-pinned">📌 Pinned · 2025</span>
+      <span class="project-tag tag-client">Client work · 2026 – Present</span>
+      <h3 class="project-title">The Home Screen</h3>
+      <p class="project-desc">An ordering app that behaves like an iPhone home screen. Every icon is a ghost kitchen; one cart spans all of them; one checkout pays them all. Built for a food-truck operator moving into ghost kitchens.</p>
+      <ul class="project-bullets">
+        <li>Live and taking real orders — a Node service serving the API and the built client from one origin</li>
+        <li>One cart and one checkout across several independent kitchens, each with its own menu, hours and ticket</li>
+        <li>These are real businesses, so nothing is invented: <strong>no made-up menu item, price, hour or photo</strong>, and anything estimated is flagged on every screen where the price appears</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">TypeScript</span><span class="stack-tag">React</span>
+        <span class="stack-tag">Node.js</span><span class="stack-tag">Express</span>
+        <span class="stack-tag">Render</span>
+      </div>
+    </a>
+
+    <!-- ALLCPR mobile app -->
+    <div class="project-card reveal js-tilt">
+      <div class="proj-img-wrap">
+        <img src="logos/allcpr.png" alt="ALLCPR" class="proj-img contain">
+      </div>
+      <span class="project-tag tag-client">GOSVEA Inc · 2026 – Present</span>
+      <h3 class="project-title">ALLCPR — iOS App</h3>
+      <p class="project-desc">Sole developer of ALLCPR, the company's iOS app for CPR, BLS and first-aid students — class discovery, certification lookup, store, and site maps. Ships through TestFlight.</p>
+      <ul class="project-bullets">
+        <li>Rebuilt the app as an editable five-tab React codebase — Home, Map, Classes, Store, Profile — replacing a build that existed only as compiled output</li>
+        <li>Built a <strong>native in-app form system</strong> for volunteer signup, group training and certificate lookup, so students stop getting handed off to the website mid-flow</li>
+        <li>Capacitor 8 on Swift Package Manager rather than CocoaPods, with the iOS platform, icon and splash wired in and verified on device</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">React</span><span class="stack-tag">TypeScript</span>
+        <span class="stack-tag">Vite</span><span class="stack-tag">Tailwind</span>
+        <span class="stack-tag">Capacitor 8</span><span class="stack-tag">Swift / SPM</span>
+      </div>
+    </div>
+
+    <!-- ALLCPR Site Intelligence -->
+    <a href="https://allcpr-site-intelligence.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+      <div class="proj-img-wrap">
+        <svg viewBox="0 0 120 120" width="86" height="86" role="img" aria-label="Site Intelligence">
+          <defs>
+            <linearGradient id="gSITE" gradientUnits="userSpaceOnUse" x1="10" y1="10" x2="110" y2="110">
+              <stop offset="0%" stop-color="#4f8aff"/><stop offset="100%" stop-color="#d966f0"/>
+            </linearGradient>
+          </defs>
+          <g stroke="url(#gSITE)" stroke-width="1.6" opacity=".38" fill="none">
+            <path d="M12 34 H108 M12 60 H108 M12 86 H108 M34 12 V108 M60 12 V108 M86 12 V108"/>
+          </g>
+          <circle cx="34" cy="86" r="4" fill="#4f8aff" opacity=".7"/>
+          <circle cx="86" cy="34" r="4" fill="#8b6aff" opacity=".7"/>
+          <circle cx="34" cy="34" r="3" fill="#29d4c5" opacity=".55"/>
+          <path d="M60 96 C60 96 78 72 78 55 A18 18 0 1 0 42 55 C42 72 60 96 60 96 Z"
+                fill="url(#gSITE)"/>
+          <circle cx="60" cy="55" r="7.5" fill="#07070e"/>
+        </svg>
+      </div>
+      <span class="project-tag tag-client">GOSVEA Inc · 2026</span>
+      <h3 class="project-title">ALLCPR Site Intelligence</h3>
+      <p class="project-desc">Decides where to open the next training center. Scores 33,772 US ZIP codes on demand, competition and demographics, and shows the evidence behind every score — including where the evidence is thin.</p>
+      <ul class="project-bullets">
+        <li>Combines Google Places demand signals, competitor density and Census ACS demographics into a scored, <strong>source-tracked</strong> site report</li>
+        <li>The national layer recomputes entirely offline from stored rows, so the whole country can be re-scored without spending an API call</li>
+        <li>A validation harness scores the model against real class-enrollment history. It found the previous version's evidence was <strong>circular</strong> — the validation target had been injected into the rows before scoring — and the honest result is far weaker than the number it replaced. That is in the README</li>
+        <li>One map dashboard as the single decision surface, bilingual, with a per-ZIP panel that states the verdict, an honest range, what is known for and against, and what is still unknown. 1,300+ tests</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span><span class="stack-tag">FastAPI</span>
+        <span class="stack-tag">PostgreSQL</span><span class="stack-tag">Leaflet</span>
+        <span class="stack-tag">Census ACS</span><span class="stack-tag">Google Places</span>
+      </div>
+    </a>
+
+    <!-- Curio Automation Platform -->
+    <a href="https://www.youtube.com/@trycurio" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+      <div class="proj-img-wrap">
+        <img src="logos/curio-rabbit.png" alt="Curio Automation" class="proj-img contain">
+      </div>
+      <span class="project-tag tag-personal">Curio · 2026 – Present</span>
+      <h3 class="project-title">Curio Automation Platform</h3>
+      <p class="project-desc">The content and distribution machine behind Curio. It writes, voices, captions and renders vertical video, paints image posts, runs the quality gates, and publishes to Instagram, Facebook and YouTube from one queue.</p>
+      <ul class="project-bullets">
+        <li>An autonomous video pipeline that runs a full build end to end at 1080×1920, with audit gates — prosody, caption fallback, listen-back scoring — that <strong>reject a run rather than ship it</strong></li>
+        <li>A painted quote-post engine where the artwork is generated and the text is typeset in code, so producing the same post in another language costs nothing</li>
+        <li>A publisher split across a FastAPI queue on Render and a launchd worker on my Mac: <strong>credentials and media never leave the machine</strong> — the server only ever sees slugs</li>
+        <li>Best cut holds an <strong>80.4% average watch ratio</strong> on traffic that is 97.8% cold algorithmic recommendation</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span><span class="stack-tag">FFmpeg</span>
+        <span class="stack-tag">Pillow</span><span class="stack-tag">FastAPI</span>
+        <span class="stack-tag">launchd</span><span class="stack-tag">ElevenLabs</span>
+        <span class="stack-tag">Graph API</span>
+      </div>
+    </a>
+
+    <!-- Continuity -->
+    <a href="https://github.com/Noctilucenty/Continuity" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+      <div class="proj-img-wrap">
+        <img src="logos/continuity.png" alt="Continuity" class="proj-img contain">
+      </div>
+      <span class="project-tag tag-open">Public repo · 2026</span>
+      <h3 class="project-title">Continuity</h3>
+      <p class="project-desc">A persistent memory layer for AI work. When one session ends, expires or runs out of context, the next one resumes from a written checkpoint instead of from nothing.</p>
+      <ul class="project-bullets">
+        <li>Holds the project state outside the model: goal, plan, task queue, decisions, checkpoints, and a handoff any agent or person can pick up</li>
+        <li>Local-first and runs with <strong>no LLM required</strong> — it is infrastructure above the tools, not another wrapper around one</li>
+        <li>Tested in CI on GitHub Actions</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">TypeScript</span><span class="stack-tag">Node.js</span>
+        <span class="stack-tag">CLI</span><span class="stack-tag">GitHub Actions</span>
+      </div>
+    </a>
+
+    <!-- Scenara -->
+    <a href="https://scenara.vercel.app" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+      <div class="proj-img-wrap">
+        <img src="scenara-logo.png" alt="Scenara" class="proj-img contain">
+      </div>
+      <span class="project-tag tag-personal">Past project · Oct 2025 – Apr 2026</span>
+      <h3 class="project-title">Scenara</h3>
+      <p class="project-desc">A bilingual prediction-market simulation platform targeting Brazil — positions on real events across crypto, sports, politics and macro news. Architected and built solo: frontend, backend, infrastructure and the market pipeline.</p>
+      <ul class="project-bullets">
+        <li>Trading engine with probability-based pricing, position tracking, balances, payouts, PnL and automated market resolution</li>
+        <li>AI market generation from breaking news every two hours, producing bilingual YES/NO markets in English and Brazilian Portuguese</li>
+        <li>KYC onboarding and compliance-oriented user management modeled on real fintech platforms</li>
+        <li><strong>Wound down in April 2026.</strong> Prediction markets remain tightly regulated in the markets Scenara targeted, with little sign of that easing, so I stopped rather than keep building toward a launch that could not happen</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">React Native</span><span class="stack-tag">Expo</span>
+        <span class="stack-tag">TypeScript</span><span class="stack-tag">FastAPI</span>
+        <span class="stack-tag">PostgreSQL</span><span class="stack-tag">Vercel</span>
+        <span class="stack-tag">Render</span>
+      </div>
+    </a>
+
+    <!-- ── TIER: AGENTS & TOOLS ──────────────────────────────────── -->
+    <div class="grid-divider reveal">
+      <span class="grid-divider-label">// agents &amp; internal tools</span>
+      <span class="grid-divider-rule"></span>
+    </div>
+
+    <!-- ALLCPR Student Help Agent -->
+    <a href="https://allcpr-user-agent.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+      <div class="proj-img-wrap">
+        <svg viewBox="0 0 120 120" width="82" height="82" role="img" aria-label="Student Help Agent">
+          <defs>
+            <linearGradient id="gHELP" gradientUnits="userSpaceOnUse" x1="10" y1="10" x2="110" y2="110">
+              <stop offset="0%" stop-color="#4f8aff"/><stop offset="100%" stop-color="#8b6aff"/>
+            </linearGradient>
+          </defs>
+          <path d="M22 24 H98 A10 10 0 0 1 108 34 V78 A10 10 0 0 1 98 88 H58 L38 104 V88 H22 A10 10 0 0 1 12 78 V34 A10 10 0 0 1 22 24 Z"
+                fill="none" stroke="url(#gHELP)" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M46 48 A14 14 0 1 1 60 68 V74" fill="none" stroke="url(#gHELP)"
+                stroke-width="6" stroke-linecap="round"/>
+          <circle cx="60" cy="84" r="0"/>
+          <circle cx="60" cy="82" r="3.6" fill="#29d4c5"/>
+        </svg>
+      </div>
+      <span class="project-tag tag-client">GOSVEA Inc · 2026 – Present</span>
+      <h3 class="project-title">ALLCPR Student Help Agent</h3>
+      <p class="project-desc">A student-facing help agent built from the CRM manual, the Smart Manikin manual and the operations log. Answers course, certificate and equipment questions in English and Chinese.</p>
+      <ul class="project-bullets">
+        <li>Runs with <strong>no AI API key, by design</strong> — lexical retrieval over pre-written bilingual answers, ~7ms round trip, $0/month to operate. Adding a key only lets a model rephrase what was retrieved; it never adds knowledge</li>
+        <li>The 911 emergency redirect lives in code, upstream of retrieval. It was originally in the prompt, which meant that in the shipped no-key configuration <strong>it did not exist</strong> — "my baby is not breathing" returned an infant-manikin card</li>
+        <li>Three gates before any commit: a schema and PII scan, a coverage check that every source block is either cited by an entry or excluded with a written reason, and a question suite asserting emergencies divert to 911 while equipment questions do not</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">Node.js</span><span class="stack-tag">JavaScript</span>
+        <span class="stack-tag">Express</span><span class="stack-tag">Render</span>
+      </div>
+    </a>
+
+    <!-- 明途 gut health agent -->
+    <a href="https://mingtu-gut-agent.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+      <div class="proj-img-wrap">
+        <img src="logos/mingtu.png" alt="明途" class="proj-img contain">
+      </div>
+      <span class="project-tag tag-open">Public repo · 2026</span>
+      <h3 class="project-title">明途 — Gut Health Advisor</h3>
+      <p class="project-desc">A Chinese-language RAG agent for gut-microbiome questions. It does two things: explains the evidence graded by how much it can be trusted, and decides when to tell you to see a doctor. It does not diagnose.</p>
+      <ul class="project-bullets">
+        <li>A <strong>deterministic safety screen runs first</strong>. Alarm symptoms described in the first person route straight to fixed see-a-doctor wording, with no model anywhere in the path</li>
+        <li>Hybrid retrieval — BM25 and vector, fused with RRF — weighted by evidence grade, population and regulatory class, with quotas so specific categories cannot be crowded out</li>
+        <li>Every substantive claim must carry a source number, and an exit check verifies the citations exist and that the text makes no health claim banned under Chinese advertising and food-safety law. Failing text is rewritten; if it fails twice, the agent declines to answer</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span><span class="stack-tag">FastAPI</span>
+        <span class="stack-tag">RAG</span><span class="stack-tag">BM25</span>
+        <span class="stack-tag">Render</span>
+      </div>
+    </a>
+
+    <!-- ALLCPR Site Operations Agent -->
+    <a href="https://allcpr-agent-7bt0.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+      <div class="proj-img-wrap">
+        <svg viewBox="0 0 120 120" width="82" height="82" role="img" aria-label="Site Operations Agent">
+          <defs>
+            <linearGradient id="gSOP" gradientUnits="userSpaceOnUse" x1="10" y1="10" x2="110" y2="110">
+              <stop offset="0%" stop-color="#8b6aff"/><stop offset="100%" stop-color="#d966f0"/>
+            </linearGradient>
+          </defs>
+          <path d="M34 14 H74 L94 34 V100 A6 6 0 0 1 88 106 H34 A6 6 0 0 1 28 100 V20 A6 6 0 0 1 34 14 Z"
+                fill="none" stroke="url(#gSOP)" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M74 14 V34 H94" fill="none" stroke="url(#gSOP)" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M44 56 H78 M44 70 H78 M44 84 H64" stroke="url(#gSOP)" stroke-width="4.5" stroke-linecap="round"/>
+          <circle cx="86" cy="88" r="17" fill="#07070e"/>
+          <circle cx="86" cy="88" r="14" fill="none" stroke="#29d4c5" stroke-width="4"/>
+          <path d="M79 88 L84 93 L94 82" fill="none" stroke="#29d4c5" stroke-width="4"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="project-tag tag-client">GOSVEA Inc · 2026</span>
+      <h3 class="project-title">ALLCPR Site Operations Agent</h3>
+      <p class="project-desc">A bilingual staff tool for Smart Manikin training sites — site inspections, incident triage, new-staff onboarding, and the SOP knowledge base behind all three.</p>
+      <ul class="project-bullets">
+        <li>A deterministic SOP answer engine with an optional model summary layer on top, so the answer does not change when the API key does</li>
+        <li>Fully bilingual English and 中文, matching how the sites actually operate</li>
+        <li>Staff view behind a PIN; FastAPI service auto-deploying to Render</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span><span class="stack-tag">FastAPI</span>
+        <span class="stack-tag">OpenAI</span><span class="stack-tag">Render</span>
+      </div>
+    </a>
+
+    <!-- Yelp Review Desk -->
+    <a href="https://github.com/Noctilucenty/Yelp-Automated-Review-Desk" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+      <div class="proj-img-wrap">
+        <svg viewBox="0 0 120 120" width="82" height="82" role="img" aria-label="Review Desk">
+          <defs>
+            <linearGradient id="gYELP" gradientUnits="userSpaceOnUse" x1="10" y1="10" x2="110" y2="110">
+              <stop offset="0%" stop-color="#d966f0"/><stop offset="100%" stop-color="#4f8aff"/>
+            </linearGradient>
+          </defs>
+          <path d="M18 22 H86 A8 8 0 0 1 94 30 V68 A8 8 0 0 1 86 76 H46 L28 92 V76 H18 A8 8 0 0 1 10 68 V30 A8 8 0 0 1 18 22 Z"
+                fill="none" stroke="url(#gYELP)" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M52 34 L57.5 45.5 L70 47.5 L61 56.5 L63 69 L52 63 L41 69 L43 56.5 L34 47.5 L46.5 45.5 Z"
+                fill="url(#gYELP)" opacity=".85"/>
+          <circle cx="90" cy="86" r="20" fill="#07070e"/>
+          <circle cx="90" cy="86" r="16" fill="none" stroke="#29d4c5" stroke-width="4.5"/>
+          <path d="M82 86 L88 92 L99 79" fill="none" stroke="#29d4c5" stroke-width="4.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="project-tag tag-client">GOSVEA Inc · 2026</span>
+      <h3 class="project-title">Yelp Review Desk</h3>
+      <p class="project-desc">Watches for new Yelp reviews, classifies each one against a configurable issue taxonomy, and drafts a fact-grounded reply for a human to approve. It never posts.</p>
+      <ul class="project-bullets">
+        <li><strong>Never auto-posts, on purpose.</strong> Yelp has no reply API and automating the business portal risks the listing, so the flow stops at "copy and open Yelp" and a person pastes. The Gmail credential is draft-only, with no send scope</li>
+        <li>Yelp's notification emails turned out to be useless as a source of truth — truncated to about 80 characters and missing most reviews. The real refresh is a scrape from a logged-in browser; the email poll survives only as a tripwire for brand-new reviews</li>
+        <li>Slack alerts on anything at or below four stars, plus anything escalated regardless of rating. Clean five-star reviews stay quiet</li>
+        <li>Paired Chrome extension pre-fills the approved reply on Yelp for Business and syncs posted status back. It never clicks Send</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span><span class="stack-tag">FastAPI</span>
+        <span class="stack-tag">Gmail API</span><span class="stack-tag">Slack</span>
+        <span class="stack-tag">Chrome Extension</span>
+      </div>
+    </a>
+
+    <!-- ONPECY AI Lab -->
+    <a href="https://onpecy-lab.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+      <div class="proj-img-wrap">
+        <img src="logos/onpecy.png" alt="ONPECY" class="proj-img contain">
+      </div>
+      <span class="project-tag tag-client">Client work · 2026</span>
+      <h3 class="project-title">ONPECY AI Lab — 3D Proposal</h3>
+      <p class="project-desc">A renovation proposal for a second-floor AI lab, delivered as an interactive 3D page: the LiDAR scan of the real room on one side, the renovated model on the other, on the same camera so the comparison is honest.</p>
+      <ul class="project-bullets">
+        <li>The room was scanned with LiDAR and then <strong>rebuilt parametrically</strong> at its measured dimensions rather than shipped as raw scan mesh</li>
+        <li>Every object in the 3D maps to exactly one purchase line — click it and you get the item and its price. Proving that held required dumping all 355 model node names and checking each family against the budget</li>
+        <li>A layout audit script measures real clearances and prints the clash list, so the drawing can be checked rather than trusted. It found five furniture collisions and a 0.70 m walkway against a 0.90 m minimum</li>
+        <li>One Python estimator is imported by both the written report and the 3D page, so the two documents cannot drift apart on a number</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span><span class="stack-tag">Blender</span>
+        <span class="stack-tag">three.js</span><span class="stack-tag">glTF</span>
+        <span class="stack-tag">LiDAR</span>
+      </div>
+    </a>
+
+    <!-- ── TIER: SITES & SMALLER BUILDS ──────────────────────────── -->
+    <div class="grid-divider reveal">
+      <span class="grid-divider-label">// sites &amp; smaller builds</span>
+      <span class="grid-divider-rule"></span>
+    </div>
+
+    <!-- FLORES -->
+    <a href="https://flores-boxing-gloves-u81a.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+      <div class="proj-img-wrap" style="background:#F1EBDA;">
+        <img src="logos/flores.svg" alt="FLORES Boxing Gloves" class="proj-img contain" style="background:transparent;padding:1.9rem;">
+      </div>
+      <span class="project-tag tag-client">Client work · 2026</span>
+      <h3 class="project-title">FLORES Boxing Gloves</h3>
+      <p class="project-desc">Brand site for a Bay Area maker of hand-stitched leather boxing gloves, in business since the 1920s.</p>
+      <ul class="project-bullets">
+        <li>Static site, no framework and no build step — it loads on a phone in a gym</li>
+        <li>Responsive product galleries served at three image widths</li>
+        <li>Heritage typography and a hand-drawn oval mark, drawn as SVG so it stays sharp at any size</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">HTML5</span><span class="stack-tag">CSS3</span>
+        <span class="stack-tag">JavaScript</span><span class="stack-tag">SVG</span>
+      </div>
+    </a>
+
+    <!-- ALLCPR 安安 stickers -->
+    <a href="https://allcpr-stickers.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+      <div class="proj-img-wrap">
+        <img src="logos/stickers.png" alt="ALLCPR 安安 sticker pack" class="proj-img">
+      </div>
+      <span class="project-tag tag-client">GOSVEA Inc · 2026</span>
+      <h3 class="project-title">安安 — WeChat Sticker Pack</h3>
+      <p class="project-desc">A 24-sticker WeChat pack for ALLCPR's Chinese-speaking students, in Chinese and English, with a download page.</p>
+      <ul class="project-bullets">
+        <li>Captions are typeset in code instead of baked into the artwork, so producing the second language cost nothing</li>
+        <li>Transparent PNGs sized for WeChat, generated by a Python pipeline rather than by hand</li>
+        <li>Hosted download page, because WeChat has no bulk install outside its own store — the honest answer was to make saving 24 files easy, not to pretend otherwise</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span><span class="stack-tag">Pillow</span>
+        <span class="stack-tag">HTML5</span><span class="stack-tag">Render</span>
+      </div>
+    </a>
+
+    <!-- Noctilucente -->
+    <a href="https://noctilucente-nx1i.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+      <div class="proj-img-wrap">
+        <img src="logos/noctilucente.png" alt="Noctilucente" class="proj-img contain">
+      </div>
+      <span class="project-tag tag-personal">Personal · 2026</span>
+      <h3 class="project-title">Noctilucente</h3>
+      <p class="project-desc">The site for my own music — an EP page under an animated night sky. The only thing I make with no metric to hide behind.</p>
+      <ul class="project-bullets">
+        <li>Hand-built, no framework, single page</li>
+        <li>The animated sky is deliberately cheap to draw: <strong>no backdrop-filter anywhere</strong>, because it destroyed the frame rate on mobile</li>
+        <li>Links out to Spotify</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">HTML5</span><span class="stack-tag">CSS3</span>
+        <span class="stack-tag">JavaScript</span><span class="stack-tag">Canvas</span>
+      </div>
+    </a>
+
+    <!-- Services site -->
+    <a href="https://leonkelvinli.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+      <div class="proj-img-wrap">
+        <img src="logos/leondev.svg" alt="Leon Kelvin Li — services" class="proj-img contain">
+      </div>
+      <span class="project-tag tag-personal">Personal · 2026</span>
+      <h3 class="project-title">Services Site</h3>
+      <p class="project-desc">My own services page — every service I build, with a starting price next to it, across web, AI, operations, growth and data.</p>
+      <ul class="project-bullets">
+        <li>Prices stated up front rather than "contact for a quote"</li>
+        <li>Static, hand-written, deploys from a push</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">HTML5</span><span class="stack-tag">CSS3</span>
+        <span class="stack-tag">JavaScript</span><span class="stack-tag">Render</span>
+      </div>
+    </a>
+
+    <!-- ── TIER: EARLIER WORK ────────────────────────────────────── -->
+    <div class="grid-divider reveal">
+      <span class="grid-divider-label">// earlier work</span>
+      <span class="grid-divider-rule"></span>
+    </div>
+
+    <!-- ExpertFlow -->
+    <a href="https://github.com/Noctilucenty/ExpertFlow" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+      <div class="proj-img-wrap">
+        <img src="expertflow-logo.jpg" alt="ExpertFlow" class="proj-img" style="border-radius:10px;object-fit:cover;width:100%;height:100%;">
+      </div>
+      <span class="project-tag tag-pinned">Pinned · 2025</span>
       <h3 class="project-title">ExpertFlow</h3>
       <p class="project-desc">AI-powered expert network CRM for research and investment teams — match clients to domain experts, manage consultation pipelines, and track SLAs.</p>
       <ul class="project-bullets">
@@ -1055,27 +1460,27 @@ a:focus-visible, button:focus-visible {
     </a>
 
     <!-- Orryin -->
-    <a href="https://github.com/Noctilucenty/orryin-backend-FORMER-SCENARA" target="_blank" class="project-card pinned reveal js-tilt">
+    <a href="https://github.com/Noctilucenty/orryin-backend-FORMER-SCENARA" target="_blank" rel="noopener" class="project-card reveal js-tilt">
       <div class="proj-img-wrap">
-        <img src="orryin-logo.png" alt="Orryin Investment" class="proj-img" style="border-radius:10px;object-fit:cover;object-position:center 35%;width:100%;height:100%;">
+        <img src="orryin-logo.jpg" alt="Orryin Investment" class="proj-img" style="border-radius:10px;object-fit:cover;object-position:center 35%;width:100%;height:100%;">
       </div>
-      <span class="project-tag tag-pinned">📌 Pinned · 2024</span>
+      <span class="project-tag tag-pinned">Pinned · 2024</span>
       <h3 class="project-title">Orryin Investment</h3>
-      <p class="project-desc">Backend MVP for global investing infrastructure — KYC verification, FX exchange, and brokerage flows, with a React Native mobile onboarding app.</p>
+      <p class="project-desc">A platform letting people outside the US invest using their own country's ID — a Brazilian CPF instead of a US SSN — generalised across countries. Backend MVP with KYC, FX and brokerage flows, plus a React Native onboarding app.</p>
       <ul class="project-bullets">
-        <li>Full KYC pipeline with identity verification and compliance checks</li>
-        <li>FX and brokerage flow architecture for international investing</li>
-        <li>Expo + React Native mobile MVP for user onboarding and KYC flow</li>
+        <li>KYC verification pipeline with document upload and identity checks</li>
+        <li>FX exchange and brokerage integration flows</li>
+        <li>React Native (Expo) mobile MVP validating onboarding and funding readiness</li>
+        <li><strong>Stopped on the regulatory documentation burden</strong>, not on the engineering</li>
       </ul>
       <div class="project-stack">
         <span class="stack-tag">Python</span><span class="stack-tag">FastAPI</span>
         <span class="stack-tag">React Native</span><span class="stack-tag">Expo</span>
-        <span class="stack-tag">TypeScript</span>
       </div>
     </a>
 
     <!-- MIDAS -->
-    <a href="https://github.com/Noctilucenty/MIDAS" target="_blank" class="project-card reveal js-tilt">
+    <a href="https://github.com/Noctilucenty/MIDAS" target="_blank" rel="noopener" class="project-card reveal js-tilt">
       <div class="proj-img-wrap">
         <span class="proj-icon-text">MIDAS</span>
       </div>
@@ -1083,49 +1488,47 @@ a:focus-visible, button:focus-visible {
       <h3 class="project-title">MIDAS</h3>
       <p class="project-desc">Research-oriented trading system for market data processing, strategy prototyping, and historical backtesting.</p>
       <ul class="project-bullets">
-        <li>Automated data ingestion via Binance API with real-time monitoring</li>
-        <li>Concurrent pipelines using Selenium + asyncio with non-blocking I/O</li>
-        <li>HDF5 integration for high-efficiency time-series storage, reducing query overhead</li>
-        <li>Reversal detection logic and decision-support signals from live market feeds</li>
+        <li>Market data ingestion and normalisation pipeline</li>
+        <li>Strategy prototyping harness with historical replay</li>
+        <li>Performance-sensitive core in Rust and C++, analysis in Python</li>
       </ul>
       <div class="project-stack">
-        <span class="stack-tag">Python</span><span class="stack-tag">Rust</span>
-        <span class="stack-tag">Selenium</span><span class="stack-tag">asyncio</span>
-        <span class="stack-tag">HDF5</span><span class="stack-tag">Binance API</span>
+        <span class="stack-tag">Rust</span><span class="stack-tag">C++</span>
+        <span class="stack-tag">Python</span>
       </div>
     </a>
 
     <!-- AIngle -->
-    <a href="https://github.com/Noctilucenty/AIngle" target="_blank" class="project-card reveal js-tilt">
+    <a href="https://github.com/Noctilucenty/AIngle" target="_blank" rel="noopener" class="project-card reveal js-tilt">
       <div class="proj-img-wrap">
         <span class="proj-icon-text">AIngle</span>
       </div>
       <span class="project-tag tag-personal">Personal · 2024</span>
       <h3 class="project-title">AIngle</h3>
-      <p class="project-desc">Full-stack experimental platform for AI-assisted image analysis, combining a FastAPI backend with intelligent visual processing pipelines.</p>
+      <p class="project-desc">Full-stack experimental platform for AI-assisted image analysis, combining a FastAPI backend with a React Native mobile client.</p>
       <ul class="project-bullets">
-        <li>FastAPI backend serving AI-powered image analysis endpoints</li>
-        <li>Modular pipeline architecture for extensible visual processing tasks</li>
-        <li>Experimental tooling for model benchmarking and result visualization</li>
+        <li>FastAPI backend serving a visual processing pipeline</li>
+        <li>React Native (Expo) client for capture and review</li>
+        <li>Built as an experiment in end-to-end model plumbing, not as a product</li>
       </ul>
       <div class="project-stack">
         <span class="stack-tag">Python</span><span class="stack-tag">FastAPI</span>
-        <span class="stack-tag">AI/ML</span><span class="stack-tag">REST API</span>
+        <span class="stack-tag">React Native</span><span class="stack-tag">Expo</span>
       </div>
     </a>
 
     <!-- catnap -->
-    <a href="https://github.com/Noctilucenty/catnap" target="_blank" class="project-card reveal js-tilt">
+    <a href="https://github.com/Noctilucenty/catnap" target="_blank" rel="noopener" class="project-card reveal js-tilt">
       <div class="proj-img-wrap">
         <span class="proj-icon-text">catnap</span>
       </div>
       <span class="project-tag tag-personal">Personal · 2024</span>
       <h3 class="project-title">catnap</h3>
-      <p class="project-desc">AI-powered phone & SMS intake system for small businesses — automates lead capture and client communication workflows.</p>
+      <p class="project-desc">AI phone and SMS intake for small businesses. Customers call or text, an AI collects their details, and the owner gets notified.</p>
       <ul class="project-bullets">
-        <li>AI-driven call and SMS intake for automated client triage</li>
-        <li>Natural language processing for intent classification and routing</li>
-        <li>Business-ready workflow integrations for small teams</li>
+        <li>Telephony and SMS intake with structured field extraction</li>
+        <li>Owner notification on a completed intake</li>
+        <li>Built for businesses that lose leads to an unanswered phone</li>
       </ul>
       <div class="project-stack">
         <span class="stack-tag">Python</span><span class="stack-tag">AI/NLP</span>
@@ -1134,13 +1537,13 @@ a:focus-visible, button:focus-visible {
     </a>
 
     <!-- GX-Ambient -->
-    <a href="https://github.com/Noctilucenty/GX-Ambient" target="_blank" class="project-card reveal js-tilt">
+    <a href="https://github.com/Noctilucenty/GX-Ambient" target="_blank" rel="noopener" class="project-card reveal js-tilt">
       <div class="proj-img-wrap">
         <span class="proj-icon-text">GX</span>
       </div>
       <span class="project-tag tag-open">Open Source · 2023</span>
       <h3 class="project-title">GX-Ambient</h3>
-      <p class="project-desc">Browser extension that brings immersive ambient music and adaptive sound effects to your browsing experience.</p>
+      <p class="project-desc">Browser extension bringing Opera GX's ambient music and adaptive sound effects to Chromium browsers.</p>
       <ul class="project-bullets">
         <li>Dynamic ambient soundscapes adapting to browsing context</li>
         <li>Interactive controls for volume, theme, and sound mode</li>
@@ -1153,19 +1556,24 @@ a:focus-visible, button:focus-visible {
     </a>
 
     <!-- Freelance / Max4Live -->
-    <a href="#" class="project-card reveal js-tilt">
+    <div class="project-card reveal js-tilt">
       <div class="proj-img-wrap">
         <span class="proj-icon-text">M4L</span>
       </div>
-      <span class="project-tag tag-open">Freelance · 2023–2025</span>
-      <h3 class="project-title">Freelance Software & Max4Live Devices</h3>
-      <p class="project-desc">Prototypes, web components, automation tools, and interface improvements for independent clients — plus custom Max4Live MIDI devices for Ableton Live with audio processing and interactive user controls.</p>
+      <span class="project-tag tag-open">Freelance · 2023 – 2026</span>
+      <h3 class="project-title">Freelance Builds &amp; Max4Live Devices</h3>
+      <p class="project-desc">Prototypes, small business sites, automation tools and interface work for independent clients — plus custom Max4Live MIDI devices for Ableton Live with audio processing and interactive controls.</p>
+      <ul class="project-bullets">
+        <li>Small business sites built and deployed end to end, including a dog-walking service site</li>
+        <li>Web automation and internal tooling for one-person operations</li>
+        <li>Max4Live MIDI devices for Ableton Live, and LED strip control over MIDI on Teensy</li>
+      </ul>
       <div class="project-stack">
         <span class="stack-tag">JavaScript</span><span class="stack-tag">Python</span>
         <span class="stack-tag">Max4Live</span><span class="stack-tag">Ableton Live</span>
-        <span class="stack-tag">Web Automation</span>
+        <span class="stack-tag">C++</span>
       </div>
-    </a>
+    </div>
 
   </div>
 </section>
@@ -1203,7 +1611,8 @@ a:focus-visible, button:focus-visible {
       <ul class="timeline-bullets">
         <li>Building a <strong>full-screen reading and discovery app</strong> that turns scrolling into learning — swipeable, bite-sized reads across psychology, science, history, and endless rabbit holes</li>
         <li>Architected the <strong>AI content engine</strong> behind the app: card generation, quality filtering, factual-risk screening, multi-language translation, and continuous replacement of weaker cards</li>
-        <li>Shipped <strong>native iOS and Android apps from a single React + Capacitor codebase</strong>; launched publicly July 7, 2026 at trycurio.app</li>
+        <li>Shipped a <strong>native iOS app from a single React + Capacitor codebase</strong>; launched on the US App Store on July 22, 2026</li>
+        <li>Built the automation around it — an autonomous video pipeline, a painted image-post engine, and a publisher that queues to Instagram, Facebook and YouTube while credentials never leave my machine</li>
       </ul>
     </div>
 
@@ -1223,14 +1632,15 @@ a:focus-visible, button:focus-visible {
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">Oct 2025 – Present</div>
+      <div class="timeline-date">Oct 2025 – Apr 2026</div>
       <div class="timeline-role">Founder &amp; Sole Engineer</div>
       <div class="timeline-org">Scenara · Self-employed · California</div>
       <ul class="timeline-bullets">
-        <li>Architected and shipped a bilingual prediction-markets platform that scaled to <strong>1,200+ users and $320K+ in simulated market volume</strong> within six months of launch</li>
-        <li>Designed an AI-driven market-generation system (GNews + Groq Llama 3) producing bilingual YES/NO markets from breaking news every 2 hours, eliminating manual market authoring</li>
-        <li>Built 9 production REST endpoints on FastAPI/PostgreSQL with sub-200ms p95 latency and 99.4% uptime; migrated SQLite → PostgreSQL on Render with zero data loss</li>
+        <li>Architected and built a bilingual prediction-market simulation platform targeting Brazil — trading engine, probability pricing, position tracking, payouts, PnL and automated market resolution</li>
+        <li>Designed an AI market-generation system (GNews + Groq Llama 3) producing bilingual YES/NO markets from breaking news every 2 hours, removing manual market authoring</li>
+        <li>Built 9 production REST endpoints on FastAPI/PostgreSQL; migrated SQLite → PostgreSQL on Render under live load with zero data loss</li>
         <li>Owned full CI/CD across Vercel and Render — deploy-to-production under 90 seconds, zero-downtime releases</li>
+        <li>Wound it down in April 2026: prediction markets remain tightly regulated in the markets it targeted, so I stopped rather than keep building toward a launch that could not happen</li>
       </ul>
     </div>
 
@@ -1419,7 +1829,7 @@ const stars=Array.from({length:130},()=>({x:Math.random(),y:Math.random(),r:Math
 })();
 
 /* TYPEWRITER */
-const phrases=['building Curio — curiosity, one swipe away','building prediction markets','writing Python APIs','shipping iOS + Android apps','designing dark UIs','thinking in systems','speaking 4 languages'];
+const phrases=['building Curio — curiosity, one swipe away','shipping iOS apps','writing Python APIs','building AI agents that fail closed','designing dark UIs','thinking in systems','speaking 4 languages'];
 let pi=0,ci=0,del=false,twEl=document.getElementById('tw');
 function type(){
   const p=phrases[pi];
