@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://noctilucenty.github.io/sitemap.xml
