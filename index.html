@@ -823,7 +823,7 @@ a:focus-visible, button:focus-visible {
     <span class="line1" aria-hidden="true"><span style="--i:0">L</span><span style="--i:1">e</span><span style="--i:2">o</span><span style="--i:3">n</span><span class="sp"></span><span style="--i:4">K</span><span style="--i:5">e</span><span style="--i:6">l</span><span style="--i:7">v</span><span style="--i:8">i</span><span style="--i:9">n</span><span class="sp"></span><span style="--i:10">L</span><span style="--i:11">i</span></span>
   </h1>
   <div class="hero-typewriter"><span id="tw"></span><span class="tw-cursor"></span></div>
-  <p class="hero-sub">I build apps and tools from the first sketch to the live product. Recent work includes Curio on the App Store and a location-planning system that scans every U.S. ZIP code.</p>
+  <p class="hero-sub">I build apps and tools from the first sketch to the live product. Recent work includes Curio on the App Store and a location-planning system that scores every U.S. ZIP code.</p>
   <div class="hero-langs">
     <span class="lang-tag">🇺🇸 English</span>
     <span class="lang-tag">🇨🇳 Chinese</span>
@@ -882,12 +882,12 @@ a:focus-visible, button:focus-visible {
           <div class="proj-metric">
             <div class="proj-metric-value">App Store</div>
             <div class="proj-metric-label">Public release</div>
-            <div class="proj-metric-sub">Shipped July 2026 and actively maintained</div>
+            <div class="proj-metric-sub">Live since 22 July 2026 and still updated</div>
           </div>
           <div class="proj-metric">
             <div class="proj-metric-value">4</div>
-            <div class="proj-metric-label">Languages</div>
-            <div class="proj-metric-sub">English, 中文, Español, Português</div>
+            <div class="proj-metric-label">Content languages</div>
+            <div class="proj-metric-sub">Cards written and translated into English, 中文, Español, Português</div>
           </div>
           <div class="proj-metric">
             <div class="proj-metric-value">Whole product</div>
@@ -901,7 +901,7 @@ a:focus-visible, button:focus-visible {
           <li>Built <strong>Curio AI</strong> for follow-up questions, quizzes, and related rabbit holes, with retrieval and validation before an answer is shown</li>
           <li>Added read-aloud, eye protection, soundtracks, language learning, scenarios, and community stories</li>
           <li>Shipped the iOS app from one React + Capacitor codebase, backed by Express and PostgreSQL</li>
-          <li>Added regression guards that bring old bugs back on purpose and make sure the matching tests catch them before a build can pass</li>
+          <li>Added a guard step that puts six already-shipped bugs back into the code on purpose, and <strong>fails the build if the tests covering them stay green</strong>. Its first run proved two of my own fixes did nothing</li>
         </ul>
         <div class="project-stack">
           <span class="stack-tag">React</span><span class="stack-tag">TypeScript</span>
@@ -930,15 +930,15 @@ a:focus-visible, button:focus-visible {
       </div>
       <span class="project-tag tag-open" style="margin-top:1.5rem;">New · Public demo · Aug 2026</span>
       <h3 class="project-title">Loqol Disclosures</h3>
-      <p class="project-desc">Loqol helps California home sellers complete the TDS form without staring at a long PDF. It guides them through 82 questions by tap or voice, flags answers that conflict, and fills the form for signature.</p>
+      <p class="project-desc">I built a web app that walks a California home seller through the Transfer Disclosure Statement without handing them a long PDF. It asks 82 questions by tap or voice, flags answers that contradict each other, and fills the real form for signature.</p>
       <div class="proj-metrics">
         <div class="proj-metric"><div class="proj-metric-value">82</div><div class="proj-metric-label">Guided questions</div><div class="proj-metric-sub">63 tap, 19 conversational</div></div>
         <div class="proj-metric"><div class="proj-metric-value">159</div><div class="proj-metric-label">PDF fields mapped</div><div class="proj-metric-sub">Form output prepared for signature</div></div>
         <div class="proj-metric"><div class="proj-metric-value">16</div><div class="proj-metric-label">Consistency rules</div><div class="proj-metric-sub">Conflicts surfaced before completion</div></div>
       </div>
       <ul class="project-bullets">
-        <li>Built the seller flow, agent workspace, autosave, answer history, and contradiction checks</li>
-        <li>Mapped all 159 PDF fields and connected a working DocuSeal sandbox flow</li>
+        <li>Built the seller flow, the agent workspace, autosave, answer history, and the contradiction checks</li>
+        <li>The official PDF turned out to carry a full AcroForm rather than being flat. All <strong>159 widgets are accounted for</strong> and re-checked on every boot, feeding a working DocuSeal signature flow</li>
         <li><strong>Still in progress:</strong> email verification, buyer and agent signing, final delivery, and long-answer handling</li>
       </ul>
       <div class="project-stack">
@@ -988,7 +988,7 @@ a:focus-visible, button:focus-visible {
           <div class="proj-metric">
             <div class="proj-metric-value">138</div>
             <div class="proj-metric-label">Registered experiments</div>
-            <div class="proj-metric-sub">Penalised statistics, leak-free testing</div>
+            <div class="proj-metric-sub">Penalized statistics, leak-free testing</div>
           </div>
           <div class="proj-metric">
             <div class="proj-metric-value">28</div>
@@ -1032,9 +1032,10 @@ a:focus-visible, button:focus-visible {
       <h3 class="project-title">BEASTY PAGES</h3>
       <p class="project-desc">Glenn wanted local businesses to feel as easy to browse as apps on a phone. I built a mobile-first directory where each business gets an icon, customers can browse menus, and one cart can hold items from several vendors.</p>
       <ul class="project-bullets">
-        <li>Moved the project from its original “The Home Screen” name to the current brand and domain</li>
-        <li>Built one shared cart with separate vendor tickets behind it</li>
-        <li>The public site is a working prototype; payments and fulfillment are demos, not live operations</li>
+        <li>Built one shared cart across several independent kitchens, with a separate vendor ticket behind each order</li>
+        <li>Every business is an icon on a home-screen grid, so browsing a menu feels like opening an app rather than reading a directory</li>
+        <li>These are real businesses, so nothing is invented &mdash; no made-up menu item, price or photo</li>
+        <li>Launched as BEASTY PAGES, renamed from the original working title, The Home Screen. Payments and fulfillment are still simulated</li>
       </ul>
       <div class="project-stack">
         <span class="stack-tag">TypeScript</span><span class="stack-tag">React</span>
@@ -1090,7 +1091,7 @@ a:focus-visible, button:focus-visible {
       <ul class="project-bullets">
         <li>Pulls demand signals from Google Places, competitor counts, and Census data into one report</li>
         <li>Can re-score the whole country from saved data without paying for another API call</li>
-        <li>While checking it against past enrollment data, I found an older test was feeding the answer back into the score. I removed that leak and kept the weaker—but real—result</li>
+        <li>While checking it against past enrollment data, I found an older test was feeding the answer back into the score. I removed that leak and kept the weaker &mdash; but real &mdash; result</li>
         <li>Each ZIP shows what supports the score, what argues against it, and what is still unknown</li>
       </ul>
       <div class="project-stack">
@@ -1202,7 +1203,7 @@ a:focus-visible, button:focus-visible {
     </a>
 
     <!-- 明途 gut health agent -->
-    <a href="https://mingtu-gut-agent.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt" data-category="systems">
+    <div class="project-card reveal js-tilt" data-category="systems">
       <div class="proj-img-wrap">
         <img src="logos/mingtu.webp" width="512" height="512" alt="明途" class="proj-img contain" loading="lazy" decoding="async">
       </div>
@@ -1219,7 +1220,11 @@ a:focus-visible, button:focus-visible {
         <span class="stack-tag">RAG</span><span class="stack-tag">BM25</span>
         <span class="stack-tag">Render</span>
       </div>
-    </a>
+      <div class="project-links">
+        <a href="https://mingtu-gut-agent.onrender.com" target="_blank" rel="noopener" class="project-link">↗ Open live agent</a>
+        <a href="https://github.com/Noctilucenty/mingtu-gut-agent" target="_blank" rel="noopener" class="project-link">↗ View source</a>
+      </div>
+    </div>
 
     <!-- ALLCPR Site Operations Agent -->
     <a href="https://allcpr-agent-7bt0.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt" data-category="client systems">
@@ -1323,19 +1328,21 @@ a:focus-visible, button:focus-visible {
       </div>
       <span class="project-tag tag-client">Client work · 2026</span>
       <h3 class="project-title">FLORES Boxing Gloves</h3>
-      <p class="project-desc">FLORES has been making boxing gloves in the Bay Area for about a century. I rebuilt the site around the family archive and handmade products, with galleries, a lightbox, and a direct enquiry form.</p>
+      <p class="project-desc">FLORES has been making boxing gloves in the Bay Area for about a century, with no site that showed it. I designed and built the whole thing &mdash; layout, type, identity and code &mdash; and took it to two complete directions so the family could choose one.</p>
       <ul class="project-bullets">
-        <li>Kept the site lightweight, with no framework or build step</li>
-        <li>Built responsive product galleries with smaller files for phones</li>
-        <li>Redrew the FLORES oval mark as SVG so it stays sharp at any size</li>
+        <li><strong>Two full builds, side by side:</strong> a heritage direction I drew from the family’s ten-slide pitch deck, and an editorial direction built to the owner’s own comp. There was no existing site to copy &mdash; the design is mine</li>
+        <li>Hand-written HTML, CSS and JavaScript, no framework and no build step. floresboxinggloves.com runs this markup inside Squarespace</li>
+        <li>Drew the FLORES cuff-label cartouche as SVG for the heritage direction, so the mark stays sharp at any size</li>
+        <li>Galleries served at three image widths, because people open this on a phone in a gym</li>
       </ul>
       <div class="project-stack">
         <span class="stack-tag">HTML5</span><span class="stack-tag">CSS3</span>
-        <span class="stack-tag">JavaScript</span><span class="stack-tag">Squarespace</span>
+        <span class="stack-tag">JavaScript</span><span class="stack-tag">SVG</span>
+        <span class="stack-tag">Squarespace</span>
       </div>
       <div class="project-links">
-        <a href="https://www.floresboxinggloves.com/" target="_blank" rel="noopener" class="project-link">↗ Production site</a>
-        <a href="https://flores-boxing-gloves-v2.onrender.com/" target="_blank" rel="noopener" class="project-link">↗ Current preview</a>
+        <a href="https://www.floresboxinggloves.com/" target="_blank" rel="noopener" class="project-link">↗ Live site</a>
+        <a href="https://flores-boxing-gloves-v2.onrender.com/" target="_blank" rel="noopener" class="project-link">↗ Editorial direction</a>
       </div>
     </div>
 
@@ -1388,7 +1395,7 @@ a:focus-visible, button:focus-visible {
       <ul class="project-bullets">
         <li>Made separate pages for websites, software, automation, and missed-lead recovery</li>
         <li>Connected quotes, bookings, lead receipts, and campaign tracking</li>
-        <li>Leon Builds is the business site. This portfolio stays separate</li>
+        <li>Kept deliberately separate from this portfolio: Leon Builds sells the work, this page shows it</li>
       </ul>
       <div class="project-stack">
         <span class="stack-tag">HTML5</span><span class="stack-tag">CSS3</span>
@@ -1412,7 +1419,7 @@ a:focus-visible, button:focus-visible {
       <div class="proj-img-wrap">
         <img src="expertflow-logo.webp" width="860" height="469" alt="ExpertFlow" class="proj-img" style="border-radius:10px;object-fit:cover;width:100%;height:100%;" loading="lazy" decoding="async">
       </div>
-      <span class="project-tag tag-personal">Earlier work · 2025</span>
+      <span class="project-tag tag-personal">Earlier work · 2026</span>
       <h3 class="project-title">ExpertFlow</h3>
       <p class="project-desc">A CRM for research teams that matches client requests with subject-matter experts and keeps consultations moving through the pipeline.</p>
       <ul class="project-bullets">
@@ -1432,9 +1439,9 @@ a:focus-visible, button:focus-visible {
       <div class="proj-img-wrap">
         <img src="orryin-logo.webp" width="860" height="759" alt="Orryin Investment" class="proj-img" style="border-radius:10px;object-fit:cover;object-position:center 35%;width:100%;height:100%;" loading="lazy" decoding="async">
       </div>
-      <span class="project-tag tag-personal">Earlier work · 2024</span>
+      <span class="project-tag tag-personal">Earlier work · 2026</span>
       <h3 class="project-title">Orryin Investment</h3>
-      <p class="project-desc">A platform letting people outside the US invest using their own country's ID — a Brazilian CPF instead of a US SSN — generalised across countries. Backend MVP with KYC, FX and brokerage flows, plus a React Native onboarding app.</p>
+      <p class="project-desc">A platform letting people outside the US invest using their own country's ID — a Brazilian CPF instead of a US SSN — generalized across countries. Backend MVP with KYC, FX and brokerage flows, plus a React Native onboarding app.</p>
       <ul class="project-bullets">
         <li>KYC verification pipeline with document upload and identity checks</li>
         <li>FX exchange and brokerage integration flows</li>
@@ -1452,11 +1459,11 @@ a:focus-visible, button:focus-visible {
       <div class="proj-img-wrap">
         <span class="proj-icon-text">MIDAS</span>
       </div>
-      <span class="project-tag tag-personal">Personal · 2024</span>
+      <span class="project-tag tag-personal">Personal · 2026</span>
       <h3 class="project-title">MIDAS</h3>
       <p class="project-desc">A trading research project for cleaning market data, trying strategy ideas, and replaying them against historical data.</p>
       <ul class="project-bullets">
-        <li>Market data ingestion and normalisation pipeline</li>
+        <li>Market data ingestion and normalization pipeline</li>
         <li>Strategy prototyping harness with historical replay</li>
         <li>Performance-sensitive core in Rust and C++, analysis in Python</li>
       </ul>
@@ -1471,7 +1478,7 @@ a:focus-visible, button:focus-visible {
       <div class="proj-img-wrap">
         <span class="proj-icon-text">AIngle</span>
       </div>
-      <span class="project-tag tag-personal">Personal · 2024</span>
+      <span class="project-tag tag-personal">Personal · 2026</span>
       <h3 class="project-title">AIngle</h3>
       <p class="project-desc">An experiment in sending images from a React Native app to a FastAPI service for analysis and review.</p>
       <ul class="project-bullets">
@@ -1490,7 +1497,7 @@ a:focus-visible, button:focus-visible {
       <div class="proj-img-wrap">
         <span class="proj-icon-text">catnap</span>
       </div>
-      <span class="project-tag tag-personal">Personal · 2024</span>
+      <span class="project-tag tag-personal">Personal · 2026</span>
       <h3 class="project-title">catnap</h3>
       <p class="project-desc">AI phone and SMS intake for small businesses. Customers call or text, an AI collects their details, and the owner gets notified.</p>
       <ul class="project-bullets">
@@ -1509,7 +1516,7 @@ a:focus-visible, button:focus-visible {
       <div class="proj-img-wrap">
         <span class="proj-icon-text">GX</span>
       </div>
-      <span class="project-tag tag-open">Open Source · 2023</span>
+      <span class="project-tag tag-open">Open Source · 2025</span>
       <h3 class="project-title">GX-Ambient</h3>
       <p class="project-desc">Browser extension bringing Opera GX's ambient music and adaptive sound effects to Chromium browsers.</p>
       <ul class="project-bullets">
@@ -1595,7 +1602,7 @@ a:focus-visible, button:focus-visible {
   <div class="ship-log reveal">
     <article class="ship-item"><div class="ship-date">August 2026</div><h3 class="ship-title">Loqol demo opened</h3><p class="ship-copy">Opened the seller flow and agent workspace as a public demo, with contradiction checks and PDF output.</p></article>
     <article class="ship-item"><div class="ship-date">August 2026</div><h3 class="ship-title">BEASTY PAGES launched</h3><p class="ship-copy">Relaunched the project as BEASTY PAGES at beastypages.com.</p></article>
-    <article class="ship-item"><div class="ship-date">August 2026</div><h3 class="ship-title">FLORES rebuilt</h3><p class="ship-copy">Published the rebuilt production site and a fresh preview.</p></article>
+    <article class="ship-item"><div class="ship-date">August 2026</div><h3 class="ship-title">FLORES went live</h3><p class="ship-copy">Put the site I designed and built onto the production domain, with the second direction kept as a preview.</p></article>
     <article class="ship-item"><div class="ship-date">July 2026</div><h3 class="ship-title">Curio shipped</h3><p class="ship-copy">Released Curio on the App Store and kept shipping updates.</p></article>
   </div>
 </section>
@@ -1676,9 +1683,9 @@ a:focus-visible, button:focus-visible {
       <div class="timeline-dot"></div>
       <div class="timeline-date">Apr 2019 – Dec 2019</div>
       <div class="timeline-role">Max4Live Plugin Developer</div>
-      <div class="timeline-org">Ableton · Seasonal · Brazil (Remote)</div>
+      <div class="timeline-org">Independent · Brazil (Remote)</div>
       <ul class="timeline-bullets">
-        <li>Developed a custom plugin for Ableton's Launchpad using Max4Live, enhancing visual performance and MIDI interactivity</li>
+        <li>Built a Max4Live device for the Novation Launchpad, adding visual performance feedback and richer MIDI interactivity inside Ableton Live</li>
         <li>Integrated audio processing logic and interactive user controls into the device interface</li>
       </ul>
     </div>

@@ -8,7 +8,7 @@ Independent software-engineering portfolio for [Leon Kelvin Li](https://noctiluc
 
 An iPhone app for learning something new without leaving the scroll. Each card is a short, sourced story, and Curio AI lets readers ask questions or keep digging. I built the app, backend, content pipeline, and App Store release.
 
-**Status:** Public App Store release, actively maintained
+**Status:** Live on the US App Store since 22 July 2026, still shipping updates
 
 **Stack:** React, TypeScript, Vite, Capacitor 8, Node/Express, PostgreSQL, OpenAI, ElevenLabs, RevenueCat
 
@@ -16,7 +16,7 @@ An iPhone app for learning something new without leaving the scroll. Each card i
 
 ### Loqol Disclosures
 
-Loqol helps California home sellers complete the TDS form without staring at a long PDF. It guides them through 82 questions by tap or voice, flags answers that conflict, and fills the form for signature.
+A web app that walks a California home seller through the Transfer Disclosure Statement without handing them a long PDF. It asks 82 questions by tap or voice, flags answers that contradict each other, and fills the real form for signature. The PDF turned out to carry a full AcroForm rather than being flat, so all 159 widgets are accounted for and re-checked on every boot.
 
 **Status:** Public seller-side demo. Email OTP, buyer/agent signing, seller delivery, and overlong-answer handling remain in progress.
 
@@ -36,9 +36,9 @@ ALLCPR needed a faster way to compare possible new locations. I built a bilingua
 
 ### BEASTY PAGES
 
-Glenn wanted local businesses to feel as easy to browse as apps on a phone. I built a mobile-first directory where each business gets an icon, customers can browse menus, and one cart can hold items from several vendors.
+Glenn wanted local businesses to feel as easy to browse as apps on a phone. I built a mobile-first directory where each business gets an icon, customers can browse menus, and one cart holds items from several vendors with a separate ticket behind each. Nothing is invented — no made-up menu item, price or photo.
 
-**Status:** Public client prototype. Food payment, kitchen operations, and fulfillment remain simulated.
+**Status:** Public client prototype. Payment, kitchen operations, and fulfillment remain simulated.
 
 **Stack:** React, TypeScript, Vite, Node/Express, SQLite, Render
 
@@ -46,13 +46,13 @@ Glenn wanted local businesses to feel as easy to browse as apps on a phone. I bu
 
 ### FLORES Boxing Gloves
 
-FLORES has been making boxing gloves in the Bay Area for about a century. I rebuilt the site around the family archive and handmade products, with galleries, a lightbox, and a direct enquiry form.
+FLORES has been making boxing gloves in the Bay Area for about a century, with no site that showed it. I designed and built the whole thing — layout, type, identity and code — and took it to two complete directions so the family could choose one. There was no existing site to copy from.
 
-**Status:** Production client site
+**Status:** Live. floresboxinggloves.com runs my markup inside Squarespace; the second direction stays up as a preview.
 
-**Stack:** HTML, CSS, JavaScript, Squarespace, Render
+**Stack:** HTML, CSS, JavaScript, SVG, Squarespace, Render
 
-**Links:** [Production](https://www.floresboxinggloves.com/) · [Current preview](https://flores-boxing-gloves-v2.onrender.com/)
+**Links:** [Live site](https://www.floresboxinggloves.com/) · [Editorial direction](https://flores-boxing-gloves-v2.onrender.com/)
 
 ### Leon Builds
 
