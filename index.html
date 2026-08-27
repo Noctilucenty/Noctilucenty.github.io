@@ -1421,12 +1421,12 @@ a:focus-visible, button:focus-visible {
       </div>
       <span class="project-tag tag-personal">Earlier work · 2026</span>
       <h3 class="project-title">ExpertFlow</h3>
-      <p class="project-desc">A CRM for research teams that matches client requests with subject-matter experts and keeps consultations moving through the pipeline.</p>
+      <p class="project-desc">A clickable prototype of an expert-network CRM for research teams &mdash; request intake, expert matching, consultation pipeline, calls, clients, analytics and team management.</p>
       <ul class="project-bullets">
-        <li>AI matching engine scoring experts against requests, surfacing highest-fit candidates first</li>
-        <li>Live dialer, AI call summarizer, and Kanban pipeline for deal flow</li>
-        <li>Role-based access control (Admin / Manager / Associate) with full RBAC</li>
-        <li>Zero-dependency single-file SPA — open and deploy anywhere instantly</li>
+        <li><strong>Nine full screens in a single HTML file</strong> with no build step. Open it from disk and it runs</li>
+        <li>Kanban pipeline, expert-matching views, a working dial pad, and separate Admin, Manager and Associate role views</li>
+        <li>Charts through Chart.js; everything else is hand-written CSS and vanilla JavaScript</li>
+        <li><strong>A design prototype, not a running system</strong> &mdash; the AI panels and the dialer are mocked, with no backend behind them</li>
       </ul>
       <div class="project-stack">
         <span class="stack-tag">HTML5</span><span class="stack-tag">CSS3</span>
@@ -1518,15 +1518,15 @@ a:focus-visible, button:focus-visible {
       </div>
       <span class="project-tag tag-open">Open Source · 2025</span>
       <h3 class="project-title">GX-Ambient</h3>
-      <p class="project-desc">Browser extension bringing Opera GX's ambient music and adaptive sound effects to Chromium browsers.</p>
+      <p class="project-desc">A Chromium extension that loops ambient tracks inspired by Opera GX, and gets out of the way the moment you play something else.</p>
       <ul class="project-bullets">
-        <li>Dynamic ambient soundscapes adapting to browsing context</li>
-        <li>Interactive controls for volume, theme, and sound mode</li>
-        <li>Lightweight extension with no external dependencies</li>
+        <li>Five looping tracks with a picker, play/pause, and a volume slider</li>
+        <li>Watches every open tab and <strong>fades itself out when anything else starts playing audio</strong>, then fades back in when that stops</li>
+        <li>Vanilla JavaScript against the Chrome extension APIs &mdash; no libraries, no build step</li>
       </ul>
       <div class="project-stack">
         <span class="stack-tag">JavaScript</span><span class="stack-tag">Browser Extension</span>
-        <span class="stack-tag">Web Audio API</span>
+        <span class="stack-tag">HTML5 Audio</span>
       </div>
     </a>
 
@@ -1822,7 +1822,7 @@ if(!reducedMotion) setTimeout(()=>{del=true;type();},2200);
 
 /* MARQUEE */
 const r1=['React','React Native','TypeScript','FastAPI','PostgreSQL','Python','C++','Capacitor','Expo','SQLAlchemy'];
-const r2=['UX Design','Claude API','Selenium','asyncio','Vercel','Render','GitHub Actions','REST APIs','Tailwind','HDF5'];
+const r2=['UX Design','Claude API','Rust','asyncio','Vercel','Render','GitHub Actions','REST APIs','Tailwind','FFmpeg'];
 const mc=['#4f8aff','#29d4c5','#8b6aff','#d966f0','#4f8aff','#29d4c5','#8b6aff','#d966f0'];
 function mkMq(id,items){
   const el=document.getElementById(id);
