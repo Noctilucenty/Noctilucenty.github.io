@@ -456,22 +456,6 @@ section { position: relative; z-index: 1; }
   padding: .2rem .6rem; background: rgba(255,255,255,.055);
   border: 1px solid var(--border); border-radius: 6px; color: var(--dim);
 }
-.project-visual {
-  border-radius: 16px; height: 220px;
-  display: flex; align-items: center; justify-content: center;
-  border: 1px solid rgba(139,106,255,.25); position: relative; overflow: hidden;
-  background: #0d0d18;
-}
-.project-visual::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 100%, rgba(79,138,255,.15) 0%, transparent 65%);
-  pointer-events: none; z-index: 0;
-}
-.project-visual-inner {
-  font-family: 'DM Serif Display', serif; font-size: 3.5rem; font-style: italic;
-  background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  position: relative; z-index: 1; text-align: center; line-height: 1.2;
-}
 .project-links { display: flex; gap: .75rem; margin-top: 1.5rem; }
 .project-link {
   display: inline-flex; align-items: center; gap: .4rem;
@@ -923,38 +907,8 @@ a:focus-visible, button:focus-visible {
         </div>
     </div>
 
-    <!-- Loqol TDS - New -->
-    <div class="project-card featured reveal js-tilt" data-category="product systems" data-selected="true">
-      <div class="project-visual" aria-hidden="true">
-        <div class="project-visual-inner">Loqol<br><span style="font-size:1.2rem;font-family:'JetBrains Mono',monospace;font-style:normal;">disclosures</span></div>
-      </div>
-      <span class="project-tag tag-open" style="margin-top:1.5rem;">New · Public demo · Aug 2026</span>
-      <h3 class="project-title">Loqol Disclosures</h3>
-      <p class="project-desc">I built a web app that walks a California home seller through the Transfer Disclosure Statement without handing them a long PDF. It asks 82 questions by tap or voice, flags answers that contradict each other, and fills the real form for signature.</p>
-      <div class="proj-metrics">
-        <div class="proj-metric"><div class="proj-metric-value">82</div><div class="proj-metric-label">Guided questions</div><div class="proj-metric-sub">63 tap, 19 conversational</div></div>
-        <div class="proj-metric"><div class="proj-metric-value">159</div><div class="proj-metric-label">PDF fields mapped</div><div class="proj-metric-sub">Form output prepared for signature</div></div>
-        <div class="proj-metric"><div class="proj-metric-value">16</div><div class="proj-metric-label">Consistency rules</div><div class="proj-metric-sub">Conflicts surfaced before completion</div></div>
-      </div>
-      <ul class="project-bullets">
-        <li>Built the seller flow, the agent workspace, autosave, answer history, and the contradiction checks</li>
-        <li>The official PDF turned out to carry a full AcroForm rather than being flat. All <strong>159 widgets are accounted for</strong> and re-checked on every boot, feeding a working DocuSeal signature flow</li>
-        <li><strong>Still in progress:</strong> email verification, buyer and agent signing, final delivery, and long-answer handling</li>
-      </ul>
-      <div class="project-stack">
-        <span class="stack-tag">Python</span><span class="stack-tag">FastAPI</span>
-        <span class="stack-tag">React</span><span class="stack-tag">TypeScript</span>
-        <span class="stack-tag">PostgreSQL</span><span class="stack-tag">pypdf</span>
-        <span class="stack-tag">DocuSeal</span><span class="stack-tag">OpenAI Realtime</span>
-      </div>
-      <div class="project-links">
-        <a href="https://loqol-tds.onrender.com/agent" target="_blank" rel="noopener" class="project-link">↗ Open demo</a>
-        <a href="https://github.com/Noctilucenty/loqol-tds" target="_blank" rel="noopener" class="project-link">↗ View source</a>
-      </div>
-    </div>
-
     <!-- ATLAS - Featured -->
-    <div class="project-card featured reveal js-tilt" data-category="systems">
+    <div class="project-card featured reveal js-tilt" data-category="systems" data-selected="true">
       <div class="proj-img-wrap" style="height:220px;">
         <svg viewBox="0 0 240 120" width="230" height="115" role="img" aria-label="ATLAS">
           <defs>
@@ -1414,26 +1368,6 @@ a:focus-visible, button:focus-visible {
       <span class="grid-divider-rule"></span>
     </div>
 
-    <!-- ExpertFlow -->
-    <a href="https://github.com/Noctilucenty/ExpertFlow" target="_blank" rel="noopener" class="project-card reveal js-tilt" data-category="product">
-      <div class="proj-img-wrap">
-        <img src="expertflow-logo.webp" width="860" height="469" alt="ExpertFlow" class="proj-img" style="border-radius:10px;object-fit:cover;width:100%;height:100%;" loading="lazy" decoding="async">
-      </div>
-      <span class="project-tag tag-personal">Earlier work · 2026</span>
-      <h3 class="project-title">ExpertFlow</h3>
-      <p class="project-desc">A clickable prototype of an expert-network CRM for research teams &mdash; request intake, expert matching, consultation pipeline, calls, clients, analytics and team management.</p>
-      <ul class="project-bullets">
-        <li><strong>Nine full screens in a single HTML file</strong> with no build step. Open it from disk and it runs</li>
-        <li>Kanban pipeline, expert-matching views, a working dial pad, and separate Admin, Manager and Associate role views</li>
-        <li>Charts through Chart.js; everything else is hand-written CSS and vanilla JavaScript</li>
-        <li><strong>A design prototype, not a running system</strong> &mdash; the AI panels and the dialer are mocked, with no backend behind them</li>
-      </ul>
-      <div class="project-stack">
-        <span class="stack-tag">HTML5</span><span class="stack-tag">CSS3</span>
-        <span class="stack-tag">JavaScript</span><span class="stack-tag">Chart.js</span>
-      </div>
-    </a>
-
     <!-- Orryin -->
     <a href="https://github.com/Noctilucenty/orryin-backend-FORMER-SCENARA" target="_blank" rel="noopener" class="project-card reveal js-tilt" data-category="product">
       <div class="proj-img-wrap">
@@ -1600,7 +1534,6 @@ a:focus-visible, button:focus-visible {
     <p class="section-copy">A few recent launches and updates.</p>
   </div>
   <div class="ship-log reveal">
-    <article class="ship-item"><div class="ship-date">August 2026</div><h3 class="ship-title">Loqol demo opened</h3><p class="ship-copy">Opened the seller flow and agent workspace as a public demo, with contradiction checks and PDF output.</p></article>
     <article class="ship-item"><div class="ship-date">August 2026</div><h3 class="ship-title">BEASTY PAGES launched</h3><p class="ship-copy">Relaunched the project as BEASTY PAGES at beastypages.com.</p></article>
     <article class="ship-item"><div class="ship-date">August 2026</div><h3 class="ship-title">FLORES went live</h3><p class="ship-copy">Put the site I designed and built onto the production domain, with the second direction kept as a preview.</p></article>
     <article class="ship-item"><div class="ship-date">July 2026</div><h3 class="ship-title">Curio shipped</h3><p class="ship-copy">Released Curio on the App Store and kept shipping updates.</p></article>

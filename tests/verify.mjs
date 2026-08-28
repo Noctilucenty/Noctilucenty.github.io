@@ -11,7 +11,6 @@ const required = [
   'class="skip-link"',
   'aria-controls="navDrawer"',
   'id="projectFilterStatus"',
-  'Loqol Disclosures',
   'https://beastypages.com/',
   'https://flores-boxing-gloves-v2.onrender.com/',
   'https://leonbuilds.org',
@@ -28,6 +27,8 @@ const forbidden = [
   'No contributions',
   'https://the-home-screen.onrender.com',
   'https://flores-boxing-gloves-u81a.onrender.com',
+  'loqol-tds.onrender.com',
+  'github.com/Noctilucenty/ExpertFlow',
   'Live and taking real orders',
   'now on 1.0.4',
   '80.4% average watch ratio'

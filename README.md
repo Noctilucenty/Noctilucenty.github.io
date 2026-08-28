@@ -14,16 +14,6 @@ An iPhone app for learning something new without leaving the scroll. Each card i
 
 **Links:** [App Store](https://apps.apple.com/app/id6781121127) · [trycurio.app](https://trycurio.app/)
 
-### Loqol Disclosures
-
-A web app that walks a California home seller through the Transfer Disclosure Statement without handing them a long PDF. It asks 82 questions by tap or voice, flags answers that contradict each other, and fills the real form for signature. The PDF turned out to carry a full AcroForm rather than being flat, so all 159 widgets are accounted for and re-checked on every boot.
-
-**Status:** Public seller-side demo. Email OTP, buyer/agent signing, seller delivery, and overlong-answer handling remain in progress.
-
-**Stack:** Python, FastAPI, React, TypeScript, PostgreSQL, OpenAI Realtime, pypdf, DocuSeal
-
-**Links:** [Demo](https://loqol-tds.onrender.com/agent) · [Source](https://github.com/Noctilucenty/loqol-tds)
-
 ### ALLCPR Site Intelligence
 
 ALLCPR needed a faster way to compare possible new locations. I built a bilingual map that screens all 33,772 U.S. ZIP codes using demand, competition, demographics, and the limits of the available data.
@@ -66,7 +56,7 @@ Leon Builds is my client-services site. It brings the service pages, quotes, boo
 
 ## More work
 
-The portfolio's **All work** filter includes ATLAS, the ALLCPR iOS app, Curio Automation Platform, Continuity, Scenara, ALLCPR operational agents, 明途, Yelp Review Desk, ONPECY, 安安, Noctilucente, ExpertFlow, Orryin, MIDAS, AIngle, catnap, GX-Ambient, and earlier freelance/Max4Live work. Every card includes its current status or boundary.
+The portfolio's **All work** filter includes ATLAS, the ALLCPR iOS app, Curio Automation Platform, Continuity, Scenara, ALLCPR operational agents, 明途, Yelp Review Desk, ONPECY, 安安, Noctilucente, Orryin, MIDAS, AIngle, catnap, GX-Ambient, and earlier freelance/Max4Live work. Every card includes its current status or boundary.
 
 ## Local development
 
