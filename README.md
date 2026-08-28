@@ -26,11 +26,11 @@ ALLCPR needed a faster way to compare possible new locations. I built a bilingua
 
 ### BEASTY PAGES
 
-Glenn wanted local businesses to feel as easy to browse as apps on a phone. I built a mobile-first directory where each business gets an icon, customers can browse menus, and one cart holds items from several vendors with a separate ticket behind each. Nothing is invented — no made-up menu item, price or photo.
+Glenn wanted local businesses to feel as easy to browse as apps on a phone. Every kitchen is an icon on a home screen; one cart spans several of them and splits into a separate ticket per vendor. Nothing is invented — no made-up menu item, price or photo.
 
-**Status:** Public client prototype. Payment, kitchen operations, and fulfillment remain simulated.
+**Status:** Live and taking real orders, with a kitchen ticket state machine and real Stripe checkout for memberships. Card payment for food is the one part still switched off.
 
-**Stack:** React, TypeScript, Vite, Node/Express, SQLite, Render
+**Stack:** React, TypeScript, Vite, Node/Express, PostgreSQL, SQLite, Stripe, Render
 
 **Link:** [beastypages.com](https://beastypages.com/)
 

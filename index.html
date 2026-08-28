@@ -636,19 +636,66 @@ footer {
 
 @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
 
-/* PROJECT IMAGE BANNER */
+/* PROJECT ICON PLATE — a lit stage, with the mark presented as an app tile */
 .proj-img-wrap {
-  width: 100%; height: 155px; border-radius: 12px; overflow: hidden;
-  margin-bottom: 1.5rem; background: #090913;
+  width: 100%; height: 168px; border-radius: 18px; overflow: hidden;
+  margin-bottom: 1.5rem; position: relative;
+  background:
+    radial-gradient(120% 140% at 50% -20%, rgba(139,106,255,.16), rgba(139,106,255,0) 62%),
+    linear-gradient(180deg, #0d0d18 0%, #08080f 100%);
   display: flex; align-items: center; justify-content: center;
-  border: 1px solid rgba(255,255,255,.06); flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,.07); flex-shrink: 0;
 }
-.proj-img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 10px; }
-.proj-img.contain { object-fit: contain; padding: 1.5rem; background: #090913; border-radius: 10px; }
+/* hairline highlight along the top edge */
+.proj-img-wrap::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,0) 42%);
+}
+/* the tile itself — shared by images, inline marks and letter marks */
+.proj-img.contain, .proj-mark, .proj-icon-text {
+  position: relative;
+  height: 104px; width: auto; max-width: 76%;
+  padding: 15px; border-radius: 26px;
+  background: linear-gradient(158deg, rgba(255,255,255,.12), rgba(255,255,255,.028));
+  box-shadow:
+    0 18px 38px -12px rgba(0,0,0,.75),
+    0 0 0 1px rgba(255,255,255,.075),
+    inset 0 1px 0 rgba(255,255,255,.17);
+  transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s;
+}
+.proj-img.contain { object-fit: contain; display: block; }
+.proj-mark { display: block; box-sizing: border-box; }
 .proj-icon-text {
-  font-family: 'DM Serif Display', serif; font-size: 2rem; font-style: italic;
-  background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  width: auto; min-width: 104px; padding: 15px 26px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Serif Display', serif; font-size: 1.4rem; font-style: italic;
+  line-height: 1; text-align: center; letter-spacing: -.01em; white-space: nowrap;
+  background-image: linear-gradient(158deg, rgba(255,255,255,.12), rgba(255,255,255,.028));
+  color: transparent;
 }
+/* the gradient wordmark, painted over the tile rather than replacing it */
+.proj-icon-text > span {
+  background: var(--grad); -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+.project-card:hover .proj-img.contain,
+.project-card:hover .proj-mark,
+.project-card:hover .proj-icon-text {
+  transform: translateY(-3px);
+  box-shadow:
+    0 26px 50px -14px rgba(0,0,0,.8),
+    0 0 0 1px rgba(139,106,255,.28),
+    inset 0 1px 0 rgba(255,255,255,.2);
+}
+/* featured cards get a taller stage and a larger tile */
+.project-card.featured .proj-img-wrap { height: 220px; }
+.project-card.featured .proj-img.contain,
+.project-card.featured .proj-mark { height: 132px; padding: 18px; border-radius: 30px; }
+/* a light mark needs a light tile */
+.proj-img.contain.on-cream { background: linear-gradient(158deg, #fbf7ec, #ece3cd); }
+/* a mark that sits small on its own canvas fills the tile instead of floating in it */
+.proj-img.contain.fill { padding: 0; object-fit: cover; width: 104px; }
+.project-card.featured .proj-img.contain.fill { width: 132px; }
 
 @media(max-width:1024px){
   .projects-grid { grid-template-columns: repeat(2,1fr); }
@@ -678,7 +725,14 @@ footer {
   .projects-grid { grid-template-columns: 1fr; gap: 1rem; }
   .project-card.featured { grid-column: 1 / -1; padding: 1.5rem; }
   .project-card { padding: 1.5rem; }
-  .proj-img-wrap { height: 130px; }
+  .proj-img-wrap { height: 142px; border-radius: 16px; }
+  .proj-img.contain, .proj-mark, .proj-icon-text { height: 88px; padding: 12px; border-radius: 22px; }
+  .proj-img.contain.fill { width: 88px; }
+  .proj-icon-text { min-width: 88px; padding: 12px 20px; font-size: 1.2rem; }
+  .project-card.featured .proj-img-wrap { height: 176px; }
+  .project-card.featured .proj-img.contain,
+  .project-card.featured .proj-mark { height: 104px; padding: 14px; border-radius: 24px; }
+  .project-card.featured .proj-img.contain.fill { width: 104px; }
   .edu-card { flex-direction: column; gap: 1rem; }
   footer { flex-direction:column; gap:.75rem; text-align:center; }
   .stats-grid { gap: .75rem; }
@@ -807,7 +861,7 @@ a:focus-visible, button:focus-visible {
     <span class="line1" aria-hidden="true"><span style="--i:0">L</span><span style="--i:1">e</span><span style="--i:2">o</span><span style="--i:3">n</span><span class="sp"></span><span style="--i:4">K</span><span style="--i:5">e</span><span style="--i:6">l</span><span style="--i:7">v</span><span style="--i:8">i</span><span style="--i:9">n</span><span class="sp"></span><span style="--i:10">L</span><span style="--i:11">i</span></span>
   </h1>
   <div class="hero-typewriter"><span id="tw"></span><span class="tw-cursor"></span></div>
-  <p class="hero-sub">I build apps and tools from the first sketch to the live product. Recent work includes Curio on the App Store and a location-planning system that scores every U.S. ZIP code.</p>
+  <p class="hero-sub">I build apps and tools from the first sketch to the live product. Lately: Curio on the App Store, and a system that scores every U.S. ZIP code to work out where a business should open next.</p>
   <div class="hero-langs">
     <span class="lang-tag">🇺🇸 English</span>
     <span class="lang-tag">🇨🇳 Chinese</span>
@@ -855,12 +909,12 @@ a:focus-visible, button:focus-visible {
 
     <!-- Curio - Featured -->
     <div class="project-card featured reveal js-tilt" data-category="product systems" data-selected="true">
-      <div class="proj-img-wrap" style="height:220px;">
-        <img src="curio-logo.webp" width="512" height="512" alt="Curio app logo" class="proj-img contain" style="border-radius:10px;" loading="lazy" decoding="async">
+      <div class="proj-img-wrap">
+        <img src="curio-logo.webp" width="512" height="512" alt="Curio app logo" class="proj-img contain" loading="lazy" decoding="async">
       </div>
       <span class="project-tag tag-featured">Featured · 2026 – Present</span>
       <h3 class="project-title">Curio</h3>
-        <p class="project-desc">Curio is an iPhone app for learning something new without leaving the scroll. Each card is a short, sourced story, and Curio AI lets readers ask questions or keep digging. I built the app, backend, content pipeline, and App Store release.</p>
+        <p class="project-desc">Curio is an iPhone app for learning something new without leaving the scroll. Each card is a short, sourced story, and Curio AI lets readers ask questions or keep digging. I built all of it &mdash; app, backend, content pipeline, and the App Store release.</p>
 
         <div class="proj-metrics">
           <div class="proj-metric">
@@ -883,7 +937,7 @@ a:focus-visible, button:focus-visible {
         <ul class="project-bullets">
           <li>Built the pipeline that creates, checks, translates, and refreshes the cards</li>
           <li>Built <strong>Curio AI</strong> for follow-up questions, quizzes, and related rabbit holes, with retrieval and validation before an answer is shown</li>
-          <li>Added read-aloud, eye protection, soundtracks, language learning, scenarios, and community stories</li>
+          <li>Six ways to read a card: aloud, in the dark, over a soundtrack, in a second language, as a branching scenario, or through what other readers wrote</li>
           <li>Shipped the iOS app from one React + Capacitor codebase, backed by Express and PostgreSQL</li>
           <li>Added a guard step that puts six already-shipped bugs back into the code on purpose, and <strong>fails the build if the tests covering them stay green</strong>. Its first run proved two of my own fixes did nothing</li>
         </ul>
@@ -909,8 +963,8 @@ a:focus-visible, button:focus-visible {
 
     <!-- ATLAS - Featured -->
     <div class="project-card featured reveal js-tilt" data-category="systems" data-selected="true">
-      <div class="proj-img-wrap" style="height:220px;">
-        <svg viewBox="0 0 240 120" width="230" height="115" role="img" aria-label="ATLAS">
+      <div class="proj-img-wrap">
+        <svg viewBox="0 0 240 120" width="230" height="115" class="proj-mark" role="img" aria-label="ATLAS">
           <defs>
             <linearGradient id="gATLAS" gradientUnits="userSpaceOnUse" x1="16" y1="110" x2="224" y2="20">
               <stop offset="0%" stop-color="#4f8aff"/><stop offset="55%" stop-color="#8b6aff"/><stop offset="100%" stop-color="#d966f0"/>
@@ -973,7 +1027,7 @@ a:focus-visible, button:focus-visible {
 
     <!-- ── TIER: SHIPPED ─────────────────────────────────────────── -->
     <div class="grid-divider reveal">
-      <span class="grid-divider-label">// client work, demos &amp; released systems</span>
+      <span class="grid-divider-label">// client work &amp; released systems</span>
       <span class="grid-divider-rule"></span>
     </div>
 
@@ -982,19 +1036,20 @@ a:focus-visible, button:focus-visible {
       <div class="proj-img-wrap">
         <img src="logos/homescreen.webp" width="180" height="180" alt="BEASTY PAGES" class="proj-img contain" loading="lazy" decoding="async">
       </div>
-      <span class="project-tag tag-client">Client work · Public prototype · 2026</span>
+      <span class="project-tag tag-client">Client work · Live · 2026</span>
       <h3 class="project-title">BEASTY PAGES</h3>
-      <p class="project-desc">Glenn wanted local businesses to feel as easy to browse as apps on a phone. I built a mobile-first directory where each business gets an icon, customers can browse menus, and one cart can hold items from several vendors.</p>
+      <p class="project-desc">Glenn wanted local businesses to feel as easy to browse as apps on a phone. Every kitchen is an icon on a home screen. Open one, order from it, and a single cart carries the whole thing to one checkout.</p>
       <ul class="project-bullets">
-        <li>Built one shared cart across several independent kitchens, with a separate vendor ticket behind each order</li>
-        <li>Every business is an icon on a home-screen grid, so browsing a menu feels like opening an app rather than reading a directory</li>
-        <li>These are real businesses, so nothing is invented &mdash; no made-up menu item, price or photo</li>
-        <li>Launched as BEASTY PAGES, renamed from the original working title, The Home Screen. Payments and fulfillment are still simulated</li>
+        <li><strong>Live and taking real orders.</strong> One cart spans several independent kitchens and splits into a separate ticket per vendor, with a state machine the kitchen moves the ticket through</li>
+        <li>Paid memberships run on <strong>real Stripe checkout</strong>, with the webhook signature verified against the raw request body</li>
+        <li>Card payment for food is the one part still switched off, and the switch is a <strong>constant in the source, not an environment variable</strong>. Keying it off the presence of a Stripe key once let the app show "One charge of $X" while charging nobody &mdash; a key cannot prove a charge path exists</li>
+        <li>These are real businesses, so nothing is invented: no made-up menu item, price, or photo</li>
       </ul>
       <div class="project-stack">
         <span class="stack-tag">TypeScript</span><span class="stack-tag">React</span>
         <span class="stack-tag">Node.js</span><span class="stack-tag">Express</span>
-        <span class="stack-tag">SQLite</span><span class="stack-tag">Render</span>
+        <span class="stack-tag">PostgreSQL</span><span class="stack-tag">SQLite</span>
+        <span class="stack-tag">Stripe</span><span class="stack-tag">Render</span>
       </div>
       <div class="project-links"><a href="https://beastypages.com/" target="_blank" rel="noopener" class="project-link">↗ Visit beastypages.com</a></div>
     </div>
@@ -1006,7 +1061,7 @@ a:focus-visible, button:focus-visible {
       </div>
       <span class="project-tag tag-client">GOSVEA Inc · 2026 – Present</span>
       <h3 class="project-title">ALLCPR — iOS App</h3>
-      <p class="project-desc">I rebuilt ALLCPR's iPhone app for CPR, BLS, and first-aid students. It covers class search, certificates, the store, and training locations, and currently ships through TestFlight.</p>
+      <p class="project-desc">ALLCPR's iPhone app for CPR, BLS and first-aid students &mdash; class search, certificates, the store, and training locations. I rebuilt it from scratch, and it ships through TestFlight.</p>
       <ul class="project-bullets">
         <li>Rebuilt the app as an editable five-tab React codebase — Home, Map, Classes, Store, Profile — replacing a build that existed only as compiled output</li>
         <li>Built a <strong>native in-app form system</strong> for volunteer signup, group training and certificate lookup, so students stop getting handed off to the website mid-flow</li>
@@ -1022,7 +1077,7 @@ a:focus-visible, button:focus-visible {
     <!-- ALLCPR Site Intelligence -->
     <div class="project-card reveal js-tilt" data-category="client systems" data-selected="true">
       <div class="proj-img-wrap">
-        <svg viewBox="0 0 120 120" width="86" height="86" role="img" aria-label="Site Intelligence">
+        <svg viewBox="0 0 120 120" width="86" height="86" class="proj-mark" role="img" aria-label="Site Intelligence">
           <defs>
             <linearGradient id="gSITE" gradientUnits="userSpaceOnUse" x1="10" y1="10" x2="110" y2="110">
               <stop offset="0%" stop-color="#4f8aff"/><stop offset="100%" stop-color="#d966f0"/>
@@ -1041,7 +1096,7 @@ a:focus-visible, button:focus-visible {
       </div>
       <span class="project-tag tag-client">GOSVEA Inc · 2026</span>
       <h3 class="project-title">ALLCPR Site Intelligence</h3>
-      <p class="project-desc">ALLCPR needed a faster way to compare possible new locations. I built a bilingual map that screens all 33,772 U.S. ZIP codes using demand, competition, demographics, and the limits of the available data.</p>
+      <p class="project-desc">ALLCPR needed a faster way to compare possible new locations. I built a bilingual map that scores all 33,772 U.S. ZIP codes on demand, competition and demographics &mdash; and says out loud where the data is too thin to trust.</p>
       <ul class="project-bullets">
         <li>Pulls demand signals from Google Places, competitor counts, and Census data into one report</li>
         <li>Can re-score the whole country from saved data without paying for another API call</li>
@@ -1063,7 +1118,7 @@ a:focus-visible, button:focus-visible {
       </div>
       <span class="project-tag tag-personal">Curio · 2026 – Present</span>
       <h3 class="project-title">Curio Automation Platform</h3>
-      <p class="project-desc">I built the system that turns Curio ideas into videos and image posts. It handles writing, voice, captions, rendering, checks, and publishing from one queue.</p>
+      <p class="project-desc">The machine behind Curio's posts. It writes, voices, captions and renders a vertical video, checks its own work, and publishes &mdash; all from one queue.</p>
       <ul class="project-bullets">
         <li>An autonomous video pipeline that runs a full build end to end at 1080×1920, with audit gates — prosody, caption fallback, listen-back scoring — that <strong>reject a run rather than ship it</strong></li>
         <li>A painted quote-post engine where the artwork is generated and the text is typeset in code, so producing the same post in another language costs nothing</li>
@@ -1128,7 +1183,7 @@ a:focus-visible, button:focus-visible {
     <!-- ALLCPR Student Help Agent -->
     <a href="https://allcpr-user-agent.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt" data-category="client systems">
       <div class="proj-img-wrap">
-        <svg viewBox="0 0 120 120" width="82" height="82" role="img" aria-label="Student Help Agent">
+        <svg viewBox="0 0 120 120" width="82" height="82" class="proj-mark" role="img" aria-label="Student Help Agent">
           <defs>
             <linearGradient id="gHELP" gradientUnits="userSpaceOnUse" x1="10" y1="10" x2="110" y2="110">
               <stop offset="0%" stop-color="#4f8aff"/><stop offset="100%" stop-color="#8b6aff"/>
@@ -1144,7 +1199,7 @@ a:focus-visible, button:focus-visible {
       </div>
       <span class="project-tag tag-client">GOSVEA Inc · 2026 – Present</span>
       <h3 class="project-title">ALLCPR Student Help Agent</h3>
-      <p class="project-desc">This help tool answers ALLCPR students' course, certificate, and equipment questions in English and Chinese. Its answers come from the CRM manual, Smart Manikin manual, and operations log.</p>
+      <p class="project-desc">Answers ALLCPR students' questions about courses, certificates and equipment, in English and Chinese. Every answer comes out of the CRM manual, the Smart Manikin manual, or the operations log &mdash; never out of a model's head.</p>
       <ul class="project-bullets">
         <li>Runs with <strong>no AI API key, by design</strong> — lexical retrieval over pre-written bilingual answers, ~7ms round trip, $0/month to operate. Adding a key only lets a model rephrase what was retrieved; it never adds knowledge</li>
         <li>The 911 emergency redirect lives in code, upstream of retrieval. It was originally in the prompt, which meant that in the shipped no-key configuration <strong>it did not exist</strong> — "my baby is not breathing" returned an infant-manikin card</li>
@@ -1183,7 +1238,7 @@ a:focus-visible, button:focus-visible {
     <!-- ALLCPR Site Operations Agent -->
     <a href="https://allcpr-agent-7bt0.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt" data-category="client systems">
       <div class="proj-img-wrap">
-        <svg viewBox="0 0 120 120" width="82" height="82" role="img" aria-label="Site Operations Agent">
+        <svg viewBox="0 0 120 120" width="82" height="82" class="proj-mark" role="img" aria-label="Site Operations Agent">
           <defs>
             <linearGradient id="gSOP" gradientUnits="userSpaceOnUse" x1="10" y1="10" x2="110" y2="110">
               <stop offset="0%" stop-color="#8b6aff"/><stop offset="100%" stop-color="#d966f0"/>
@@ -1216,7 +1271,7 @@ a:focus-visible, button:focus-visible {
     <!-- Yelp Review Desk -->
     <a href="https://github.com/Noctilucenty/Yelp-Automated-Review-Desk" target="_blank" rel="noopener" class="project-card reveal js-tilt" data-category="client systems">
       <div class="proj-img-wrap">
-        <svg viewBox="0 0 120 120" width="82" height="82" role="img" aria-label="Review Desk">
+        <svg viewBox="0 0 120 120" width="82" height="82" class="proj-mark" role="img" aria-label="Review Desk">
           <defs>
             <linearGradient id="gYELP" gradientUnits="userSpaceOnUse" x1="10" y1="10" x2="110" y2="110">
               <stop offset="0%" stop-color="#d966f0"/><stop offset="100%" stop-color="#4f8aff"/>
@@ -1277,8 +1332,8 @@ a:focus-visible, button:focus-visible {
 
     <!-- FLORES -->
     <div class="project-card reveal js-tilt" data-category="client" data-selected="true">
-      <div class="proj-img-wrap" style="background:#F1EBDA;">
-        <img src="logos/flores.svg" width="400" height="200" alt="FLORES Boxing Gloves" class="proj-img contain" style="background:transparent;padding:1.9rem;" loading="lazy" decoding="async">
+      <div class="proj-img-wrap">
+        <img src="logos/flores.svg" width="400" height="200" alt="FLORES Boxing Gloves" class="proj-img contain on-cream" loading="lazy" decoding="async">
       </div>
       <span class="project-tag tag-client">Client work · 2026</span>
       <h3 class="project-title">FLORES Boxing Gloves</h3>
@@ -1303,7 +1358,7 @@ a:focus-visible, button:focus-visible {
     <!-- ALLCPR 安安 stickers -->
     <a href="https://allcpr-stickers.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt" data-category="client">
       <div class="proj-img-wrap">
-        <img src="logos/stickers.webp" width="900" height="657" alt="ALLCPR 安安 sticker pack" class="proj-img" loading="lazy" decoding="async">
+        <img src="logos/stickers.webp" width="900" height="657" alt="ALLCPR 安安 sticker pack" class="proj-img contain" loading="lazy" decoding="async">
       </div>
       <span class="project-tag tag-client">GOSVEA Inc · 2026</span>
       <h3 class="project-title">安安 — WeChat Sticker Pack</h3>
@@ -1345,7 +1400,7 @@ a:focus-visible, button:focus-visible {
       </div>
       <span class="project-tag tag-personal">Client services · Live · 2026</span>
       <h3 class="project-title">Leon Builds</h3>
-      <p class="project-desc">Leon Builds is my client-services site. It brings the service pages, quotes, bookings, lead intake, ad tracking, receipts, reviews, and site analytics into one place.</p>
+      <p class="project-desc">My client-services site, and the back office behind it. Quotes, bookings, lead intake, receipts, reviews, ad tracking and analytics all run in one place instead of five tabs.</p>
       <ul class="project-bullets">
         <li>Made separate pages for websites, software, automation, and missed-lead recovery</li>
         <li>Connected quotes, bookings, lead receipts, and campaign tracking</li>
@@ -1371,7 +1426,7 @@ a:focus-visible, button:focus-visible {
     <!-- Orryin -->
     <a href="https://github.com/Noctilucenty/orryin-backend-FORMER-SCENARA" target="_blank" rel="noopener" class="project-card reveal js-tilt" data-category="product">
       <div class="proj-img-wrap">
-        <img src="orryin-logo.webp" width="860" height="759" alt="Orryin Investment" class="proj-img" style="border-radius:10px;object-fit:cover;object-position:center 35%;width:100%;height:100%;" loading="lazy" decoding="async">
+        <img src="orryin-logo.webp" width="860" height="759" alt="Orryin Investment" class="proj-img contain fill" loading="lazy" decoding="async">
       </div>
       <span class="project-tag tag-personal">Earlier work · 2026</span>
       <h3 class="project-title">Orryin Investment</h3>
@@ -1391,7 +1446,7 @@ a:focus-visible, button:focus-visible {
     <!-- MIDAS -->
     <a href="https://github.com/Noctilucenty/MIDAS" target="_blank" rel="noopener" class="project-card reveal js-tilt" data-category="systems">
       <div class="proj-img-wrap">
-        <span class="proj-icon-text">MIDAS</span>
+        <span class="proj-icon-text"><span>MIDAS</span></span>
       </div>
       <span class="project-tag tag-personal">Personal · 2026</span>
       <h3 class="project-title">MIDAS</h3>
@@ -1410,7 +1465,7 @@ a:focus-visible, button:focus-visible {
     <!-- AIngle -->
     <a href="https://github.com/Noctilucenty/AIngle" target="_blank" rel="noopener" class="project-card reveal js-tilt" data-category="product">
       <div class="proj-img-wrap">
-        <span class="proj-icon-text">AIngle</span>
+        <span class="proj-icon-text"><span>AIngle</span></span>
       </div>
       <span class="project-tag tag-personal">Personal · 2026</span>
       <h3 class="project-title">AIngle</h3>
@@ -1429,7 +1484,7 @@ a:focus-visible, button:focus-visible {
     <!-- catnap -->
     <a href="https://github.com/Noctilucenty/catnap" target="_blank" rel="noopener" class="project-card reveal js-tilt" data-category="systems">
       <div class="proj-img-wrap">
-        <span class="proj-icon-text">catnap</span>
+        <span class="proj-icon-text"><span>catnap</span></span>
       </div>
       <span class="project-tag tag-personal">Personal · 2026</span>
       <h3 class="project-title">catnap</h3>
@@ -1448,7 +1503,7 @@ a:focus-visible, button:focus-visible {
     <!-- GX-Ambient -->
     <a href="https://github.com/Noctilucenty/GX-Ambient" target="_blank" rel="noopener" class="project-card reveal js-tilt" data-category="product">
       <div class="proj-img-wrap">
-        <span class="proj-icon-text">GX</span>
+        <span class="proj-icon-text"><span>GX</span></span>
       </div>
       <span class="project-tag tag-open">Open Source · 2025</span>
       <h3 class="project-title">GX-Ambient</h3>
@@ -1467,7 +1522,7 @@ a:focus-visible, button:focus-visible {
     <!-- Freelance / Max4Live -->
     <div class="project-card reveal js-tilt" data-category="client systems">
       <div class="proj-img-wrap">
-        <span class="proj-icon-text">M4L</span>
+        <span class="proj-icon-text"><span>M4L</span></span>
       </div>
       <span class="project-tag tag-open">Freelance · 2023 – 2026</span>
       <h3 class="project-title">Freelance Builds &amp; Max4Live Devices</h3>
@@ -1534,9 +1589,9 @@ a:focus-visible, button:focus-visible {
     <p class="section-copy">A few recent launches and updates.</p>
   </div>
   <div class="ship-log reveal">
-    <article class="ship-item"><div class="ship-date">August 2026</div><h3 class="ship-title">BEASTY PAGES launched</h3><p class="ship-copy">Relaunched the project as BEASTY PAGES at beastypages.com.</p></article>
+    <article class="ship-item"><div class="ship-date">August 2026</div><h3 class="ship-title">BEASTY PAGES launched</h3><p class="ship-copy">Moved the ordering app onto its own brand and domain, beastypages.com.</p></article>
     <article class="ship-item"><div class="ship-date">August 2026</div><h3 class="ship-title">FLORES went live</h3><p class="ship-copy">Put the site I designed and built onto the production domain, with the second direction kept as a preview.</p></article>
-    <article class="ship-item"><div class="ship-date">July 2026</div><h3 class="ship-title">Curio shipped</h3><p class="ship-copy">Released Curio on the App Store and kept shipping updates.</p></article>
+    <article class="ship-item"><div class="ship-date">July 2026</div><h3 class="ship-title">Curio on the App Store</h3><p class="ship-copy">Public release on 22 July, and a steady run of updates since.</p></article>
   </div>
 </section>
 

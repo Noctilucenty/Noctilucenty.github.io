@@ -29,7 +29,10 @@ const forbidden = [
   'https://flores-boxing-gloves-u81a.onrender.com',
   'loqol-tds.onrender.com',
   'github.com/Noctilucenty/ExpertFlow',
-  'Live and taking real orders',
+  // BEASTY PAGES takes real orders, but the food charge is still unwired.
+  // Never let the card claim otherwise.
+  'payments are live',
+  'accepting payments',
   'now on 1.0.4',
   '80.4% average watch ratio'
 ];
