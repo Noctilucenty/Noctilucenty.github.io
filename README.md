@@ -4,15 +4,23 @@ Independent software-engineering portfolio for [Leon Kelvin Li](https://noctiluc
 
 ## Selected work
 
+### LOQOL and Charlie AI
+
+As a Software Engineer Intern, I build seller and agent workflows across the interface, APIs, database, disclosures, documents and signing integrations. Current Charlie AI work includes deal-aware disclosure guidance, source-linked document context and agent-confirmed actions.
+
+**Status:** Current internship since August 2026. The broader seller companion and additional conversation workflows remain in development.
+
+**Stack:** React, TypeScript, FastAPI, PostgreSQL, OpenAI, DocuSeal, Alembic, Google Cloud Run
+
 ### Curio
 
-An iPhone app for learning something new without leaving the scroll. Each card is a short, sourced story, and Curio AI lets readers ask questions or keep digging. I built the app, backend, content pipeline, and App Store release.
+An iOS and Android app for learning something new without leaving the scroll. Each card is a short, sourced story, and Curio AI lets readers ask questions or keep digging. I built the app, backend, content pipeline, and store releases.
 
-**Status:** Live on the US App Store since 22 July 2026, still shipping updates
+**Status:** Available on the App Store and Google Play, still shipping updates
 
 **Stack:** React, TypeScript, Vite, Capacitor 8, Node/Express, PostgreSQL, OpenAI, ElevenLabs, RevenueCat
 
-**Links:** [App Store](https://apps.apple.com/app/id6781121127) · [trycurio.app](https://trycurio.app/)
+**Links:** [App Store](https://apps.apple.com/app/id6781121127) · [Google Play](https://play.google.com/store/apps/details?id=app.curio.app) · [trycurio.app](https://trycurio.app/)
 
 ### ALLCPR Site Intelligence
 

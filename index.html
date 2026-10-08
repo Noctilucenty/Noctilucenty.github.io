@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leon Kelvin Li — Developer Portfolio</title>
+<title>Leon Kelvin Li — Product Engineer</title>
+<meta name="description" content="Leon Kelvin Li builds software across product, frontend, backend and deployment. Current work: LOQOL, Charlie AI, Curio and client products.">
+<link rel="canonical" href="https://noctilucenty.github.io/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Leon Kelvin Li", "url": "https://noctilucenty.github.io/", "sameAs": ["https://github.com/Noctilucenty", "https://www.linkedin.com/in/leon-kelvin-li/"]}</script>
 <link rel="icon" href="noct-logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -822,26 +825,22 @@ a:focus-visible, button:focus-visible {
   html { scroll-behavior: auto; }
   .marquee-track, .marquee-track.rev { animation: none !important; transform: none !important; }
 }
+.skip-link { position:fixed; left:1rem; top:-5rem; z-index:1001; padding:.75rem 1rem; background:var(--bg); color:var(--text); }
+.skip-link:focus { top:1rem; }
+.project-filters { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; margin-bottom:2rem; }
+.project-filters button { cursor:pointer; }
+.project-filters button[aria-pressed="true"] { border-color:var(--violet); color:var(--text); }
+.projects-grid[data-view="selected"] > :not([data-selected=true]) { display:none; }
+.nav-drawer:not(.open) { visibility:hidden; }
+.stat-num { font-size:clamp(1.1rem,2.4vw,2rem); overflow-wrap:anywhere; }
+.proof-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:1.5rem; }
+.proof-card { padding:1.5rem; border:1px solid var(--border); border-radius:16px; background:var(--surface); }
+.proof-card figcaption { color:var(--muted); margin-top:1rem; }
+a:focus-visible,button:focus-visible { outline:2px solid var(--cyan); outline-offset:5px; }
 </style>
 </head>
 <body>
-
-<div id="loader">
-  <span class="loader-tick tl">+</span>
-  <span class="loader-tick tr">+</span>
-  <span class="loader-tick bl">+</span>
-  <span class="loader-tick br">+</span>
-  <div class="loader-meta">Noctilucente — Selected Work</div>
-  <div class="loader-row">
-    <img src="noct-logo.png" alt="Noct." class="loader-noct">
-    <span class="loader-x">×</span>
-    <div class="loader-logo" aria-label="Leon Kelvin Li"><span style="--i:0">L</span><span style="--i:1">e</span><span style="--i:2">o</span><span style="--i:3">n</span><span class="sp"></span><span style="--i:4">K</span><span style="--i:5">e</span><span style="--i:6">l</span><span style="--i:7">v</span><span style="--i:8">i</span><span style="--i:9">n</span><span class="sp"></span><span style="--i:10">L</span><span style="--i:11">i</span></div>
-  </div>
-  <div class="loader-role">Engineer <em>·</em> Founder <em>·</em> Product Builder</div>
-  <div class="loader-count"><span id="loadPct">0</span><span class="pct">%</span></div>
-  <div class="loader-caption">portfolio · 2026</div>
-  <div class="loader-bar"><div class="loader-fill"></div></div>
-</div>
+<a href="#main" class="skip-link">Skip to content</a>
 
 <div id="scroll-progress"></div>
 <div id="noise"></div>
@@ -852,7 +851,7 @@ a:focus-visible, button:focus-visible {
 <nav>
   <!-- Left: brand -->
   <div class="nav-logo">
-    <img src="noct-logo.png" alt="" class="nav-noct">
+    <img src="noct-logo.png" alt="" class="nav-noct" width="512" height="512">
     <span class="nav-x" style="color:var(--dim);-webkit-text-fill-color:var(--dim);font-weight:300;">×</span>
     <span class="nav-name" style="font-family:'Space Grotesk',sans-serif;font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Leon Kelvin Li</span>
   </div>
@@ -866,7 +865,7 @@ a:focus-visible, button:focus-visible {
   <!-- Right: badge + burger -->
   <div class="nav-right">
     <div class="nav-avail"><div class="avail-dot"></div>Available for work</div>
-    <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
+    <button class="nav-burger" id="navBurger" aria-label="Toggle menu" aria-controls="navDrawer" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -883,14 +882,15 @@ a:focus-visible, button:focus-visible {
   <div class="drawer-footer"><div class="avail-dot"></div>Available for work</div>
 </div>
 
+<main id="main">
 <!-- HERO -->
 <section id="hero">
-  <p class="hero-eyebrow">Software Engineer · Full-Stack Developer · Product Builder</p>
+  <p class="hero-eyebrow">Product Engineer · Full-Stack Software Engineering</p>
   <h1 class="hero-title" aria-label="Leon Kelvin Li">
     <span class="line1" aria-hidden="true"><span style="--i:0">L</span><span style="--i:1">e</span><span style="--i:2">o</span><span style="--i:3">n</span><span class="sp"></span><span style="--i:4">K</span><span style="--i:5">e</span><span style="--i:6">l</span><span style="--i:7">v</span><span style="--i:8">i</span><span style="--i:9">n</span><span class="sp"></span><span style="--i:10">L</span><span style="--i:11">i</span></span>
   </h1>
   <div class="hero-typewriter"><span id="tw"></span><span class="tw-cursor"></span></div>
-  <p class="hero-sub">Computer Engineering student turning ideas into shipped products — mobile apps, backend systems, algorithmic tools, and everything in between.</p>
+  <p class="hero-sub">I turn unclear product requests into working software. Currently building LOQOL’s transaction workflows and Charlie AI, alongside Curio, my reading app on iOS and Android.</p>
   <div class="hero-langs">
     <span class="lang-tag">🇺🇸 English</span>
     <span class="lang-tag">🇨🇳 Chinese</span>
@@ -902,10 +902,11 @@ a:focus-visible, button:focus-visible {
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M13 6l6 6-6 6"/></svg>
       View My Work
     </a>
-    <a href="https://github.com/Noctilucenty" target="_blank" class="btn-secondary">
+    <a href="https://github.com/Noctilucenty" target="_blank" class="btn-secondary" rel="noopener">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.92.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
       GitHub
     </a>
+    <a href="Leon-Kelvin-Li-Resume.pdf" class="btn-secondary" download>Resume PDF</a>
   </div>
   <div class="scroll-hint">
     <span>scroll</span>
@@ -923,15 +924,15 @@ a:focus-visible, button:focus-visible {
 <section id="about">
   <div class="reveal">
     <span class="sec-label">// about me</span>
-    <h2 class="about-title">I build <em>complete</em><br>products, solo.</h2>
-    <p class="about-text">From concept to deployed — I handle every layer. Backend APIs, database design, mobile frontends, CI/CD pipelines, and algorithmic systems. No handoffs, no waiting.</p>
-    <p class="about-text">Currently studying Computer Engineering at Cal State East Bay while building Curio — an AI reading app live on the App Store — writing the automation that feeds it, and shipping apps, agents and internal tools for a training company and a handful of independent clients.</p>
+    <h2 class="about-title">From product problem<br>to <em>working software.</em></h2>
+    <p class="about-text">My work crosses product decisions, interfaces, APIs, database state, integrations, testing and deployment. I work with stakeholders to understand the workflow, then carry the implementation through debugging and release.</p>
+    <p class="about-text">At LOQOL, I’m a Software Engineer Intern building real-estate workflows and Charlie AI. Outside work, I built and released Curio on the App Store and Google Play, and delivered training apps, location-intelligence tools and client websites. I’m completing Computer Engineering at CSU East Bay, expected in 2027.</p>
   </div>
   <div class="stats-grid reveal" style="transition-delay:.15s">
-    <div class="stat-card"><div class="stat-num">12</div><div class="stat-label">Services live in production</div></div>
-    <div class="stat-card"><div class="stat-num">1</div><div class="stat-label">App shipped to the App Store</div></div>
-    <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Languages spoken</div></div>
-    <div class="stat-card"><div class="stat-num">Solo</div><div class="stat-label">Every layer, no handoffs</div></div>
+    <div class="stat-card"><div class="stat-num">LOQOL</div><div class="stat-label">Current engineering internship</div></div>
+    <div class="stat-card"><div class="stat-num">Charlie AI</div><div class="stat-label">Transaction assistance in development</div></div>
+    <div class="stat-card"><div class="stat-num">iOS + Android</div><div class="stat-label">Curio released on both stores</div></div>
+    <div class="stat-card"><div class="stat-num">2027</div><div class="stat-label">Expected B.S. graduation</div></div>
   </div>
 </section>
 
@@ -941,40 +942,47 @@ a:focus-visible, button:focus-visible {
     <span class="section-label">// selected work</span>
     <h2 class="section-title">Things I've <em>built</em></h2>
   </div>
-  <div class="projects-grid">
+  <div class="project-filters" aria-label="Project selection">
+    <button class="btn-secondary" id="selectedWork" aria-pressed="true">Selected work</button>
+    <button class="btn-secondary" id="allWork" aria-pressed="false">All work</button>
+    <p id="projectFilterStatus" role="status" aria-live="polite">Showing six selected projects</p>
+  </div>
+  <div class="projects-grid" data-view="selected">
+
+    <article class="project-card featured reveal js-tilt" data-selected="true">
+      <span class="project-tag tag-featured">Current work · Aug 2026 – Present</span>
+      <h3 class="project-title">LOQOL &amp; Charlie AI</h3>
+      <p class="project-desc">Real-estate transaction software for agents and sellers. As a Software Engineer Intern, I build across the product’s interface, backend, database and document workflows, working from stakeholder requests through release verification.</p>
+      <ul class="project-bullets">
+        <li><strong>Charlie AI:</strong> deal-aware disclosure guidance grounded in property facts and document context, with source references and agent-confirmed actions.</li>
+        <li><strong>Workflow reliability:</strong> preserve seller drafts during background updates, map disclosure answers to original PDF fields, and invalidate stale MLS routing.</li>
+        <li><strong>Documents and signing:</strong> integrate DocuSeal signer stages, reviewable offer-PDF extraction and send prerequisites.</li>
+        <li><strong>Current development:</strong> expand separate seller assistance and saved conversation workflows. The broader seller companion is still being built.</li>
+      </ul>
+      <div class="project-stack"><span class="stack-tag">React</span><span class="stack-tag">TypeScript</span><span class="stack-tag">FastAPI</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">OpenAI</span><span class="stack-tag">DocuSeal</span><span class="stack-tag">Cloud Run</span></div>
+      <div class="project-links"><a href="#experience" class="project-link">See full role scope →</a></div>
+    </article>
 
     <!-- Curio - Featured -->
-    <div class="project-card featured reveal js-tilt">
+    <div class="project-card featured reveal js-tilt" data-selected="true">
       <div class="proj-img-wrap" style="height:220px;">
-        <img src="curio-logo.webp" alt="Curio" class="proj-img contain" style="border-radius:10px;">
+        <img src="curio-logo.webp" alt="Curio" class="proj-img contain" style="border-radius:10px;" width="512" height="512">
       </div>
       <span class="project-tag tag-featured">Featured · 2026 – Present</span>
       <h3 class="project-title">Curio</h3>
-        <p class="project-desc">A full-screen swipe feed of short, source-backed knowledge cards — psychology, science, history, mysteries, and the rabbit holes between them — with an AI layer that opens any card up. Built and shipped solo on iOS, live on the App Store.</p>
+        <p class="project-desc">A full-screen swipe feed of short, source-backed knowledge cards — psychology, science, history, mysteries, and the rabbit holes between them — with an AI layer that opens any card up. Built and released on iOS and Android, available on the App Store and Google Play.</p>
 
         <div class="proj-metrics">
-          <div class="proj-metric">
-            <div class="proj-metric-value">72k</div>
-            <div class="proj-metric-label">Lines of TypeScript</div>
-            <div class="proj-metric-sub">289 files, 413 commits, solo, in about six weeks</div>
-          </div>
-          <div class="proj-metric">
-            <div class="proj-metric-value">17 / 4</div>
-            <div class="proj-metric-label">Categories / Languages</div>
-            <div class="proj-metric-sub">English, 中文, Español, Português</div>
-          </div>
-          <div class="proj-metric">
-            <div class="proj-metric-value">Jul 22, 2026</div>
-            <div class="proj-metric-label">Launched</div>
-            <div class="proj-metric-sub">US App Store, now on 1.0.4</div>
-          </div>
+          <div class="proj-metric"><div class="proj-metric-value">iOS + Android</div><div class="proj-metric-label">Released</div><div class="proj-metric-sub">App Store and Google Play</div></div>
+          <div class="proj-metric"><div class="proj-metric-value">React + Capacitor</div><div class="proj-metric-label">Mobile app</div><div class="proj-metric-sub">Shared TypeScript codebase</div></div>
+          <div class="proj-metric"><div class="proj-metric-value">Express + PostgreSQL</div><div class="proj-metric-label">Backend</div><div class="proj-metric-sub">Content and reading workflows</div></div>
         </div>
 
         <ul class="project-bullets">
           <li>Built the <strong>AI content engine</strong> behind the app: card generation, quality filtering, factual-risk screening, multi-language translation, and continuous replacement of weaker cards with stronger ones</li>
-          <li>Engineered <strong>Curio AI</strong>, an in-app companion that explains concepts, answers follow-ups, generates quizzes, and spins up new rabbit holes — hardened against hallucination with retrieval grounding and validation checks</li>
+          <li>Engineered <strong>Curio AI</strong>, an in-app companion that explains concepts, answers follow-ups, generates quizzes, and spins up new rabbit holes — with source grounding and validation checks for generated content</li>
           <li>Designed <strong>six reading experiences</strong>: eye-protection mode, immersive soundtracks, read-aloud listening, translation-based language learning, branching "what would you do?" scenarios, and community stories</li>
-          <li>Shipped a <strong>native iOS app from one React codebase</strong> via Capacitor 8 on SPM, against an Express + PostgreSQL backend serving the card pipeline</li>
+          <li>Shipped <strong>iOS and Android apps from one React codebase</strong> via Capacitor, against an Express + PostgreSQL backend serving the card pipeline</li>
           <li>The last CI step, <code>verify:guards</code>, <strong>reintroduces six defects that had already shipped through a green test suite</strong> and fails the build unless the guard covering each one turns red. Its first run proved two of my own fixes were decorative</li>
         </ul>
         <div class="project-stack">
@@ -990,6 +998,7 @@ a:focus-visible, button:focus-visible {
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.53c-.02-2.4 1.96-3.55 2.05-3.61-1.12-1.63-2.86-1.86-3.48-1.89-1.48-.15-2.89.87-3.64.87-.75 0-1.91-.85-3.14-.83-1.61.02-3.1.94-3.93 2.38-1.68 2.91-.43 7.21 1.2 9.57.8 1.15 1.75 2.45 3 2.4 1.21-.05 1.66-.78 3.13-.78 1.46 0 1.88.78 3.15.75 1.3-.02 2.12-1.17 2.91-2.33.92-1.34 1.3-2.64 1.32-2.71-.03-.01-2.53-.97-2.55-3.85M14.7 5.02c.66-.81 1.11-1.93.99-3.05-.95.04-2.11.64-2.8 1.44-.61.71-1.15 1.85-1.01 2.94 1.06.08 2.15-.54 2.82-1.33"/></svg>
             App Store
           </a>
+          <a href="https://play.google.com/store/apps/details?id=app.curio.app" target="_blank" rel="noopener" class="project-link">Google Play</a>
           <a href="https://trycurio.app" target="_blank" rel="noopener" class="project-link">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
             trycurio.app
@@ -1043,7 +1052,7 @@ a:focus-visible, button:focus-visible {
 
         <ul class="project-bullets">
           <li>A calibrated LightGBM reads the just-closed candle and outputs a probability; the decision rule is an <strong>expected-value gate against the live payout</strong>, so a worse payout demands more conviction rather than a fixed confidence threshold</li>
-          <li>A second meta-labeling model scores the trade's context — hour, volatility, trend strength — and filters signals the primary model would have taken anyway. <strong>The system abstains most of the time, and the abstaining is the edge</strong></li>
+          <li>A second meta-labeling model scores the trade's context — hour, volatility, trend strength — and filters signals the primary model would have taken anyway. <strong>The system can abstain when signals are weak; that behavior does not establish a profitable trading edge</strong></li>
           <li>Guardrails against fooling myself: chronologically purged walk-forward, probability calibration, cross-asset trade clustering, decade-scale replication on external data, Bonferroni correction, and a 154-trial deflation penalty applied to every statistic</li>
           <li>Rejected levers — ensembling, HAR-RV volatility features — are <strong>written down as rejected</strong> so they are never quietly retried</li>
           <li>Ships with an MCP server so Claude can read the broker and place demo trades. Live trading is off unless explicitly enabled, and there is no validated live edge yet — the forward test is pre-registered and still running</li>
@@ -1068,9 +1077,9 @@ a:focus-visible, button:focus-visible {
     </div>
 
     <!-- BEASTY PAGES -->
-    <a href="https://beastypages.com/" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+    <a href="https://beastypages.com/" target="_blank" rel="noopener" class="project-card reveal js-tilt" data-selected="true">
       <div class="proj-img-wrap">
-        <img src="logos/homescreen.webp" alt="BEASTY PAGES" class="proj-img contain">
+        <img src="logos/homescreen.webp" alt="BEASTY PAGES" class="proj-img contain" width="180" height="180">
       </div>
       <span class="project-tag tag-client">Client work · Live · 2026</span>
       <h3 class="project-title">BEASTY PAGES</h3>
@@ -1092,9 +1101,9 @@ a:focus-visible, button:focus-visible {
     <!-- ALLCPR mobile app -->
     <div class="project-card reveal js-tilt">
       <div class="proj-img-wrap">
-        <img src="logos/allcpr.webp" alt="ALLCPR" class="proj-img contain">
+        <img src="logos/allcpr.webp" alt="ALLCPR" class="proj-img contain" width="512" height="512">
       </div>
-      <span class="project-tag tag-client">GOSVEA Inc · 2026 – Present</span>
+      <span class="project-tag tag-client">GOSVEA Inc · 2026</span>
       <h3 class="project-title">ALLCPR — iOS App</h3>
       <p class="project-desc">Sole developer of ALLCPR, the company's iOS app for CPR, BLS and first-aid students — class discovery, certification lookup, store, and site maps. Ships through TestFlight.</p>
       <ul class="project-bullets">
@@ -1110,7 +1119,7 @@ a:focus-visible, button:focus-visible {
     </div>
 
     <!-- ALLCPR Site Intelligence -->
-    <a href="https://allcpr-site-intelligence.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+    <a href="https://allcpr-site-intelligence.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt" data-selected="true">
       <div class="proj-img-wrap">
         <svg viewBox="0 0 120 120" width="86" height="86" role="img" aria-label="Site Intelligence">
           <defs>
@@ -1148,7 +1157,7 @@ a:focus-visible, button:focus-visible {
     <!-- Curio Automation Platform -->
     <a href="https://www.youtube.com/@trycurio" target="_blank" rel="noopener" class="project-card reveal js-tilt">
       <div class="proj-img-wrap">
-        <img src="logos/curio-rabbit.webp" alt="Curio Automation" class="proj-img contain">
+        <img src="logos/curio-rabbit.webp" alt="Curio Automation" class="proj-img contain" width="624" height="640">
       </div>
       <span class="project-tag tag-personal">Curio · 2026 – Present</span>
       <h3 class="project-title">Curio Automation Platform</h3>
@@ -1156,8 +1165,8 @@ a:focus-visible, button:focus-visible {
       <ul class="project-bullets">
         <li>An autonomous video pipeline that runs a full build end to end at 1080×1920, with audit gates — prosody, caption fallback, listen-back scoring — that <strong>reject a run rather than ship it</strong></li>
         <li>A painted quote-post engine where the artwork is generated and the text is typeset in code, so producing the same post in another language costs nothing</li>
-        <li>A publisher split across a FastAPI queue on Render and a launchd worker on my Mac: <strong>credentials and media never leave the machine</strong> — the server only ever sees slugs</li>
-        <li>Best cut holds an <strong>80.4% average watch ratio</strong> on traffic that is 97.8% cold algorithmic recommendation</li>
+        <li>A publisher split across a FastAPI queue on Render and a launchd worker on my Mac: provider credentials stay in the local worker; media is uploaded to the selected publishing platform</li>
+        <li>Retains QA records and platform-specific performance feedback to guide later iterations.</li>
       </ul>
       <div class="project-stack">
         <span class="stack-tag">Python</span><span class="stack-tag">FFmpeg</span>
@@ -1170,7 +1179,7 @@ a:focus-visible, button:focus-visible {
     <!-- Continuity -->
     <a href="https://github.com/Noctilucenty/Continuity" target="_blank" rel="noopener" class="project-card reveal js-tilt">
       <div class="proj-img-wrap">
-        <img src="logos/continuity.webp" alt="Continuity" class="proj-img contain">
+        <img src="logos/continuity.webp" alt="Continuity" class="proj-img contain" width="512" height="512">
       </div>
       <span class="project-tag tag-open">Public repo · 2026</span>
       <h3 class="project-title">Continuity</h3>
@@ -1189,7 +1198,7 @@ a:focus-visible, button:focus-visible {
     <!-- Scenara -->
     <a href="https://scenara.vercel.app" target="_blank" rel="noopener" class="project-card reveal js-tilt">
       <div class="proj-img-wrap">
-        <img src="scenara-logo.webp" alt="Scenara" class="proj-img contain">
+        <img src="scenara-logo.webp" alt="Scenara" class="proj-img contain" width="900" height="900">
       </div>
       <span class="project-tag tag-personal">Past project · Oct 2025 – Apr 2026</span>
       <h3 class="project-title">Scenara</h3>
@@ -1231,7 +1240,7 @@ a:focus-visible, button:focus-visible {
           <circle cx="60" cy="82" r="3.6" fill="#29d4c5"/>
         </svg>
       </div>
-      <span class="project-tag tag-client">GOSVEA Inc · 2026 – Present</span>
+      <span class="project-tag tag-client">GOSVEA Inc · 2026</span>
       <h3 class="project-title">ALLCPR Student Help Agent</h3>
       <p class="project-desc">A student-facing help agent built from the CRM manual, the Smart Manikin manual and the operations log. Answers course, certificate and equipment questions in English and Chinese.</p>
       <ul class="project-bullets">
@@ -1248,7 +1257,7 @@ a:focus-visible, button:focus-visible {
     <!-- 明途 gut health agent -->
     <a href="https://mingtu-gut-agent.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt">
       <div class="proj-img-wrap">
-        <img src="logos/mingtu.webp" alt="明途" class="proj-img contain">
+        <img src="logos/mingtu.webp" alt="明途" class="proj-img contain" width="512" height="512">
       </div>
       <span class="project-tag tag-open">Public repo · 2026</span>
       <h3 class="project-title">明途 — Gut Health Advisor</h3>
@@ -1336,7 +1345,7 @@ a:focus-visible, button:focus-visible {
     <!-- ONPECY AI Lab -->
     <a href="https://onpecy-lab.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt">
       <div class="proj-img-wrap">
-        <img src="logos/onpecy.webp" alt="ONPECY" class="proj-img contain">
+        <img src="logos/onpecy.webp" alt="ONPECY" class="proj-img contain" width="512" height="512">
       </div>
       <span class="project-tag tag-client">Client work · 2026</span>
       <h3 class="project-title">ONPECY AI Lab — 3D Proposal</h3>
@@ -1361,9 +1370,9 @@ a:focus-visible, button:focus-visible {
     </div>
 
     <!-- FLORES -->
-    <a href="https://flores-boxing-gloves-u81a.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+    <a href="https://flores-boxing-gloves-v2.onrender.com/" target="_blank" rel="noopener" class="project-card reveal js-tilt" data-selected="true">
       <div class="proj-img-wrap" style="background:#F1EBDA;">
-        <img src="logos/flores.svg" alt="FLORES Boxing Gloves" class="proj-img contain" style="background:transparent;padding:1.9rem;">
+        <img src="logos/flores.svg" alt="FLORES Boxing Gloves" class="proj-img contain" style="background:transparent;padding:1.9rem;" width="400" height="200">
       </div>
       <span class="project-tag tag-client">Client work · 2026</span>
       <h3 class="project-title">FLORES Boxing Gloves</h3>
@@ -1382,7 +1391,7 @@ a:focus-visible, button:focus-visible {
     <!-- ALLCPR 安安 stickers -->
     <a href="https://allcpr-stickers-yrgl.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt">
       <div class="proj-img-wrap">
-        <img src="logos/stickers.webp" alt="ALLCPR 安安 sticker pack" class="proj-img">
+        <img src="logos/stickers.webp" alt="ALLCPR 安安 sticker pack" class="proj-img" width="900" height="657">
       </div>
       <span class="project-tag tag-client">GOSVEA Inc · 2026</span>
       <h3 class="project-title">安安 — WeChat Sticker Pack</h3>
@@ -1401,7 +1410,7 @@ a:focus-visible, button:focus-visible {
     <!-- Noctilucente -->
     <a href="https://noctilucente-nx1i.onrender.com" target="_blank" rel="noopener" class="project-card reveal js-tilt">
       <div class="proj-img-wrap">
-        <img src="logos/noctilucente.webp" alt="Noctilucente" class="proj-img contain">
+        <img src="logos/noctilucente.webp" alt="Noctilucente" class="proj-img contain" width="180" height="180">
       </div>
       <span class="project-tag tag-personal">Personal · 2026</span>
       <h3 class="project-title">Noctilucente</h3>
@@ -1418,9 +1427,9 @@ a:focus-visible, button:focus-visible {
     </a>
 
     <!-- Services site -->
-    <a href="https://leonbuilds.org" target="_blank" rel="noopener" class="project-card reveal js-tilt">
+    <a href="https://leonbuilds.org" target="_blank" rel="noopener" class="project-card reveal js-tilt" data-selected="true">
       <div class="proj-img-wrap">
-        <img src="logos/leondev.svg" alt="Leon Kelvin Li — services" class="proj-img contain">
+        <img src="logos/leondev.svg" alt="Leon Kelvin Li — services" class="proj-img contain" width="64" height="64">
       </div>
       <span class="project-tag tag-personal">Personal · 2026</span>
       <h3 class="project-title">Services Site</h3>
@@ -1441,30 +1450,10 @@ a:focus-visible, button:focus-visible {
       <span class="grid-divider-rule"></span>
     </div>
 
-    <!-- ExpertFlow -->
-    <a href="https://github.com/Noctilucenty/ExpertFlow" target="_blank" rel="noopener" class="project-card reveal js-tilt">
-      <div class="proj-img-wrap">
-        <img src="expertflow-logo.jpg" alt="ExpertFlow" class="proj-img" style="border-radius:10px;object-fit:cover;width:100%;height:100%;">
-      </div>
-      <span class="project-tag tag-pinned">Pinned · 2025</span>
-      <h3 class="project-title">ExpertFlow</h3>
-      <p class="project-desc">A clickable prototype of an expert-network CRM for research teams — request intake, expert matching, consultation pipelines and SLA tracking, all in one file.</p>
-      <ul class="project-bullets">
-        <li><strong>Nine full screens in a single HTML file</strong> with no build step. Open it from disk and it runs</li>
-        <li>Kanban pipeline, expert-matching views, a working dial pad, and separate Admin, Manager and Associate role views</li>
-        <li>Charts through Chart.js; everything else is hand-written CSS and vanilla JavaScript</li>
-        <li><strong>A design prototype, not a running system</strong> — the AI panels and the dialer are mocked, with no backend behind them</li>
-      </ul>
-      <div class="project-stack">
-        <span class="stack-tag">HTML5</span><span class="stack-tag">CSS3</span>
-        <span class="stack-tag">JavaScript</span><span class="stack-tag">Chart.js</span>
-      </div>
-    </a>
-
     <!-- Orryin -->
     <a href="https://github.com/Noctilucenty/orryin-backend-FORMER-SCENARA" target="_blank" rel="noopener" class="project-card reveal js-tilt">
       <div class="proj-img-wrap">
-        <img src="orryin-logo.webp" alt="Orryin Investment" class="proj-img" style="border-radius:10px;object-fit:cover;object-position:center 35%;width:100%;height:100%;">
+        <img src="orryin-logo.webp" alt="Orryin Investment" class="proj-img" style="border-radius:10px;object-fit:cover;object-position:center 35%;width:100%;height:100%;" width="860" height="759">
       </div>
       <span class="project-tag tag-pinned">Pinned · 2024</span>
       <h3 class="project-title">Orryin Investment</h3>
@@ -1580,20 +1569,12 @@ a:focus-visible, button:focus-visible {
   </div>
 </section>
 
-<!-- HEATMAP -->
-<section id="heatmap-section">
-  <div class="section-header reveal">
-    <span class="section-label">// activity</span>
-    <h2 class="section-title">Always <em>shipping</em></h2>
-  </div>
-  <div class="reveal" style="transition-delay:.1s">
-    <div class="heatmap-grid" id="heatmap"></div>
-    <div class="heatmap-legend">
-      <span>Less</span>
-      <div class="hm-leg hm-0"></div><div class="hm-leg hm-1"></div>
-      <div class="hm-leg hm-2"></div><div class="hm-leg hm-3"></div><div class="hm-leg hm-4"></div>
-      <span>More</span>
-    </div>
+<section id="client-feedback">
+  <div class="section-header reveal"><span class="section-label">// client feedback</span><h2 class="section-title">Working <em>together</em></h2></div>
+  <div class="proof-grid reveal">
+    <figure class="proof-card"><blockquote>I hired Leon to build The Home Screen website. He iterated quickly as we worked through the project, and I was happy with the final website.</blockquote><figcaption>Glenn · BEASTY PAGES</figcaption></figure>
+    <figure class="proof-card"><blockquote>Super fast and professional. He was very interested in what I wanted and made sure to work with me 1-on-1 throughout the whole process. Communication was great, and everything was handled quickly.</blockquote><figcaption>Heather · FLORES Boxing Gloves</figcaption></figure>
+    <figure class="proof-card"><blockquote>Leon built a system that helped us evaluate and plan new locations as ALLCPR expanded.</blockquote><figcaption>ALLCPR · Site Intelligence</figcaption></figure>
   </div>
 </section>
 
@@ -1607,14 +1588,35 @@ a:focus-visible, button:focus-visible {
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
+      <div class="timeline-date">Aug 2026 – Present</div>
+      <div class="timeline-role">Software Engineer Intern</div>
+      <div class="timeline-org">LOQOL / Sunday.Pro Inc.</div>
+      <ul class="timeline-bullets"><li>Translate stakeholder requests into seller and agent workflows across React/TypeScript, FastAPI, PostgreSQL and document integrations.</li><li>Build Charlie AI’s deal-aware disclosure assistance with OpenAI, validated source references, document context and explicit agent confirmation for proposed actions.</li><li>Expand separate seller assistance and saved conversation workflows; the broader seller companion remains in development.</li><li>Preserve seller drafts during background updates and improve conditional questions and completion rules in an 82-question disclosure interview.</li><li>Map seller answers to a 133-field Transfer Disclosure Statement catalog, route MLS forms and clear stale routing after address changes.</li><li>Integrate DocuSeal signing stages for sellers, co-sellers, salespeople and brokers, with recipient checks and send prerequisites.</li><li>Implement offer-PDF extraction with agent review; optimize document reads through verified preview caches, signed URLs and freshness checks.</li><li>Implement Alembic migrations and support Cloud Run deployments, regression checks and release verification.</li></ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2026</div>
+      <div class="timeline-role">Software Engineer &amp; SEO Specialist Internship</div>
+      <div class="timeline-org">GOSVEA Inc.</div>
+      <ul class="timeline-bullets">
+        <li>Built ALLCPR’s iOS training app and delivered TestFlight builds with course discovery and native form flows.</li>
+        <li>Built FirstCPR.com course-discovery and enrollment flows, and location-intelligence tooling integrating external data sources.</li>
+        <li>Delivered student-help and site-operations agents, alongside web tools for the training business.</li>
+      </ul>
+    </div>
+
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
       <div class="timeline-date">Jun 2026 – Present</div>
       <div class="timeline-role">Founder</div>
       <div class="timeline-org">Curio · Self-employed · San Francisco Bay Area</div>
       <ul class="timeline-bullets">
         <li>Building a <strong>full-screen reading and discovery app</strong> that turns scrolling into learning — swipeable, bite-sized reads across psychology, science, history, and endless rabbit holes</li>
         <li>Architected the <strong>AI content engine</strong> behind the app: card generation, quality filtering, factual-risk screening, multi-language translation, and continuous replacement of weaker cards</li>
-        <li>Shipped a <strong>native iOS app from a single React + Capacitor codebase</strong>; launched on the US App Store on July 22, 2026</li>
-        <li>Built the automation around it — an autonomous video pipeline, a painted image-post engine, and a publisher that queues to Instagram, Facebook and YouTube while credentials never leave my machine</li>
+        <li>Released <strong>iOS and Android apps using React, TypeScript and Capacitor</strong>; built Express/PostgreSQL services and iterated on offline reading, saved content and interactive scenarios</li>
+        <li>Built the automation around it — an autonomous video pipeline, a painted image-post engine, and a publisher that queues to Instagram, Facebook and YouTube with credentials managed by a local publishing worker</li>
       </ul>
     </div>
 
@@ -1640,8 +1642,8 @@ a:focus-visible, button:focus-visible {
       <ul class="timeline-bullets">
         <li>Architected and built a bilingual prediction-market simulation platform targeting Brazil — trading engine, probability pricing, position tracking, payouts, PnL and automated market resolution</li>
         <li>Designed an AI market-generation system (GNews + Groq Llama 3) producing bilingual YES/NO markets from breaking news every 2 hours, removing manual market authoring</li>
-        <li>Built 9 production REST endpoints on FastAPI/PostgreSQL; migrated SQLite → PostgreSQL on Render under live load with zero data loss</li>
-        <li>Owned full CI/CD across Vercel and Render — deploy-to-production under 90 seconds, zero-downtime releases</li>
+        <li>Built FastAPI/PostgreSQL services and migrated the simulation from SQLite to PostgreSQL on Render</li>
+        <li>Managed build and deployment workflows across Vercel and Render</li>
         <li>Wound it down in April 2026: prediction markets remain tightly regulated in the markets it targeted, so I stopped rather than keep building toward a launch that could not happen</li>
       </ul>
     </div>
@@ -1654,7 +1656,7 @@ a:focus-visible, button:focus-visible {
       <ul class="timeline-bullets">
         <li>Assisted in design, development, and optimization of robotic systems for specialized engineering projects</li>
         <li>Supported engineers in calibrating automated machinery and improving actuator response for precision tasks</li>
-        <li>Identified control logic inefficiencies that reduced setup time for new system configurations</li>
+        <li>Identified control-logic inefficiencies during setup of new system configurations</li>
       </ul>
     </div>
 
@@ -1673,7 +1675,7 @@ a:focus-visible, button:focus-visible {
       <div class="timeline-dot"></div>
       <div class="timeline-date">Apr 2019 – Dec 2019</div>
       <div class="timeline-role">Max4Live Plugin Developer</div>
-      <div class="timeline-org">Ableton · Seasonal · Brazil (Remote)</div>
+      <div class="timeline-org">Independent project for Ableton Live · Brazil (Remote)</div>
       <ul class="timeline-bullets">
         <li>Developed a custom plugin for Ableton's Launchpad using Max4Live, enhancing visual performance and MIDI interactivity</li>
         <li>Integrated audio processing logic and interactive user controls into the device interface</li>
@@ -1694,7 +1696,7 @@ a:focus-visible, button:focus-visible {
     <div>
       <div class="edu-degree">B.S. Computer Engineering — In Progress</div>
       <div class="edu-school">California State University, East Bay · Hayward, CA</div>
-      <div class="edu-date">Sept 2024 – May 2027</div>
+      <div class="edu-date">Sept 2024 – Expected 2027</div>
     </div>
   </div>
 </section>
@@ -1713,7 +1715,7 @@ a:focus-visible, button:focus-visible {
       <span class="contact-detail">leondragon3798@gmail.com</span>
     </div>
     <div class="social-links">
-      <a href="https://github.com/Noctilucenty" target="_blank" class="social-link">
+      <a href="https://github.com/Noctilucenty" target="_blank" class="social-link" rel="noopener">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.92.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         GitHub
       </a>
@@ -1729,6 +1731,7 @@ a:focus-visible, button:focus-visible {
   </div>
 </section>
 
+</main>
 <footer>
   <div class="footer-left">© 2026 Leon Kelvin Li · All rights reserved</div>
   <div class="footer-right">Built with obsession, shipped with care.</div>
@@ -1739,28 +1742,20 @@ a:focus-visible, button:focus-visible {
 </button>
 
 <script>
-/* LOADER → curtain wipe → hero entrance */
-window.addEventListener('load', () => setTimeout(() => {
-  document.getElementById('loader').classList.add('hidden');
-  setTimeout(() => {
-    document.body.classList.add('hero-entered');
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) setTimeout(type, 1600);
-  }, 300);
-}, 2250));
+window.addEventListener('load', () => {
+  document.body.classList.add('hero-entered');
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) type();
+});
 
-/* LOADER COUNTER — synced to the bar fill (delay .4s, duration 1.5s) */
-(function(){
-  const el = document.getElementById('loadPct');
-  if (!el) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = '100'; return; }
-  const DELAY = 400, DUR = 1500, t0 = performance.now();
-  const ease = p => p < .5 ? 4*p*p*p : 1 - Math.pow(-2*p + 2, 3) / 2;
-  (function tick(t){
-    const p = Math.min(Math.max((t - t0 - DELAY) / DUR, 0), 1);
-    el.textContent = Math.round(ease(p) * 100);
-    if (p < 1) requestAnimationFrame(tick);
-  })(t0);
-})();
+const projectGrid = document.querySelector('.projects-grid');
+function setProjectView(all) {
+  projectGrid.dataset.view = all ? 'all' : 'selected';
+  document.getElementById('selectedWork').setAttribute('aria-pressed', String(!all));
+  document.getElementById('allWork').setAttribute('aria-pressed', String(all));
+  document.getElementById('projectFilterStatus').textContent = all ? 'Showing all projects' : 'Showing six selected projects';
+}
+document.getElementById('selectedWork').addEventListener('click', () => setProjectView(false));
+document.getElementById('allWork').addEventListener('click', () => setProjectView(true));
 
 /* CAPABILITY FLAGS */
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -1831,7 +1826,7 @@ const stars=Array.from({length:130},()=>({x:Math.random(),y:Math.random(),r:Math
 })();
 
 /* TYPEWRITER */
-const phrases=['building Curio — curiosity, one swipe away','shipping iOS apps','writing Python APIs','building AI agents that fail closed','designing dark UIs','thinking in systems','speaking 4 languages'];
+const phrases=['building Charlie AI at LOQOL','turning product requests into working software','shipping Curio on iOS and Android','connecting interfaces, APIs and database state','testing the workflow before release'];
 let pi=0,ci=0,del=false,twEl=document.getElementById('tw');
 function type(){
   const p=phrases[pi];
@@ -1842,7 +1837,7 @@ if(reducedMotion){ twEl.textContent=phrases[0]; }
 
 /* MARQUEE */
 const r1=['React','React Native','TypeScript','FastAPI','PostgreSQL','Python','C++','Capacitor','Expo','SQLAlchemy'];
-const r2=['UX Design','Claude API','Selenium','asyncio','Vercel','Render','GitHub Actions','REST APIs','Tailwind','HDF5'];
+const r2=['Product Engineering','OpenAI API','Cloud Run','DocuSeal','Alembic','Claude API','Selenium','asyncio','Vercel','Render','GitHub Actions','REST APIs','Tailwind','HDF5'];
 const mc=['#4f8aff','#29d4c5','#8b6aff','#d966f0','#4f8aff','#29d4c5','#8b6aff','#d966f0'];
 function mkMq(id,items){
   const el=document.getElementById(id);
@@ -1850,55 +1845,6 @@ function mkMq(id,items){
   el.innerHTML=d.map((s,i)=>`<span class="skill-pill"><span class="dot" style="background:${mc[i%8]}"></span>${s}</span>`).join('');
 }
 mkMq('mq1',r1); mkMq('mq2',r2);
-
-/* HEATMAP */
-(function(){
-  const hm = document.getElementById('heatmap');
-  const tip = document.createElement('div');
-  tip.className = 'hm-tooltip';
-  tip.innerHTML = '<div class="hm-tooltip-date"></div><div class="hm-tooltip-count"></div>';
-  document.body.appendChild(tip);
-  const today = new Date(); today.setHours(0,0,0,0);
-  const startDate = new Date(today);
-  startDate.setDate(today.getDate() - 52 * 7);
-  startDate.setDate(startDate.getDate() - startDate.getDay());
-  const levelCounts = [[0,0],[1,3],[4,6],[7,9],[10,15]];
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  for(let w = 0; w < 52; w++){
-    const col = document.createElement('div'); col.className = 'heatmap-col';
-    const burst = Math.sin(w * .42) * .25 + Math.sin(w * .12) * .2;
-    for(let d = 0; d < 7; d++){
-      const cell = document.createElement('div');
-      const r = Math.random();
-      const v = r < .36 - burst * .08 ? 0 : r < .58 ? 1 : r < .76 ? 2 : r < .9 ? 3 : 4;
-      cell.className = 'heatmap-cell hm-' + v;
-      const cellDate = new Date(startDate);
-      cellDate.setDate(startDate.getDate() + w * 7 + d);
-      const [lo, hi] = levelCounts[v];
-      const count = v === 0 ? 0 : lo + Math.floor(Math.random() * (hi - lo + 1));
-      const dateStr = days[cellDate.getDay()] + ', ' + months[cellDate.getMonth()] + ' ' + cellDate.getDate() + ', ' + cellDate.getFullYear();
-      const countStr = count === 0 ? 'No contributions' : count + ' contribution' + (count !== 1 ? 's' : '');
-      cell.addEventListener('mouseenter', function(e){
-        tip.querySelector('.hm-tooltip-date').textContent = dateStr;
-        const cEl = tip.querySelector('.hm-tooltip-count');
-        cEl.textContent = countStr;
-        cEl.style.color = v===0?'var(--dim)':v===4?'var(--pink)':v>=2?'var(--violet)':'var(--blue)';
-        tip.style.left = e.clientX + 'px';
-        tip.style.top = e.clientY + 'px';
-        tip.classList.add('visible');
-      });
-      cell.addEventListener('mousemove', function(e){
-        tip.style.left = e.clientX + 'px';
-        tip.style.top = e.clientY + 'px';
-      });
-      cell.addEventListener('mouseleave', function(){ tip.classList.remove('visible'); });
-      col.appendChild(cell);
-    }
-    hm.appendChild(col);
-  }
-})();
-
 
 /* 3D TILT (desktop only) */
 if (finePointer && !reducedMotion) document.querySelectorAll('.js-tilt').forEach(card=>{
@@ -1970,12 +1916,22 @@ const burger=document.getElementById('navBurger'), drawer=document.getElementByI
 burger.addEventListener('click',()=>{
   const open=burger.classList.toggle('open');
   drawer.classList.toggle('open',open);
+  burger.setAttribute('aria-expanded', String(open));
   document.body.style.overflow=open?'hidden':'';
 });
 document.querySelectorAll('.drawer-links a').forEach(a=>a.addEventListener('click',()=>{
   burger.classList.remove('open'); drawer.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
   document.body.style.overflow='';
 }));
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Escape' || !drawer.classList.contains('open')) return;
+  burger.classList.remove('open');
+  drawer.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+  burger.focus();
+});
 
 /* REVEALS */
 const rIO=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
