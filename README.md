@@ -1,83 +1,23 @@
-# Noctilucenty — Leon Kelvin Li's portfolio
+# Leon Kelvin Li — Product Engineer
 
-Independent software-engineering portfolio for [Leon Kelvin Li](https://noctilucenty.github.io/). This is intentionally separate from [Leon Builds](https://leonbuilds.org/), Leon's client-services business.
+Personal portfolio at [noctilucenty.github.io](https://noctilucenty.github.io/), focused on substantial product, AI, research and client systems.
 
-## Selected work
+The default gallery features **LOQOL & Charlie AI, Curio, Scenara, ATLAS, Mingtu and ALLCPR Site Intelligence**. The All work filter adds BEASTY PAGES, Curio Automation, Continuity and the ONPECY AI Lab proposal. Smaller sites, sticker packs and earlier experiments are omitted.
 
-### LOQOL and Charlie AI
+Project scope is expandable, with clear boundaries for research, educational prototypes, archived simulations and development in progress. LOQOL retains the official Software Engineer Intern title. The downloadable resume remains one page.
 
-As a Software Engineer Intern, I build seller and agent workflows across the interface, APIs, database, disclosures, documents and signing integrations. Current Charlie AI work includes deal-aware disclosure guidance, source-linked document context and agent-confirmed actions.
+## Design and assets
 
-**Status:** Current internship since August 2026. The broader seller companion and additional conversation workflows remain in development.
+The site uses local Syne and DM Serif Display fonts, a navy/periwinkle palette, a responsive two-column gallery, a mobile navigation menu, visible keyboard focus and reduced-motion support. It has no framework or runtime dependencies.
 
-**Stack:** React, TypeScript, FastAPI, PostgreSQL, OpenAI, DocuSeal, Alembic, Google Cloud Run
-
-### Curio
-
-An iOS and Android app for learning something new without leaving the scroll. Each card is a short, sourced story, and Curio AI lets readers ask questions or keep digging. I built the app, backend, content pipeline, and store releases.
-
-**Status:** Available on the App Store and Google Play, still shipping updates
-
-**Stack:** React, TypeScript, Vite, Capacitor 8, Node/Express, PostgreSQL, OpenAI, ElevenLabs, RevenueCat
-
-**Links:** [App Store](https://apps.apple.com/app/id6781121127) · [Google Play](https://play.google.com/store/apps/details?id=app.curio.app) · [trycurio.app](https://trycurio.app/)
-
-### ALLCPR Site Intelligence
-
-ALLCPR needed a faster way to compare possible new locations. I built a bilingual map that screens all 33,772 U.S. ZIP codes using demand, competition, demographics, and the limits of the available data.
-
-**Status:** Live client system
-
-**Stack:** Python, FastAPI, pandas, Leaflet, Census ACS, Google Places
-
-**Link:** [Live system](https://allcpr-site-intelligence.onrender.com/)
-
-### BEASTY PAGES
-
-Glenn wanted local businesses to feel as easy to browse as apps on a phone. Every kitchen is an icon on a home screen; one cart spans several of them and splits into a separate ticket per vendor. Nothing is invented — no made-up menu item, price or photo.
-
-**Status:** Live and taking real orders, with a kitchen ticket state machine and real Stripe checkout for memberships. Card payment for food is the one part still switched off.
-
-**Stack:** React, TypeScript, Vite, Node/Express, PostgreSQL, SQLite, Stripe, Render
-
-**Link:** [beastypages.com](https://beastypages.com/)
-
-### FLORES Boxing Gloves
-
-FLORES has been making boxing gloves in the Bay Area for about a century, with no site that showed it. I designed and built the whole thing — layout, type, identity and code — and took it to two complete directions so the family could choose one. There was no existing site to copy from.
-
-**Status:** Live. floresboxinggloves.com runs my markup inside Squarespace; the second direction stays up as a preview.
-
-**Stack:** HTML, CSS, JavaScript, SVG, Squarespace, Render
-
-**Links:** [Live site](https://www.floresboxinggloves.com/) · [Editorial direction](https://flores-boxing-gloves-v2.onrender.com/)
-
-### Leon Builds
-
-Leon Builds is my client-services site. It brings the service pages, quotes, bookings, lead intake, ad tracking, receipts, reviews, and site analytics into one place.
-
-**Status:** Live and separately branded from this portfolio
-
-**Stack:** HTML, CSS, JavaScript, Node/Express, Python, Render
-
-**Links:** [leonbuilds.org](https://leonbuilds.org/) · [Source](https://github.com/Noctilucenty/leon-dev-site)
-
-## More work
-
-The portfolio's **All work** filter includes ATLAS, the ALLCPR iOS app, Curio Automation Platform, Continuity, Scenara, ALLCPR operational agents, 明途, Yelp Review Desk, ONPECY, 安安, Noctilucente, Orryin, MIDAS, AIngle, catnap, GX-Ambient, and earlier freelance/Max4Live work. Every card includes its current status or boundary.
+The ten project covers in `assets/projects/` were created with GPT image generation as **concept artwork**, not product screenshots. They are compressed WebP files with explicit dimensions and descriptive alternative text. The hero image loads first; gallery images load lazily.
 
 ## Local development
 
-The site is dependency-free and hosted with GitHub Pages.
-
 ```sh
-python3 -m http.server 8789
+python3 -m http.server 5298
 ```
 
-Then open `http://127.0.0.1:8789/`.
+Open `http://127.0.0.1:5298/`. Run the repository checks with `npm test`.
 
-Run the repository checks with:
-
-```sh
-npm test
-```
+GitHub Pages publishes from the repository's main branch, root directory.

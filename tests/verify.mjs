@@ -12,9 +12,10 @@ const required = [
   'aria-controls="navDrawer"',
   'id="projectFilterStatus"',
   'https://beastypages.com/',
-  'https://flores-boxing-gloves-v2.onrender.com/',
-  'https://leonbuilds.org',
-  'Super fast and professional.',
+  'https://github.com/Noctilucenty/ATLAS',
+  'https://scenara.vercel.app',
+  'https://mingtu-gut-agent.onrender.com',
+  'Charlie AI',
   'Leon built a system that helped us evaluate and plan new locations',
   'rel="canonical"',
   'application/ld+json'
@@ -39,6 +40,9 @@ const forbidden = [
 for (const text of forbidden) assert.ok(!html.includes(text), `Stale or unsafe content remains: ${text}`);
 
 assert.equal((html.match(/data-selected="true"/g) || []).length, 6, 'Default selection must contain six projects');
+assert.equal((html.match(/class="project-card"/g) || []).length, 10, 'Keep the curated set of ten substantial projects');
+assert.ok(!html.includes('WeChat Sticker Pack'), 'Do not restore the removed sticker project');
+assert.ok(!html.includes('FLORES Boxing Gloves'), 'Keep smaller brochure sites out of this portfolio');
 assert.equal((html.match(/<main\b/g) || []).length, 1, 'Expected one main element');
 assert.equal((html.match(/<\/main>/g) || []).length, 1, 'Expected one closing main tag');
 
