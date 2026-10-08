@@ -8,7 +8,7 @@ Project scope is expandable, with clear boundaries for research, educational pro
 
 ## Design and assets
 
-The site uses local Syne and DM Serif Display fonts, a navy/periwinkle palette, a responsive two-column gallery, a mobile navigation menu, visible keyboard focus and reduced-motion support. It has no framework or runtime dependencies.
+The original animated portfolio UI is restored, including its typography, gradient accents, project-card layout, navigation, cursor and background effects. Updated career content, the curated projects, generated cover artwork and one-page resume are retained. It has no framework or runtime dependencies.
 
 The ten project covers in `assets/projects/` were created with GPT image generation as **concept artwork**, not product screenshots. They are compressed WebP files with explicit dimensions and descriptive alternative text. The hero image loads first; gallery images load lazily.
 
